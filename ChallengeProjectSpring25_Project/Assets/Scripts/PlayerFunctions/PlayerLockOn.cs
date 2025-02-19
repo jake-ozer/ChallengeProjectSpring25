@@ -13,7 +13,7 @@ public class PlayerLockOn : MonoBehaviour
 
     private void Start()
     {
-        input = GetComponent<PlayerInput>();
+        input = transform.parent.GetComponent<PlayerInput>();
         playerCam = GetComponent<PlayerCamera>();
     }
 
