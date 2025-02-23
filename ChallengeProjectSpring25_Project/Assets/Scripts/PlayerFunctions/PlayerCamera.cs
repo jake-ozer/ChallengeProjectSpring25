@@ -5,10 +5,10 @@ public class PlayerCamera : MonoBehaviour
 {
     public float xSens;
     public float ySens;
+    public PlayerInput input;
 
     private float xRot;
     private float yRot;
-    private PlayerInput input;
 
     private void Awake()
     {

@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private PlayerLockOn playerLockOn;
+    [SerializeField] private PlayerInput input;
 
     private CharacterController controller;
-    private PlayerInput input;
     private Vector2 move;
     private Vector3 playerVel;
     private bool grounded;
