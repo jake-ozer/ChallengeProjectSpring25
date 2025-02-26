@@ -240,6 +240,23 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &592256291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251563239661226610, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+  m_PrefabInstance: {fileID: 6026987618712553356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &592256292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592256291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade98b7dfb9dd944d9b2a2b9b8cb09b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6026987618712553356}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a647d21cf958ab418f145ce86de4321, type: 3}
   m_Name: 
@@ -753,7 +770,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1251563239661226610, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 592256292}
   m_SourcePrefab: {fileID: 100100000, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
 --- !u!33 &7853206626398227701
 MeshFilter:
