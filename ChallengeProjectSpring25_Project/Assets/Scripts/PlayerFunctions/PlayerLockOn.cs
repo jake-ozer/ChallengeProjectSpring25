@@ -19,9 +19,12 @@ public class PlayerLockOn : MonoBehaviour
 
     private void Update()
     {
+
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, lockOnLayer))
         {
+            Debug.Log("Tried to lock on");
+
             if (input.actions["LockOn"].triggered && !lockedOn)
             {
                 //start lockon
@@ -50,7 +53,7 @@ public class PlayerLockOn : MonoBehaviour
         else //remove lockon logic
         {
             playerCam.enabled = true;
-            transform.rotation = lastRotation;
+            transform.parent.localEulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);
         }
 
         //==================================================================================

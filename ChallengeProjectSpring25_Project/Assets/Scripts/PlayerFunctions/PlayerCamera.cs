@@ -5,10 +5,10 @@ public class PlayerCamera : MonoBehaviour
 {
     public float xSens;
     public float ySens;
+    public PlayerInput input;
 
     private float xRot;
     private float yRot;
-    private PlayerInput input;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerCamera : MonoBehaviour
 
         xRot -= lookY;
         xRot = Mathf.Clamp(xRot, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRot, yRot, transform.rotation.eulerAngles.z);
+        transform.localRotation = Quaternion.Euler(xRot, yRot, 0);
         transform.parent.Rotate(Vector3.up * lookX);
     }
 }
