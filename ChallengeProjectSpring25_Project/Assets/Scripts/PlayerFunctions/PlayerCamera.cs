@@ -14,7 +14,6 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        input = transform.parent.GetComponent<PlayerInput>();
     }
 
     private void Update()
