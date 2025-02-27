@@ -5,7 +5,7 @@ public class PlayerLockOn : MonoBehaviour
 {
     public LayerMask lockOnLayer;
     public float lockOnSpeed;
-    private PlayerInput input;
+    public PlayerInput input;
     private PlayerCamera playerCam;
     private Quaternion lastRotation;
     public bool lockedOn { get; private set; } = false;
@@ -13,12 +13,12 @@ public class PlayerLockOn : MonoBehaviour
 
     private void Start()
     {
-        input = transform.parent.GetComponent<PlayerInput>();
         playerCam = GetComponent<PlayerCamera>();
     }
 
     private void Update()
     {
+
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, lockOnLayer))
         {
@@ -50,7 +50,7 @@ public class PlayerLockOn : MonoBehaviour
         else //remove lockon logic
         {
             playerCam.enabled = true;
-            transform.rotation = lastRotation;
+            transform.parent.localEulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);
         }
 
         //==================================================================================
@@ -59,6 +59,4 @@ public class PlayerLockOn : MonoBehaviour
         //visualization
         Debug.DrawRay(transform.position, transform.forward * 10000f, Color.cyan);
     }
-
-
 }

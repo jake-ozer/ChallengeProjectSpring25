@@ -96,9 +96,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dodge",
+                    "name": "ForwardCard",
                     "type": "Button",
-                    "id": "8be04516-afc1-42cd-bd63-8ec9234f272f",
+                    "id": "e523debc-96bc-4619-b016-5370c4c0d460",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -515,23 +515,23 @@
                 },
                 {
                     "name": "",
-                    "id": "0f6e12d1-7d4c-4445-b3b9-1993c8b07cfa",
+                    "id": "6e536b0b-d4e3-40c4-b301-1d357adb4831",
                     "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dodge",
+                    "action": "ForwardCard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "98e2c67a-3172-492e-8083-8e3eb95010d1",
-                    "path": "<Keyboard>/shift",
+                    "id": "35f676f9-93ad-4229-8e48-32822e60f2ac",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dodge",
+                    "action": "ForwardCard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
