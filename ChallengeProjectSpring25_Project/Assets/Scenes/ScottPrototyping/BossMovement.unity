@@ -3234,6 +3234,7 @@ MonoBehaviour:
   y: 25
   z1: -25
   z2: 25
+  timer: 30
 --- !u!64 &1356040459
 MeshCollider:
   m_ObjectHideFlags: 0
