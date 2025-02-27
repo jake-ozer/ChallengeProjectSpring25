@@ -8,16 +8,26 @@ public class Falling_Meteor : MonoBehaviour
     [SerializeField] private int y;
     [SerializeField] private int z1;
     [SerializeField] private int z2;
+    [SerializeField] private int timer;
+    private int timerCap;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        timerCap = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-       RandomMeteorSpawn(); 
+        if (timer == 0)
+        {
+        RandomMeteorSpawn();
+        timer = timerCap;
+        }
+        else
+        {
+            timer--;
+        } 
     }
 
     void RandomMeteorSpawn()
