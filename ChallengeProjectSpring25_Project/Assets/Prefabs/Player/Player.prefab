@@ -428,10 +428,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af11332369ff12d48837fa4f08d8d134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 5
   input: {fileID: 6754280734359224001}
   attackCooldown: 0.3
   animator: {fileID: 1231146472721779955}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerDmg: 12
 --- !u!1 &1893732078086451200
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class PlayerLockOn : MonoBehaviour
     private PlayerCamera playerCam;
     private Quaternion lastRotation;
     private Quaternion lastPlayerRotation;
-    public bool lockedOn { get; private set; } = false;
+    public bool lockedOn = false;
     public Transform target { get; private set; }
     private bool resetXRot = false;
 
@@ -45,7 +45,12 @@ public class PlayerLockOn : MonoBehaviour
         if (lockedOn)
         {
             playerCam.enabled = false;
-            Vector3 dir = target.position - transform.position;
+            Vector3 dir = Vector3.zero;
+            if (target != null)
+            {
+               dir = target.position - transform.position;
+            }
+             
             Quaternion targetRotation = Quaternion.LookRotation(dir);
             
 

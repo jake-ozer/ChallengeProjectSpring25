@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public PlayerInput input;
     public float attackCooldown;
     public Animator animator;
+    public LayerMask enemyLayer;
+    public int playerDmg;
     private float timer;
 
     private void Update()
@@ -22,12 +24,12 @@ public class PlayerAttack : MonoBehaviour
             }
             animator.SetTrigger("attack");
 
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
             {
-                if (hitinfo.collider.gameObject.tag == "Enemy")
+                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
                 {
-                    Debug.Log("enemy hit");
-                    
+                    //Debug.Log("enemy hit");
+                    hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
                 }
             }
         }
