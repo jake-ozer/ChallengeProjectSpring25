@@ -69,7 +69,7 @@ public class PlayerLockOn : MonoBehaviour
 
 
         //visualization
-        Debug.DrawRay(transform.position, transform.forward * 10000f, Color.cyan);
+        //Debug.DrawRay(transform.position, transform.forward * 10000f, Color.cyan);
     }
 
     private void ResetXRot()
