@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour
         time += Time.deltaTime;//timer for spawning of the magicians
         Vector3 offset = Random.insideUnitSphere * radius;//found that calling insideUnitSphere is supposed to spawn a cirlce radius
         Vector3 spawn = theBoss.transform.position + offset;
-        if (time >= 10f)
+        if (time >= 5f)
         {
             Instantiate(theMagician, spawn, Quaternion.identity);
             time = 0;
