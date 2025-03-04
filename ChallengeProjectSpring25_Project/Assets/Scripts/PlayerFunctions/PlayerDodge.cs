@@ -9,10 +9,15 @@ public class PlayerDodge : MonoBehaviour
     private CharacterController controller;
     private Vector2 move;
     private PlayerMovement playerMovement;
+    private float elapsedTime;
+    private bool isDodging = false;
+    private Vector3 moveDirection;
+    private Vector3 startPosition;
+    private Vector3 endPosition;
     [SerializeField] private PlayerInput input;
-    
-
-    [SerializeField] private float dodgeSpeed = 25f;
+    [SerializeField] private AnimationCurve interpCurve;
+    [SerializeField] private float dodgeRange = 10f;
+    [SerializeField] private float dodgeDuration = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,19 +31,43 @@ public class PlayerDodge : MonoBehaviour
     void Update()
     {
         
-        if (input.actions["Sprint"].triggered)
+        if (input.actions["Sprint"].triggered && !isDodging)
         {
             Debug.Log("Dodging");
             playerMovement.enabled = false;
-            
+            isDodging = true;
             move = input.actions["Move"].ReadValue<Vector2>();
-            Vector3 moveDirection = Vector3.zero;
+            if (move == Vector2.zero)
+            {
+                move = Vector2.down;
+            }
+            moveDirection = Vector3.zero;
             moveDirection = (transform.right * move.x + transform.forward * move.y).normalized;
-            controller.Move(moveDirection * dodgeSpeed * Time.deltaTime);
-
-            playerMovement.enabled = true;
+            startPosition = controller.transform.position;
+            endPosition = startPosition + (moveDirection * dodgeRange);
+            elapsedTime = 0;
         }
-            
 
+        //apply gravity
+        //playerVel.y += gravity * Time.deltaTime;
+        //controller.Move(playerVel * Time.deltaTime);
+
+        if (isDodging)
+        {
+            elapsedTime += Time.deltaTime;
+            float percentComplete = elapsedTime / dodgeDuration;
+
+            controller.Move(Vector3.Lerp(startPosition, endPosition, interpCurve.Evaluate(percentComplete)) - controller.transform.position);
+
+            if (percentComplete >= 1)
+            {
+                playerMovement.enabled = true;
+                isDodging = false;
+            }
+
+        }
+
+
+        
     }
 }

@@ -4127,6 +4127,50 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1323915550}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: dodgeRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: dodgeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[1].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928167575402590039, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: interpCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 6588036570039984861, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
