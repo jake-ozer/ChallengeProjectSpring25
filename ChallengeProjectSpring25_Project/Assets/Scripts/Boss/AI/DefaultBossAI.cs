@@ -13,6 +13,10 @@ public class DefaultBossAI : MonoBehaviour
 
     private void Update()
     {
-        agent.SetDestination(player.transform.position);
+        if (agent != null && agent.enabled)
+        {
+            agent.SetDestination(player.transform.position);
+        }
     }
+       
 }
