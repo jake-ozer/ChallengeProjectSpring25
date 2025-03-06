@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Builder/main-menu.uss?fileID=7433441132597879392&amp;guid=618a080223fb8cb42ac2a0d8c894d267&amp;type=3#main-menu" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-color: rgba(65, 94, 161, 0);">
+        <ui:VisualElement name="Container" class="menu" style="flex-grow: 1; align-items: flex-start; height: 1072px; width: 902px; background-image: none; background-color: rgba(0, 228, 255, 0.24); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgba(83, 108, 191, 0); border-right-color: rgba(83, 108, 191, 0); border-top-color: rgba(83, 108, 191, 0); border-bottom-color: rgba(83, 108, 191, 0); position: absolute; top: 0; left: 0;">
+            <ui:VisualElement name="Logo" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TestAssets/Pok%C3%A9mon_Delibird_art.png?fileID=2800000&amp;guid=9fdda13936e0ca946ae01481db517993&amp;type=3#Pokémon_Delibird_art&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; height: 203px; width: 652px; top: 122px; left: 79px;" />
+            <ui:Button text="Button" style="position: absolute; top: 677px; left: 171px; height: 63px; width: 388px;" />
+            <ui:Button text="Button" style="position: absolute; top: 431px; left: 177px; height: 63px; width: 388px; align-content: flex-start;" />
+            <ui:Button text="Button" style="align-items: center; -unity-text-align: middle-center; white-space: pre; position: absolute; top: 548px; left: 174px; height: 67px; width: 390px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

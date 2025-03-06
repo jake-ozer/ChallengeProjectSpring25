@@ -1,0 +1,24 @@
+.panel {
+    background-color: rgba(65, 75, 126, 0);
+}
+
+.menu {
+    align-items: flex-start;
+    background-image: none;
+    background-color: rgb(255, 53, 13);
+}
+
+.unity-button {
+    flex-grow: 1;
+    background-color: rgba(219, 228, 34, 0);
+    border-left-color: rgba(27, 255, 0, 0);
+    border-right-color: rgba(27, 255, 0, 0);
+    border-top-color: rgba(27, 255, 0, 0);
+    border-bottom-color: rgba(27, 255, 0, 0);
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    font-size: 45px;
+}
+
+.unity-button:hover {
+    background-color: rgb(255, 223, 0);
+}
