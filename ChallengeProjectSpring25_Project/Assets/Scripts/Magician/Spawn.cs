@@ -18,13 +18,21 @@ public class Spawn : MonoBehaviour
     {
         //Vector3 offseft = new Vector3(Random.Range(-radius, radius), Random.Range(-radius,radius), Random.Range(-radius,radius));
         time += Time.deltaTime;//timer for spawning of the magicians
-        Vector3 offset = Random.insideUnitSphere * radius;//found that calling insideUnitSphere is supposed to spawn a cirlce radius
         
-        Vector3 spawn = theBoss.transform.position + offset;
-        if (time >= 2f)
+        
+        
+        if (time >= 4f)
         {
+            Vector3 offset = new Vector3(Random.insideUnitCircle.y * radius, .10f);//found that calling insideUnitSphere is supposed to spawn a cirlce radius
+            offset.z = .5f;
+            Vector3 spawn = theBoss.transform.position + offset;
+            Debug.Log("offset: " + offset);
+            Debug.Log("boss pos: " + theBoss.transform.position);
+            Debug.Log("spawn: " + spawn);
+            Vector3 testOff = new Vector3(5, .1f, 5);
             //Debug.Log(Random.insideUnitSphere);
-            Instantiate(theMagician, spawn, Quaternion.identity);
+            var miniEnemy = Instantiate(theMagician, spawn, Quaternion.identity);
+            miniEnemy.transform.parent = theBoss.transform;
             time = 0;
         }
     }
