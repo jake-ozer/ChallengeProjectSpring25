@@ -31,9 +31,9 @@ public class PlayerDodge : MonoBehaviour
     void Update()
     {
         
-        if (input.actions["Sprint"].triggered && !isDodging)
+        if (input.actions["Sprint"].triggered && !isDodging && playerMovement.grounded)
         {
-            Debug.Log("Dodging");
+            //Debug.Log("Dodging");
             playerMovement.enabled = false;
             isDodging = true;
             move = input.actions["Move"].ReadValue<Vector2>();
@@ -44,6 +44,7 @@ public class PlayerDodge : MonoBehaviour
             moveDirection = Vector3.zero;
             moveDirection = (transform.right * move.x + transform.forward * move.y).normalized;
             startPosition = controller.transform.position;
+
             endPosition = startPosition + (moveDirection * dodgeRange);
             elapsedTime = 0;
         }
