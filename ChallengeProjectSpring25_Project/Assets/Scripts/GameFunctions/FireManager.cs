@@ -23,8 +23,8 @@ public class FireManager : MonoBehaviour
     {
         perlin = new Perlin((int)Random.value);
         findMinMax();
-        Debug.Log(minBounds);
-        Debug.Log(maxBounds);
+        //Debug.Log(minBounds);
+        //Debug.Log(maxBounds);
         SpawnFire();
     }
 
@@ -89,7 +89,8 @@ public class FireManager : MonoBehaviour
                         {
                             Vector3 spawnPos = hit.point;
                             Quaternion spawnRot = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                            Instantiate(firePrefabs[level], spawnPos, spawnRot);
+                            var fireObj = Instantiate(firePrefabs[level], spawnPos, spawnRot);
+                            fireObj.transform.parent = this.transform;
                         }
                     }
                 }
