@@ -31,6 +31,8 @@ public class PlayerAttack : MonoBehaviour
                     //Debug.Log("enemy hit");
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
                 }
+
+
             }
         }
 

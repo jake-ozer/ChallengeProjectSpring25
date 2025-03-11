@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6378524152483820467}
   - component: {fileID: 2708074089930168217}
   m_Layer: 0
-  m_Name: TempBackArt
+  m_Name: BackArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c3e07e820d083e47bdf303727616dfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5efab66bc0419854faf8f6a57e5f29c8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 6781016836083133327}
   - component: {fileID: 6234322753716614206}
   - component: {fileID: 1522336524710824724}
+  - component: {fileID: 8212005047929441240}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -431,6 +432,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e0dc70581b9f943adc77054354259b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: Default Card
+  cardDescription: This is the default card. Nothing special here.
+  cardType: 0
+--- !u!114 &8212005047929441240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6209165902249552155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d052bccf3c4ec0d45b56faed43851fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 0}
 --- !u!1 &8170073132425971148
 GameObject:
   m_ObjectHideFlags: 0
