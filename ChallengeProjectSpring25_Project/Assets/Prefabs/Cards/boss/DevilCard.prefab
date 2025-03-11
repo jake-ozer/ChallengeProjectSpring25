@@ -64,6 +64,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardName
+      value: The Devil
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardDescription
+      value: This is the description for the devil card. Someone should come up with
+        something cool here.
+      objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
       value: 
