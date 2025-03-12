@@ -8,7 +8,7 @@ public class HurtPlayerOnContact : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    
+        Debug.Log("triggered");
         if(active && other.gameObject.GetComponent<PlayerHealth>() != null)
         {
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
