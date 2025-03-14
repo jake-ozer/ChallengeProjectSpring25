@@ -7,7 +7,7 @@ public class ProjLogic : MonoBehaviour
     {
         if (other.gameObject.tag != "Enemy")
         {
-            Debug.Log(other.gameObject.tag);
+            //Debug.Log(other.gameObject.tag);
             Destroy(gameObject);
         }
     }

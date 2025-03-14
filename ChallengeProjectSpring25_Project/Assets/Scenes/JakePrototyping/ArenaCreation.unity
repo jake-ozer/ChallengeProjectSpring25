@@ -630,6 +630,7 @@ MonoBehaviour:
   - {fileID: 2041080663042949146, guid: 9c828d4848ef5d349a826f01ee78dffa, type: 3}
   - {fileID: 7159706286767124593, guid: 44526c9fe0b9c8a43b2a78432665b25c, type: 3}
   - {fileID: 5080442107536584897, guid: 473018e75ea3f8d42933bc87f38f74f3, type: 3}
+  - {fileID: 110009597994856251, guid: b5ea83c4186fab14eb3bfc6bd90a601a, type: 3}
   navMeshSurface: {fileID: 1640837522}
   playerMovement: {fileID: 1551081364}
 --- !u!1 &832575517
