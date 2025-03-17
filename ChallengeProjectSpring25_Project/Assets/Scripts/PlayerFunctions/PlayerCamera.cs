@@ -28,4 +28,19 @@ public class PlayerCamera : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRot, yRot, 0);
         transform.parent.Rotate(Vector3.up * lookX);
     }
+
+    public void SetXRot(float rot)
+    {
+        if (rot > 180f)
+        {
+            rot -= 360f;
+        }
+        xRot = rot;
+        transform.rotation = Quaternion.Euler(rot, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+    }
+
+    public void SetYRot(float rot)
+    {
+        transform.parent.rotation = Quaternion.Euler(transform.parent.rotation.eulerAngles.x, rot, transform.parent.rotation.eulerAngles.z);
+    }
 }
