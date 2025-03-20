@@ -13,7 +13,7 @@ public class BossProj : MonoBehaviour
     void Start()
     {
         projTime = timer;
-        player = GameObject.FindWithTag("Player").transform;
+        player = FindFirstObjectByType<PlayerHealth>().gameObject.transform;
         bossMove = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
     }
@@ -32,8 +32,8 @@ public class BossProj : MonoBehaviour
             projTime -= Time.deltaTime;
             if (projTime > 0) { return; }
             //Since player position may be a little high, set it -1 in y axis.
-            Vector3 playerPos = player.transform.position;
-            playerPos.y += -1;
+            Vector3 playerPos = player.transform.Find("PlayerCamera").position;
+            playerPos.y += -2;
             transform.LookAt(playerPos);
             projTime = timer;
             GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, projSpawn.transform.rotation) as GameObject;
