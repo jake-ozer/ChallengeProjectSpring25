@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 8157123104695691791}
   - component: {fileID: 8470057529467177397}
   - component: {fileID: 648031870317242911}
+  - component: {fileID: 6884627528028707740}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -436,6 +437,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerDmg: 12
+--- !u!136 &6884627528028707740
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251563239661226610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1893732078086451200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1026,7 @@ MonoBehaviour:
     m_Bits: 64
   lockOnSpeed: 8
   input: {fileID: 6754280734359224001}
+  lockedOn: 0
 --- !u!1 &3868280781446545564
 GameObject:
   m_ObjectHideFlags: 0

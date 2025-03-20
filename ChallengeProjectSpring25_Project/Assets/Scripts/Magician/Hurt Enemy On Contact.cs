@@ -1,27 +1,26 @@
 using UnityEngine;
 
-public class HurtPlayerOnContact : MonoBehaviour
+public class HurtEnemyOnContact : MonoBehaviour
 {
-    //you can put this script onto any trigger game object that needs to hurt the player
+    //you can put this script onto any trigger game object that needs to hurt the enemy
     public int damage;
     private bool active = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(active && other.gameObject.GetComponent<PlayerHealth>() != null)
+        if (active && other.gameObject.GetComponent<PlayerHealth>() != null)
         {
             //other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             //active = false;
             Destroy(other.gameObject);
-        }    
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!active && other.gameObject.GetComponent<PlayerHealth>() != null)
-        { 
+        {
             active = true;
         }
     }
-
 }
