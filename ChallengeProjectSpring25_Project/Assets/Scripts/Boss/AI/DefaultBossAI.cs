@@ -9,10 +9,15 @@ public class DefaultBossAI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = FindFirstObjectByType<PlayerMovement>().gameObject;
     }
 
     private void Update()
     {
-        agent.SetDestination(player.transform.position);
+        if (agent != null && agent.enabled)
+        {
+            agent.SetDestination(player.transform.position);
+        }
     }
+       
 }
