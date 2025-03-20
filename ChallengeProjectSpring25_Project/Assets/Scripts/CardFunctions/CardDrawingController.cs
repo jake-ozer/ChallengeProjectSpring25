@@ -56,8 +56,9 @@ public class CardDrawingController : MonoBehaviour
         yield return new WaitUntil(() => !curCardLock);
         navMeshSurface.BuildNavMesh();
         //draw environment
-        DrawCard(Card.CardType.environment);
         curCardLock = true;
+        DrawCard(Card.CardType.environment);
+        
         yield return new WaitUntil(() => !curCardLock);
         //draw boss
         DrawCard(Card.CardType.boss);
@@ -75,6 +76,11 @@ public class CardDrawingController : MonoBehaviour
     private void DrawCard(Card.CardType type)
     {
         List<GameObject> filteredCards = possibleCards.Where(x=>x.GetComponent<Card>().cardType == type).ToList();
+        if (filteredCards.Count == 0)
+        {
+            curCardLock = false;
+            return;
+        }
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
