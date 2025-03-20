@@ -1,0 +1,82 @@
+.panel {
+    background-color: rgba(65, 75, 126, 0);
+}
+
+.menu {
+    align-items: flex-start;
+    background-image: none;
+    background-color: rgb(255, 53, 13);
+}
+
+.unity-button:hover {
+    background-color: rgba(250, 233, 199, 0);
+    background-image: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat no-repeat;
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-slice-scale: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    scale: 1.15 1.15;
+    rotate: 1.8deg;
+    position: absolute;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transform-origin: center;
+    background-position-x: center 0;
+    background-position-y: center 0;
+    font-size: 100px;
+    translate: 0 1px;
+    transition-property: scale;
+    transition-timing-function: linear;
+    transition-duration: 0.25s;
+    transition-delay: 0s;
+}
+
+.unity-button {
+    flex-grow: 0;
+    background-color: rgba(219, 228, 34, 0);
+    border-left-color: rgba(27, 255, 0, 0);
+    border-right-color: rgba(27, 255, 0, 0);
+    border-top-color: rgba(27, 255, 0, 0);
+    border-bottom-color: rgba(27, 255, 0, 0);
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    font-size: 45px;
+    left: 170px;
+    flex-basis: auto;
+    flex-shrink: 1;
+    height: 0;
+    width: 0;
+    top: auto;
+}
+
+.panel {
+    background-color: rgba(65, 75, 126, 0);
+}
+
+.unity-button-r:hover {
+    background-color: rgba(250, 233, 199, 0);
+    background-image: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat no-repeat;
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-slice-scale: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    scale: 1.15 1.15;
+    rotate: -1.8deg;
+    position: absolute;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transform-origin: center;
+    background-position-x: center 0;
+    background-position-y: center 0;
+    font-size: 100px;
+    translate: 0 1px;
+    transition-property: scale;
+    transition-timing-function: linear;
+    transition-duration: 0.25s;
+    transition-delay: 0s;
+}
