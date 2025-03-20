@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private PlayerTether tether;
+    
     public float attackRange;
     public PlayerInput input;
     public float attackCooldown;
@@ -30,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     //Debug.Log("enemy hit");
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                    tether.RegisterHit();
                 }
             }
         }

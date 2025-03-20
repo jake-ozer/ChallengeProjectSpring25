@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private PlayerLockOn playerLockOn;
     [SerializeField] private PlayerInput input;
+    
+    [SerializeField] private PlayerTether tether;
 
     private CharacterController controller;
     private Vector2 move;
@@ -44,8 +46,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(transform.position, -rightDir * 3f, Color.yellow);
             moveDirection = (rightDir * move.x + targetDir * move.y).normalized;
         }
-       
-        controller.Move(moveDirection * playerSpeed * Time.deltaTime);
+
+        Vector3 newPos = playerSpeed * Time.deltaTime * moveDirection;
+        
+        // check if the player can move
+        if (tether.CanMoveTo(newPos)) controller.Move(newPos);
 
         //jump logic
         if (grounded && input.actions["Jump"].triggered)
