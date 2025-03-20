@@ -21,7 +21,7 @@ public class Perlin
     {
         if (seed < 0) seed *= -1;
         SEED = seed;
-        Debug.Log(seed);
+        //Debug.Log(seed);
     }
 
     private int noise2(int x, int y)

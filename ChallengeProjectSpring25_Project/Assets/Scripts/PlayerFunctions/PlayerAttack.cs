@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public int playerDmg;
     private float timer;
+    private bool attacking;
+    private GameObject currentAttackTarget;
 
     private void Update()
     {
@@ -33,10 +35,26 @@ public class PlayerAttack : MonoBehaviour
                     //Debug.Log("enemy hit");
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
                     tether.RegisterHit();
+                    //hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                    attacking = true;
+                    currentAttackTarget = hitinfo.collider.gameObject;
                 }
+            }
+            else
+            {
+                attacking = false;
             }
         }
 
         Debug.DrawRay(transform.position, transform.forward * attackRange, Color.yellow);
+    }
+
+    //used by animation event from sword anim to detect when player is at climax of swing
+    public void PlayerAttackSignaled()
+    {
+        if (attacking)
+        {
+            currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
+        }
     }
 }
