@@ -9,6 +9,7 @@ public class DefaultBossAI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = FindFirstObjectByType<PlayerMovement>().gameObject;
     }
 
     private void Update()
