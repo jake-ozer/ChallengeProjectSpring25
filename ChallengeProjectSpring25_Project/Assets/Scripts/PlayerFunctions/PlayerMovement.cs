@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector2 move;
     private Vector3 playerVel;
-    private bool grounded;
+    public bool grounded;
 
     private void Start()
     {
