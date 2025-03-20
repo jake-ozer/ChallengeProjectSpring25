@@ -11,9 +11,8 @@ public class HurtPlayerOnContact : MonoBehaviour
         //Debug.Log("triggered");
         if(active && other.gameObject.GetComponent<PlayerHealth>() != null)
         {
-            //other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-            //active = false;
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            active = false;
         }    
     }
 

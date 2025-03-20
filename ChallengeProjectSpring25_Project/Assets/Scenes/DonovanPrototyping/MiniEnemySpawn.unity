@@ -400,6 +400,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &949639121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949639114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b381c37f18c077545ab3947b36d4c3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  active: 1
 --- !u!114 &1313111830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6810953212304102076, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
@@ -992,13 +1006,17 @@ PrefabInstance:
       propertyPath: playerLockOn
       value: 
       objectReference: {fileID: 1313111830}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1251563239661226610, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       insertIndex: -1
       addedObject: {fileID: 949639120}
+    - targetCorrespondingSourceObject: {fileID: 1251563239661226610, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949639121}
   m_SourcePrefab: {fileID: 100100000, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
 --- !u!33 &7853206626398227701
 MeshFilter:

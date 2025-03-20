@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
             {
-                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
+                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
                 {
                     //Debug.Log("enemy hit");
                     //hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
@@ -50,7 +50,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if (attacking)
         {
-            currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
+            if(currentAttackTarget.GetComponent<BossHealth>() != null)
+            {
+                currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
+            }
+            if(currentAttackTarget.GetComponent<MiniEnemy>() != null)
+            {
+                Destroy(currentAttackTarget);
+            }
+            
         }
     }
 }
