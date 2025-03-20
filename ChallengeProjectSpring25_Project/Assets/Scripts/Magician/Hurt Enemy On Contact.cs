@@ -11,7 +11,7 @@ public class HurtEnemyOnContact : MonoBehaviour
         if (active && other.gameObject.GetComponent<PlayerHealth>() != null)
         {
             //other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-            //active = false;
+            active = false;
             Destroy(other.gameObject);
         }
     }
