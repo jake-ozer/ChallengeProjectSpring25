@@ -57,4 +57,25 @@ public class PlayerMovement : MonoBehaviour
         playerVel.y += gravity * Time.deltaTime;
         controller.Move(playerVel * Time.deltaTime);
     }
+
+    public float GetSpeed()
+    {
+        return playerSpeed;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        Debug.Log("Changed speed to: " + speed);
+        playerSpeed = speed;
+    }
+
+    public float GetJump()
+    {
+        return jumpHeight;
+    }
+    public void SetJump(float height)
+    {
+        Debug.Log("Change jump height to: " + height);
+        jumpHeight = height;
+    }
 }

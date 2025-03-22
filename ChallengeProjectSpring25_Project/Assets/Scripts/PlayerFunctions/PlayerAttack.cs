@@ -53,4 +53,15 @@ public class PlayerAttack : MonoBehaviour
             currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
         }
     }
+
+    public int GetDamage()
+    {
+        return playerDmg;
+    }
+
+    public void SetDamage(int damage)
+    {
+        Debug.Log("Change damage to: " + damage);
+        playerDmg = damage;
+    }
 }
