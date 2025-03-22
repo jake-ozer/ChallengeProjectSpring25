@@ -18,7 +18,8 @@ public class WOFManager : MonoBehaviour
      * 1 = start spin
      * 2 = spin
      * 3 = slow spin
-     * 4 = effect */
+     * 4 = effect trigger
+     * 5 = effect duration */
 
     [SerializeField]
     private float waitTime;
@@ -160,8 +161,9 @@ public class WOFManager : MonoBehaviour
 
     private IEnumerator effectAngel()
     {
-        //tbd
+        //Angel Effect starts here
         yield return new WaitForSeconds(effectDuration);
+        //Angel Effect turns off here
         mode = 0;
         StartCoroutine(waitTimer());
     }
