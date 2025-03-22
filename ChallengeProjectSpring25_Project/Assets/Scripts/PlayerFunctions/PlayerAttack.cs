@@ -17,7 +17,8 @@ public class PlayerAttack : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if(input.actions["Attack"].triggered && timer <= 0)
+        //hit enemy
+        if (input.actions["Attack"].triggered && timer <= 0)
         {
             timer = attackCooldown;
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("swordattack"))
@@ -25,40 +26,27 @@ public class PlayerAttack : MonoBehaviour
                 animator.SetTrigger("reset");
             }
             animator.SetTrigger("attack");
-
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
-            {
-                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
-                {
-                    //Debug.Log("enemy hit");
-                    //hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
-                    attacking = true;
-                    currentAttackTarget = hitinfo.collider.gameObject;
-                }
-            }
-            else
-            {
-                attacking = false;
-            }
         }
 
-        Debug.DrawRay(transform.position, transform.forward * attackRange, Color.yellow);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * attackRange, Color.yellow);
     }
 
     //used by animation event from sword anim to detect when player is at climax of swing
     public void PlayerAttackSignaled()
     {
-        if (attacking)
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
         {
-            if(currentAttackTarget.GetComponent<BossHealth>() != null)
+            if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
             {
-                currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
+                {
+                    hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                }
+                else if (hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
+                {
+                    Destroy(hitinfo.collider.gameObject);
+                }
             }
-            if(currentAttackTarget.GetComponent<MiniEnemy>() != null)
-            {
-                Destroy(currentAttackTarget);
-            }
-            
         }
     }
 }

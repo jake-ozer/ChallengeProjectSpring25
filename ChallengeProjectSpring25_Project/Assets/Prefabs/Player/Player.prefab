@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af11332369ff12d48837fa4f08d8d134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  attackRange: 7
   input: {fileID: 6754280734359224001}
   attackCooldown: 0.8
   animator: {fileID: 8092285847414682985}
