@@ -49,4 +49,15 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+    public int GetDamage()
+    {
+        return playerDmg;
+    }
+
+    public void SetDamage(int damage)
+    {
+        Debug.Log("Change damage to: " + damage);
+        playerDmg = damage;
+    }
 }
