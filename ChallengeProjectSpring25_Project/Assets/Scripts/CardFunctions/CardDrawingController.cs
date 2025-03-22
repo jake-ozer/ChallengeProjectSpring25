@@ -17,7 +17,7 @@ public class CardDrawingController : MonoBehaviour
     private GameObject curCardObj;
     private bool curCardShown = false;
     private bool curCardLock = false;
-
+    private bool canSpawnCardObj = true;
     
 
     private void Start()
@@ -28,10 +28,11 @@ public class CardDrawingController : MonoBehaviour
     private void Update()
     {
         //remove card from observation when player is done looking at it
-        if (input.actions["ForwardCard"].triggered && curCardShown)
+        if (input.actions["ForwardCard"].triggered && curCardShown && canSpawnCardObj)
         {
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
-            curCardObj.GetComponent<EnvironmentCard>().SpawnEnvironmentEffect(); //this maybe should be custom for each card type, but this is a test so chill out
+            curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
+            canSpawnCardObj = false;
         }
     }
 
@@ -81,6 +82,7 @@ public class CardDrawingController : MonoBehaviour
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
 
+
         //spawn card
         /*GameObject cardObj = Instantiate(baseCardPrefab, cardSpawnTransform);
         cardObj.transform.parent = cardSpawnTransform;
@@ -115,6 +117,7 @@ public class CardDrawingController : MonoBehaviour
     public void CardShownAnim()
     {
         curCardShown = true;
+        canSpawnCardObj = true;
     }
 
     //used by animation event to indicate that current card is discarded
