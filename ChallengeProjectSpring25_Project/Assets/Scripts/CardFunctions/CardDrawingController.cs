@@ -19,7 +19,6 @@ public class CardDrawingController : MonoBehaviour
     private bool curCardLock = false;
     private bool canSpawnCardObj = true;
     
-
     private void Start()
     {
         StartCoroutine("StartDrawingCards");
@@ -35,16 +34,6 @@ public class CardDrawingController : MonoBehaviour
             canSpawnCardObj = false;
         }
     }
-
-/*    private IEnumerator TestMultipleDrawings()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-*//*            DrawCard();
-            curCardLock = true;
-            yield return new WaitUntil(()=> !curCardLock);*//*
-        }
-    }*/
 
     private IEnumerator StartDrawingCards()
     {
@@ -70,9 +59,7 @@ public class CardDrawingController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-
     //spawns card and gives it data specified in param
-    //eventually we will have a card data scriptable object as param
     private void DrawCard(Card.CardType type)
     {
         List<GameObject> filteredCards = possibleCards.Where(x=>x.GetComponent<Card>().cardType == type).ToList();
@@ -81,36 +68,6 @@ public class CardDrawingController : MonoBehaviour
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
-
-
-        //spawn card
-        /*GameObject cardObj = Instantiate(baseCardPrefab, cardSpawnTransform);
-        cardObj.transform.parent = cardSpawnTransform;
-        curCardObj = cardObj;*/
-
-
-        //assign attributes from cardData
-        //--not ready yet--
-
-        //apply the effect of the card to the arena
-        //--not ready yet--
-
-    }
-
-    private void ApplyCardEffect(Card.CardType type/*, CardData cardData*/)
-    {
-        switch (type)
-        {
-            case Card.CardType.boss:
-                //boss spawn logic
-                break;
-            case Card.CardType.environment:
-                //environment effect spawn logic
-                break;
-            case Card.CardType.terrain:
-                //terrain logic
-                break;
-        }
     }
 
     //used by animation event to indicate that the current card is shown

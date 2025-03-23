@@ -75,13 +75,17 @@ PrefabInstance:
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b3250fad1eae4594281fbdbefd4b9fb4, type: 3}
+      objectReference: {fileID: 21300000, guid: 7de70482a8fcf894e96847c780685389, type: 3}
     - target: {fileID: 6209165902249552155, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Name
-      value: WOFArena
+      value: WOF_Card
       objectReference: {fileID: 0}
     - target: {fileID: 8212005047929441240, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: effect
+      value: 
+      objectReference: {fileID: 5280019021521559529, guid: 10db2d1a7db065c48938e5b795330351, type: 3}
+    - target: {fileID: 8212005047929441240, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardObj
       value: 
       objectReference: {fileID: 5280019021521559529, guid: 10db2d1a7db065c48938e5b795330351, type: 3}
     m_RemovedComponents:
