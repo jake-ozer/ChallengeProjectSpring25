@@ -3677,8 +3677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform1: {fileID: 1556462935}
   boss: {fileID: 0}
-  platform1Start: {fileID: 605492976}
-  platform1End: {fileID: 1557570724}
+  platformUp: {x: 0, y: 0, z: 0}
+  platformDown: {x: 0, y: 0, z: 0}
   t: 0
 --- !u!4 &815967039
 Transform:
@@ -4543,8 +4543,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1281337996}
-  - component: {fileID: 1281337995}
   - component: {fileID: 1281337997}
+  - component: {fileID: 1281337998}
   m_Layer: 0
   m_Name: Platform1Controller
   m_TagString: Untagged
@@ -4552,23 +4552,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1281337995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281337994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39af3a6d30098d44a8eea156f194dd9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform1: {fileID: 1421813947}
-  boss: {fileID: 0}
-  platform1Start: {fileID: 917780152}
-  platform1End: {fileID: 1024602892}
-  t: 10
 --- !u!4 &1281337996
 Transform:
   m_ObjectHideFlags: 0
@@ -4609,6 +4592,23 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: -0.27359772, y: 0, z: -10.126839}
+--- !u!114 &1281337998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281337994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39af3a6d30098d44a8eea156f194dd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform1: {fileID: 1421813947}
+  boss: {fileID: 0}
+  platformUp: {x: -144.2, y: 12, z: -14.9}
+  platformDown: {x: -144.2, y: 2, z: -14.9}
+  t: 1
 --- !u!1 &1284050656
 GameObject:
   m_ObjectHideFlags: 0
