@@ -4,7 +4,7 @@ public class BuffParticleManager : MonoBehaviour
 {
     private ParticleSystem particle;
     [SerializeField]
-    private Color eagle, bull, lion;
+    private Color eagle, bull, lion, angel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +33,9 @@ public class BuffParticleManager : MonoBehaviour
                 break;
             case 3:
                 particle.GetComponent<ParticleSystemRenderer>().material.color = bull;
+                break;
+            case 4:
+                particle.GetComponent<ParticleSystemRenderer>().material.color = angel;
                 break;
         }
 

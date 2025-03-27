@@ -6,6 +6,12 @@ public class WOFManager : MonoBehaviour
 
     [SerializeField]
     private GameObject outsideObject;
+    [SerializeField]
+    private GameObject healthPrefab;
+    [SerializeField]
+    private int numberOfPickups;
+    [SerializeField]
+    private float spawnRadius;
 
     private GameObject player;
 
@@ -162,6 +168,11 @@ public class WOFManager : MonoBehaviour
     private IEnumerator effectAngel()
     {
         //Angel Effect starts here
+        for(int i = 0; i < numberOfPickups; i++)
+        {
+            Vector3 randomPos = getSpawnPos();
+            Instantiate(healthPrefab, randomPos, Quaternion.identity);
+        }
         yield return new WaitForSeconds(effectDuration);
         //Angel Effect turns off here
         mode = 0;
@@ -195,5 +206,16 @@ public class WOFManager : MonoBehaviour
         cam.fieldOfView -= 10;
         mode = 0;
         StartCoroutine(waitTimer());
+    }
+
+    private Vector3 getSpawnPos()
+    {
+        float angle = Random.Range(0f, Mathf.PI * 2);
+        float distance = Mathf.Sqrt(Random.Range(0f, 1f)) * spawnRadius;
+
+        float x = Mathf.Cos(angle) * distance;
+        float z = Mathf.Sin(angle) * distance;
+
+        return new Vector3(x, -1.5f, z);
     }
 }

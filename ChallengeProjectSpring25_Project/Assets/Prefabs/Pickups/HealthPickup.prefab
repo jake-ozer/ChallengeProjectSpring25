@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0985fe5d1a8389c4aad99056b093af1e, type: 2}
+  - {fileID: 2100000, guid: edef323fb0a7ba4438c9a671e7f6db75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,4 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85c9ae6157c4f04199a0749f7b97856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawnTimes:
+  - 5
+  - 5
+  - 2
   healing: 20
