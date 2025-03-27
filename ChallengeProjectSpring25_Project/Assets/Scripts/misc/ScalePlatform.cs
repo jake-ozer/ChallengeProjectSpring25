@@ -5,8 +5,8 @@ public class ScalePlatform : MonoBehaviour
     public GameObject platform1;
     
     public GameObject boss;
-    public Transform platform1Start;
-    public Transform platform1End;
+    public Vector3 platformUp;
+    public Vector3 platformDown;
 
     //private int duration = 0;
 
@@ -25,25 +25,25 @@ public class ScalePlatform : MonoBehaviour
         
     }
     
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag == "Enemy")
+        
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.layer == 9)
         {
+            Debug.Log("Found boss");
             
-        t ++;
-        platform1.transform.position = Vector3.Lerp(platform1Start.position, platform1End.position, t);
+        
+            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformDown, t);
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Enemy")
         {
-        t --;
-        platform1.transform.position = Vector3.Lerp(platform1Start.position, platform1End.position, t);
+        
+        platform1.transform.position = Vector3.Lerp(platform1.transform.position, platformUp, t);
         }
     }
-
-
-
      
 }
