@@ -859,6 +859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763908424}
   - component: {fileID: 763908425}
+  - component: {fileID: 763908426}
   m_Layer: 0
   m_Name: CardDrawingController
   m_TagString: Untagged
@@ -875,7 +876,7 @@ Transform:
   m_GameObject: {fileID: 763908423}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.480966, y: -44.10036, z: 51.145496}
+  m_LocalPosition: {x: -6.480966, y: -44.085, z: 51.145496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -907,6 +908,20 @@ MonoBehaviour:
   - {fileID: 8314348974299834895, guid: f99ec12e28a3400438c31fe812e4202b, type: 3}
   navMeshSurface: {fileID: 1640837522}
   playerMovement: {fileID: 1551081364}
+--- !u!114 &763908426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763908423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e050d33940951d419da203a4c0cd5c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNameTextObj: {fileID: 354221596}
+  cardDescTextObj: {fileID: 282117061}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1188,7 @@ Transform:
   m_GameObject: {fileID: 1908829878}
   serializedVersion: 2
   m_LocalRotation: {x: 0.10476725, y: -0, z: -0, w: 0.99449676}
-  m_LocalPosition: {x: 6.05, y: 53.856, z: -105.222}
+  m_LocalPosition: {x: 6.05, y: 53.78, z: -105.222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

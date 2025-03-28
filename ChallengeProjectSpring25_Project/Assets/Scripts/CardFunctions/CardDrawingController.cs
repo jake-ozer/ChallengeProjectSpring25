@@ -29,6 +29,7 @@ public class CardDrawingController : MonoBehaviour
         //remove card from observation when player is done looking at it
         if (input.actions["ForwardCard"].triggered && curCardShown && canSpawnCardObj)
         {
+            GetComponent<CardDrawingUIController>().HideCardInfoUI();
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
             curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
             canSpawnCardObj = false;
@@ -75,6 +76,8 @@ public class CardDrawingController : MonoBehaviour
     {
         curCardShown = true;
         canSpawnCardObj = true;
+
+        GetComponent<CardDrawingUIController>().ShowCardInfoUI(curCardObj.GetComponent<Card>().cardName, curCardObj.GetComponent<Card>().cardDescription);
     }
 
     //used by animation event to indicate that current card is discarded
