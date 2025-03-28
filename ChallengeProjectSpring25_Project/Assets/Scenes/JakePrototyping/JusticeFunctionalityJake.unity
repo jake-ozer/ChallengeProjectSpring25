@@ -644,9 +644,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform1: {fileID: 1421813947}
   platform2: {fileID: 1041349390}
-  platformOffset: 3
-  p1Speed: 0.5
-  p2Speed: 0.5
+  platformOffset: 7
+  p1Speed: 0.2
+  p2Speed: 0.2
   t1: 0
   t2: 0
 --- !u!1 &235687085
