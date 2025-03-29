@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63387498}
   - component: {fileID: 63387499}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63390051}
   - component: {fileID: 63390052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140665241}
   - component: {fileID: 140665240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 142256561}
   - component: {fileID: 142256560}
   - component: {fileID: 142256559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,9 +644,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform1: {fileID: 1421813947}
   platform2: {fileID: 1041349390}
-  platformOffset: 7
-  p1Speed: 0.2
-  p2Speed: 0.2
+  platformOffset: 3
+  p1Speed: 0.5
+  p2Speed: 0.5
   t1: 0
   t2: 0
 --- !u!1 &235687085
@@ -659,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235687086}
   - component: {fileID: 235687087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 255887927}
   - component: {fileID: 255887926}
   - component: {fileID: 255887925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 305935107}
   - component: {fileID: 305935106}
   - component: {fileID: 305935105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 315672693}
   - component: {fileID: 315672692}
   - component: {fileID: 315672691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 405882675}
   - component: {fileID: 405882674}
   - component: {fileID: 405882677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plate2 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 430468180}
   - component: {fileID: 430468179}
   - component: {fileID: 430468178}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1594,7 +1594,7 @@ GameObject:
   - component: {fileID: 474509224}
   - component: {fileID: 474509223}
   - component: {fileID: 474509222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 516570861}
   - component: {fileID: 516570860}
   - component: {fileID: 516570859}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 535825713}
   - component: {fileID: 535825712}
   - component: {fileID: 535825711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2028,7 +2028,7 @@ GameObject:
   - component: {fileID: 541435047}
   - component: {fileID: 541435046}
   - component: {fileID: 541435045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2137,7 @@ GameObject:
   - component: {fileID: 557034885}
   - component: {fileID: 557034884}
   - component: {fileID: 557034883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2258,7 +2258,7 @@ GameObject:
   - component: {fileID: 558248982}
   - component: {fileID: 558248981}
   - component: {fileID: 558248980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2366,7 @@ GameObject:
   - component: {fileID: 566115652}
   - component: {fileID: 566115651}
   - component: {fileID: 566115650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2582,7 +2582,7 @@ GameObject:
   - component: {fileID: 619265876}
   - component: {fileID: 619265875}
   - component: {fileID: 619265874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2690,7 +2690,7 @@ GameObject:
   - component: {fileID: 671241692}
   - component: {fileID: 671241691}
   - component: {fileID: 671241690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2798,7 +2798,7 @@ GameObject:
   - component: {fileID: 676231952}
   - component: {fileID: 676231951}
   - component: {fileID: 676231950}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2911,7 +2911,7 @@ GameObject:
   - component: {fileID: 701633621}
   - component: {fileID: 701633620}
   - component: {fileID: 701633619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3019,7 +3019,7 @@ GameObject:
   - component: {fileID: 735220543}
   - component: {fileID: 735220542}
   - component: {fileID: 735220541}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3127,7 +3127,7 @@ GameObject:
   - component: {fileID: 738496764}
   - component: {fileID: 738496763}
   - component: {fileID: 738496762}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3343,7 +3343,7 @@ GameObject:
   - component: {fileID: 792743070}
   - component: {fileID: 792743069}
   - component: {fileID: 792743068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3498,7 +3498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846182217}
   - component: {fileID: 846182218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3587,7 +3587,7 @@ GameObject:
   - component: {fileID: 859390770}
   - component: {fileID: 859390769}
   - component: {fileID: 859390768}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3941,7 +3941,7 @@ GameObject:
   - component: {fileID: 922651902}
   - component: {fileID: 922651901}
   - component: {fileID: 922651900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4047,7 +4047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956383757}
   - component: {fileID: 956383758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4136,7 +4136,7 @@ GameObject:
   - component: {fileID: 961616146}
   - component: {fileID: 961616145}
   - component: {fileID: 961616144}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plate2 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4242,9 +4242,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1041349391}
     m_Modifications:
+    - target: {fileID: 2696025701616357528, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_Name
       value: StackOfCoinCover (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052111398930443603, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6946041468986014783, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -4298,6 +4310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7767063275327000572, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4320,7 +4336,7 @@ GameObject:
   - component: {fileID: 1038387464}
   - component: {fileID: 1038387463}
   - component: {fileID: 1038387462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4425,7 +4441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041349391}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4510,7 +4526,7 @@ GameObject:
   - component: {fileID: 1142871409}
   - component: {fileID: 1142871408}
   - component: {fileID: 1142871407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4618,7 +4634,7 @@ GameObject:
   - component: {fileID: 1160177007}
   - component: {fileID: 1160177006}
   - component: {fileID: 1160177005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4726,7 +4742,7 @@ GameObject:
   - component: {fileID: 1223160773}
   - component: {fileID: 1223160772}
   - component: {fileID: 1223160771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4834,7 +4850,7 @@ GameObject:
   - component: {fileID: 1224105198}
   - component: {fileID: 1224105197}
   - component: {fileID: 1224105196}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4942,7 +4958,7 @@ GameObject:
   - component: {fileID: 1267025568}
   - component: {fileID: 1267025567}
   - component: {fileID: 1267025566}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5160,7 +5176,7 @@ GameObject:
   - component: {fileID: 1336868886}
   - component: {fileID: 1336868885}
   - component: {fileID: 1336868884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5268,7 +5284,7 @@ GameObject:
   - component: {fileID: 1382630007}
   - component: {fileID: 1382630006}
   - component: {fileID: 1382630005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5376,7 +5392,7 @@ GameObject:
   - component: {fileID: 1409523800}
   - component: {fileID: 1409523799}
   - component: {fileID: 1409523798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5481,7 +5497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1421813948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5523,7 +5539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426331814}
   - component: {fileID: 1426331815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5722,7 +5738,7 @@ GameObject:
   - component: {fileID: 1439739243}
   - component: {fileID: 1439739242}
   - component: {fileID: 1439739241}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5937,7 +5953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1483384210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RidgesAlongPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5991,7 +6007,7 @@ GameObject:
   - component: {fileID: 1571543929}
   - component: {fileID: 1571543928}
   - component: {fileID: 1571543927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6099,7 +6115,7 @@ GameObject:
   - component: {fileID: 1598092328}
   - component: {fileID: 1598092327}
   - component: {fileID: 1598092326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6205,7 +6221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621353530}
   - component: {fileID: 1621353529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6402,7 +6418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649150715}
   - component: {fileID: 1649150714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6491,7 +6507,7 @@ GameObject:
   - component: {fileID: 1740590020}
   - component: {fileID: 1740590019}
   - component: {fileID: 1740590018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6707,7 +6723,7 @@ GameObject:
   - component: {fileID: 1838129230}
   - component: {fileID: 1838129229}
   - component: {fileID: 1838129228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6890,7 +6906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1861343893}
   - component: {fileID: 1861343892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6976,7 +6992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1883699867}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RidgesAlongPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7026,9 +7042,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1041349391}
     m_Modifications:
+    - target: {fileID: 2696025701616357528, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_Name
       value: StackOfCoinCover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052111398930443603, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6946041468986014783, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -7082,6 +7110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7767063275327000572, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7104,7 +7136,7 @@ GameObject:
   - component: {fileID: 1925799877}
   - component: {fileID: 1925799876}
   - component: {fileID: 1925799875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7210,7 +7242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934398057}
   - component: {fileID: 1934398056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7300,7 +7332,7 @@ GameObject:
   - component: {fileID: 1937665350}
   - component: {fileID: 1937665349}
   - component: {fileID: 1937665348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7421,7 +7453,7 @@ GameObject:
   - component: {fileID: 1958280366}
   - component: {fileID: 1958280365}
   - component: {fileID: 1958280364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7525,9 +7557,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1421813948}
     m_Modifications:
+    - target: {fileID: 2696025701616357528, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_Name
       value: StackOfCoinCover (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052111398930443603, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6946041468986014783, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -7581,6 +7625,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7767063275327000572, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7596,7 +7644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2042208898}
   - component: {fileID: 2042208897}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CoinCover (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7685,7 +7733,7 @@ GameObject:
   - component: {fileID: 2062634280}
   - component: {fileID: 2062634279}
   - component: {fileID: 2062634278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7793,7 +7841,7 @@ GameObject:
   - component: {fileID: 2068048723}
   - component: {fileID: 2068048722}
   - component: {fileID: 2068048721}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7901,7 +7949,7 @@ GameObject:
   - component: {fileID: 2094011960}
   - component: {fileID: 2094011959}
   - component: {fileID: 2094011958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8150,7 +8198,7 @@ GameObject:
   - component: {fileID: 2141500862}
   - component: {fileID: 2141500861}
   - component: {fileID: 2141500860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ridge (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8315,9 +8363,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1421813948}
     m_Modifications:
+    - target: {fileID: 2696025701616357528, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_Name
       value: StackOfCoinCover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637070373019026829, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052111398930443603, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6946041468986014783, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_LocalScale.x
@@ -8370,6 +8430,10 @@ PrefabInstance:
     - target: {fileID: 6946041468986014783, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767063275327000572, guid: 5b904830e656b44019b0624fb826d6f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVel;
     public bool grounded;
 
+    public float coyoteTime;
+    private float coyoteTimer;
+    
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -22,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         //ground check and saftey adjustment
-        grounded = controller.isGrounded;
+        //grounded = controller.isGrounded;  ||| not using unity default one anymore, it is manually implemented to fix bug with scales arena
         if (grounded && playerVel.y < 0)
         {
             playerVel.y = -2f;
@@ -48,10 +52,25 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(moveDirection * playerSpeed * Time.deltaTime);
 
         //jump logic
-        if (grounded && input.actions["Jump"].triggered)
+
+        if (grounded)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+
+
+        if ((grounded || coyoteTimer > 0) && input.actions["Jump"].triggered)
         {
             playerVel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+
+
+        
+
 
         //apply gravity
         playerVel.y += gravity * Time.deltaTime;
