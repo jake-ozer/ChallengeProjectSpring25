@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class PlatformController : MonoBehaviour
@@ -15,7 +16,10 @@ public class PlatformController : MonoBehaviour
     private Vector3 p2End;
     private float p1TotalSpeed;
     private float p2TotalSpeed;
-    
+
+    private bool onPlat1 = false;
+    private bool onPlat2 = false;
+    private GameObject navmeshObj;
 
     private void Start()
     {
@@ -23,6 +27,7 @@ public class PlatformController : MonoBehaviour
         p2Start = platform2.transform.position;
         p1End = new Vector3(p1Start.x, p1Start.y - platformOffset, p1Start.z);
         p2End = new Vector3(p2Start.x, p2Start.y - platformOffset, p2Start.z);
+        //navmeshObj = FindFirstObjectByType<NavMeshSurface>().gameObject;
     }
 
     public float t1 = 0;
@@ -35,7 +40,18 @@ public class PlatformController : MonoBehaviour
         t2 = Mathf.Clamp01(t2);
         platform1.transform.position = Vector3.Lerp(p1Start, p1End, t1);
         platform2.transform.position = Vector3.Lerp(p2Start, p2End, t2);
-        
+
+/*
+        if (onPlat1)
+        {
+            navmeshObj.transform.parent = platform1.transform;
+            //navmeshObj.GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
+        if (onPlat2)
+        {
+            navmeshObj.transform.parent = platform2.transform;
+            //navmeshObj.GetComponent<NavMeshSurface>().BuildNavMesh();
+        }*/
     }
 
     //called by individual platform scripts that detect when something is on it
@@ -45,11 +61,14 @@ public class PlatformController : MonoBehaviour
         Debug.Log(platform.name);
         if (platform == platform1)
         {
-            
+            onPlat1 = true;
+            onPlat2 = false;
             this.p1TotalSpeed = speedDir * p1Speed;
         }
         else if (platform == platform2)
         {
+            onPlat2 = true;
+            onPlat1 = false;
             this.p2TotalSpeed = speedDir * p2Speed;
         }
     }
