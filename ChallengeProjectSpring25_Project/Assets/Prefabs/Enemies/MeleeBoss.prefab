@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 5
-  attackCooldown: 2.5
-  attackDuration: 1.7
+  attackCooldown: 2.54
+  attackDuration: 1.5
   waitBeforeAttack: 1
   attackColliderObj: {fileID: 622241106410103985}
   anim: {fileID: 8378197431351376917}
