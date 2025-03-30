@@ -17,9 +17,8 @@ public class CardDrawingController : MonoBehaviour
     private GameObject curCardObj;
     private bool curCardShown = false;
     private bool curCardLock = false;
-
+    private bool canSpawnCardObj = true;
     
-
     private void Start()
     {
         StartCoroutine("StartDrawingCards");
@@ -28,22 +27,14 @@ public class CardDrawingController : MonoBehaviour
     private void Update()
     {
         //remove card from observation when player is done looking at it
-        if (input.actions["ForwardCard"].triggered && curCardShown)
+        if (input.actions["ForwardCard"].triggered && curCardShown && canSpawnCardObj)
         {
+            GetComponent<CardDrawingUIController>().HideCardInfoUI();
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
-            curCardObj.GetComponent<EnvironmentCard>().SpawnEnvironmentEffect(); //this maybe should be custom for each card type, but this is a test so chill out
+            curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
+            canSpawnCardObj = false;
         }
     }
-
-/*    private IEnumerator TestMultipleDrawings()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-*//*            DrawCard();
-            curCardLock = true;
-            yield return new WaitUntil(()=> !curCardLock);*//*
-        }
-    }*/
 
     private IEnumerator StartDrawingCards()
     {
@@ -56,8 +47,9 @@ public class CardDrawingController : MonoBehaviour
         yield return new WaitUntil(() => !curCardLock);
         navMeshSurface.BuildNavMesh();
         //draw environment
-        DrawCard(Card.CardType.environment);
         curCardLock = true;
+        DrawCard(Card.CardType.environment);
+        
         yield return new WaitUntil(() => !curCardLock);
         //draw boss
         DrawCard(Card.CardType.boss);
@@ -69,52 +61,29 @@ public class CardDrawingController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-
     //spawns card and gives it data specified in param
-    //eventually we will have a card data scriptable object as param
     private void DrawCard(Card.CardType type)
     {
         List<GameObject> filteredCards = possibleCards.Where(x=>x.GetComponent<Card>().cardType == type).ToList();
+        if (filteredCards.Count == 0)
+        {
+            curCardLock = false;
+            return;
+        }
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
-
-        //spawn card
-        /*GameObject cardObj = Instantiate(baseCardPrefab, cardSpawnTransform);
-        cardObj.transform.parent = cardSpawnTransform;
-        curCardObj = cardObj;*/
-
-
-        //assign attributes from cardData
-        //--not ready yet--
-
-        //apply the effect of the card to the arena
-        //--not ready yet--
-
-    }
-
-    private void ApplyCardEffect(Card.CardType type/*, CardData cardData*/)
-    {
-        switch (type)
-        {
-            case Card.CardType.boss:
-                //boss spawn logic
-                break;
-            case Card.CardType.environment:
-                //environment effect spawn logic
-                break;
-            case Card.CardType.terrain:
-                //terrain logic
-                break;
-        }
     }
 
     //used by animation event to indicate that the current card is shown
     public void CardShownAnim()
     {
         curCardShown = true;
+        canSpawnCardObj = true;
+
+        GetComponent<CardDrawingUIController>().ShowCardInfoUI(curCardObj.GetComponent<Card>().cardName, curCardObj.GetComponent<Card>().cardDescription);
     }
 
     //used by animation event to indicate that current card is discarded

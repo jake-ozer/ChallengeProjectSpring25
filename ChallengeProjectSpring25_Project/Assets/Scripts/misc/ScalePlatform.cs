@@ -4,80 +4,52 @@ public class ScalePlatform : MonoBehaviour
 {
     public GameObject platform1;
     
-    public Transform platform1Start;
-    public Transform platform1End;
+    public GameObject boss;
+    public Vector3 platformUp;
+    public Vector3 platformDown;
 
-    private int duration = 0;
+    private bool bossOnPlatform;
+
+    //private int duration = 0;
 
     public float t = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      // Vector3 upPosition = new Vector3 (x, y3, z); 
-      // Vector3 downPosition = new Vector3 (x, y1, z);
-      // Vector3 midPosition = new Vector3 (x, y2, z);
+      bossOnPlatform = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //t += Time.deltaTime;
-        //t = Mathf.Clamp(xValue, xMin, xMax);
-        Debug.Log(t);
-        platform1.transform.position = Vector3.Lerp(platform1Start.position, platform1End.position, t);
-
-        
-        /*duration++;
-
-        if (duration == t)
+        //Debug.Log(t);
+        if(bossOnPlatform)
         {
-            Vector3 startPosition = transform.position;
-            if(startPosition == downPosition)
-            {
-                if(!weight)
-                {
-                    //Vector3 targetPosition = new Vector3 (x, y2, z);
-                    //if enemy is not on platform, it will rise from lowest position to middle position
-                    transform.position = Vector3.Lerp(startPosition, midPosition, t);
-                }
-            }
-            if(startPosition == midPosition)
-            {
-                if(weight)
-                {
-                    //if enemy is on platform, it will lower to its lowest position
-                    transform.position = Vector3.Lerp(startPosition, downPosition, t);
-                }
-                else
-                {
-                    //if enemy is off platoform, it will rise to its highest position
-                    transform.position = Vector3.Lerp(startPosition, upPosition, t);
-                }
-            }
-            if(startPosition == upPosition)
-            {
-                if(weight)
-                {
-                    //if enemy is on platform, the platform will lower to the middle position.
-                    transform.position = Vector3.Lerp(startPosition, midPosition, t);
-                }
-            }
-            duration = 0;*/
+            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformDown, t*Time.deltaTime);
+        }
+        else{
+            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformUp, t*Time.deltaTime);
+        }
     }
     
-
-     /*IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    void OnTriggerEnter(Collider other)
     {
-        float time = 0;
-        Vector3 startPosition = transform.position;
-
-        while (time < duration)
+        
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.layer == 9)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
+            Debug.Log("Found boss");
+            bossOnPlatform = true;
         }
-        transform.position = targetPosition;
-    }*/
+    }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.layer == 9)
+        {
+            bossOnPlatform = false;
+        }
+    }
+     
 }

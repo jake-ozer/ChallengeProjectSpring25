@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 1784930123396737978, guid: 2222f6a269eb1f944aec2b38e5102d16, type: 3}
+    - target: {fileID: 8212005047929441240, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardObj
+      value: 
+      objectReference: {fileID: 1784930123396737978, guid: 2222f6a269eb1f944aec2b38e5102d16, type: 3}
     - target: {fileID: 8459838927576558717, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Name
       value: FrontArt

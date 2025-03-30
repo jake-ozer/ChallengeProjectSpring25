@@ -18,6 +18,11 @@ public class PlayerHealth : MonoBehaviour
         regenTimeStart = healthRegenTime;
     }
 
+    public bool IsAtMaxHealth()
+    {
+        return (health == maxHealth) ? true : false;
+    }
+
     public void TakeDamage(int damage)
     {
         //GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
@@ -34,6 +39,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void HealDamage(int healing)
+    {
+        health = Mathf.Clamp(health + healing, 0, maxHealth);
+        healthBar.SetHealth(health);
+    }
 
     private void Update()
     {
