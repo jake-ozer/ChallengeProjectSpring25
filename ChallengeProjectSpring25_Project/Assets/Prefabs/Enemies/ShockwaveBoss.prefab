@@ -839,7 +839,7 @@ MonoBehaviour:
   timer: 3
   projectile: {fileID: 637785112333867961}
   projSpawn: {fileID: 4314312916756589890}
-  projSpeed: 25
+  projSpeed: 20
   anim: {fileID: 3097874528086980428}
   attackDuration: 1.5
   waitBeforeAttack: 1.5

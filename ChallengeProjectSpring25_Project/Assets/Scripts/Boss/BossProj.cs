@@ -59,6 +59,7 @@ public class BossProj : MonoBehaviour
     {
 
         //signal to player that attack is coming
+        anim.SetBool("CurrentlyInAttack", true);
         anim.SetTrigger("Windup");
         GetComponent<NavMeshAgent>().enabled = false;
         yield return new WaitForSeconds(waitBeforeAttack);
@@ -68,13 +69,15 @@ public class BossProj : MonoBehaviour
 
         //Since player position may be a little high, set it -1 in y axis.
         Vector3 playerPos = player.transform.Find("PlayerCamera").position;
-        playerPos.y += -2;
+        playerPos.y += -0.25f;
         transform.LookAt(playerPos);
 
-        GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, projSpawn.transform.rotation) as GameObject;
+        Vector3 dirToPlayer = (playerPos - projSpawn.transform.position);
+        GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, Quaternion.LookRotation(dirToPlayer.normalized)) as GameObject;
         bossProjectile.SetActive(true);
-        Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
-        Vector3 dirToPlayer = (playerPos - transform.position).normalized;
+        //Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
+        //bossProjectile.GetComponent<ProjLogic>().dir = dirToPlayer;
+        bossProjectile.GetComponent<ProjLogic>().speed = projSpeed;
         //bossProjRigid.AddForce(dirToPlayer * projSpeed, ForceMode.Impulse);
 
         Destroy(bossProjectile, 5f);
@@ -84,15 +87,16 @@ public class BossProj : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         //clean up
         anim.SetTrigger("Idle");
+        Debug.Log("idle called");
 
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
+        anim.SetBool("CurrentlyInAttack", false);
 
 
 
 
 
 
-       
     }
 }

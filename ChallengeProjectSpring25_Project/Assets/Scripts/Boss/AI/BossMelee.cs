@@ -39,6 +39,7 @@ public class BossMelee : MonoBehaviour
     private IEnumerator MeleeAttackSequence()
     {
         //signal to player that attack is coming
+        anim.SetBool("CurrentlyInAttack", true);
         anim.SetTrigger("Windup");
         GetComponent<NavMeshAgent>().enabled = false;
         yield return new WaitForSeconds(waitBeforeAttack);
@@ -50,9 +51,11 @@ public class BossMelee : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         //clean up
         anim.SetTrigger("Idle");
+        Debug.Log("idle called");
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
+        anim.SetBool("CurrentlyInAttack", false);
     }
 }
