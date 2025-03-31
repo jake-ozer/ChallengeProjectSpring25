@@ -12,6 +12,12 @@ public class PlayerAttack : MonoBehaviour
     private float timer;
     private bool attacking;
     private GameObject currentAttackTarget;
+    private PlayerTether tether;
+
+    private void Start()
+    {
+        tether = GetComponent<PlayerTether>();
+    }
 
     private void Update()
     {
@@ -41,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
                 if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
                 {
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                    tether.RegisterHit();
                 }
                 else if (hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
                 {

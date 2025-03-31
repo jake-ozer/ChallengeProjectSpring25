@@ -32,8 +32,8 @@ public class PlayerTether : MonoBehaviour
 
         Vector3 dist = transform.position + pos - tetherObject.transform.position;
         
-        Debug.Log(Vector3.Dot(dist, dist));
-        Debug.Log(TetherRadius * TetherRadius);
+        //Debug.Log(Vector3.Dot(dist, dist));
+        //Debug.Log(TetherRadius * TetherRadius);
         
         if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius) return true;
         return false;
@@ -44,7 +44,7 @@ public class PlayerTether : MonoBehaviour
         if (tetherObject) return;
         if (timer-- > 0) return;
 
-        foreach (var obj in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach (var obj in FindFirstObjectByType<BossHealth>().gameObject)
         {
             Vector3 dist = transform.position - obj.transform.position;
             if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius)

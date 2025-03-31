@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 648031870317242911}
   - component: {fileID: 4456755544838854916}
   - component: {fileID: 8036307042797430930}
+  - component: {fileID: 6128535677700202111}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -452,6 +453,7 @@ MonoBehaviour:
   gravity: -15
   playerLockOn: {fileID: 6810953212304102076}
   input: {fileID: 6754280734359224001}
+  tether: {fileID: 6128535677700202111}
   grounded: 0
   coyoteTime: 0.1
 --- !u!114 &8470057529467177397
@@ -546,6 +548,24 @@ MonoBehaviour:
   meteorLayer:
     serializedVersion: 2
     m_Bits: 2049
+--- !u!114 &6128535677700202111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251563239661226610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a6ea8df09bcfc4080a03df67660c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TetherRadius: 20
+  requiredHitsToUntether: 2
+  coolDown: 5
+  TetherMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1893732078086451200
 GameObject:
   m_ObjectHideFlags: 0
