@@ -18,7 +18,7 @@ public class MeteorIndicator : MonoBehaviour
         Ray meteorDetect = new Ray(transform.position + Vector3.up * 0.5f, Vector3.up); //0.5 is the offset
         if(Physics.Raycast(meteorDetect, out hit, 100, meteorLayer))//100 is the height.
         {
-            Debug.Log("test good!!!!");
+            //Debug.Log("test good!!!!");
             meteorText.SetActive(true);
         } else
         {

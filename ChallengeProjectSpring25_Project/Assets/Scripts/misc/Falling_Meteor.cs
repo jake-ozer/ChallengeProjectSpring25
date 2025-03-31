@@ -8,8 +8,8 @@ public class Falling_Meteor : MonoBehaviour
     [SerializeField] private int y;
     [SerializeField] private int z1;
     [SerializeField] private int z2;
-    [SerializeField] private int timer;
-    private int timerCap;
+    [SerializeField] private float timer;
+    private float timerCap;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,22 +19,20 @@ public class Falling_Meteor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer == 0)
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
         {
-        RandomMeteorSpawn();
-        timer = timerCap;
+            RandomMeteorSpawn();
+            timer = timerCap;
         }
-        else
-        {
-            timer--;
-        } 
     }
 
     void RandomMeteorSpawn()
     {
         Vector3 randomSpawnPosition = new Vector3(Random.Range(x1,x2), y, Random.Range(z1,z2));
-        Instantiate(Meteor, randomSpawnPosition, Quaternion.identity);
-        
+        var meteor = Instantiate(Meteor, randomSpawnPosition, Quaternion.identity);
+        Destroy(meteor, 10f);
     }
 
 
