@@ -43,8 +43,9 @@ public class PlayerDodge : MonoBehaviour
             }
             moveDirection = Vector3.zero;
             moveDirection = (transform.right * move.x + transform.forward * move.y).normalized;
+            
             startPosition = controller.transform.position;
-
+            Debug.Log("start pos : " + startPosition);
             endPosition = startPosition + (moveDirection * dodgeRange);
             elapsedTime = 0;
         }

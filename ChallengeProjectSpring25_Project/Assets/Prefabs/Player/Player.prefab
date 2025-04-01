@@ -562,10 +562,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TetherRadius: 20
   requiredHitsToUntether: 2
-  coolDown: 5
+  coolDown: 15
   TetherMask:
     serializedVersion: 2
     m_Bits: 0
+  origCircleMaterial: {fileID: 2100000, guid: a024dce5934d5fc44bfcac2849d3941a, type: 2}
+  activeCircleMaterial: {fileID: 2100000, guid: ad4ec32f8b94c2d4cb7194387bbd5069, type: 2}
 --- !u!1 &1893732078086451200
 GameObject:
   m_ObjectHideFlags: 0

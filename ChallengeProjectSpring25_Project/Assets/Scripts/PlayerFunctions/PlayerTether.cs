@@ -7,22 +7,36 @@ public class PlayerTether : MonoBehaviour
 {
     public float TetherRadius = 20f;
     public int requiredHitsToUntether = 2;
-    public int coolDown = 5;
+    public float coolDown = 5;
     [SerializeField] public LayerMask TetherMask;
 
     private GameObject tetherObject = null;
     private int numHitsTilUntether;
-    private int timer;
+    private float timer;
+
+    public Material origCircleMaterial;
+    public Material activeCircleMaterial;
+
+    private bool onCooldown;
+
+    private void Start()
+    {
+        numHitsTilUntether = requiredHitsToUntether;
+        timer = coolDown;
+    }
 
     public void RegisterHit()
     {
-        Debug.Log("hit registered");
+        //Debug.Log("hit registered");
         if (!tetherObject) return;
-        if (--numHitsTilUntether >= 0)
+        numHitsTilUntether--;
+        if (numHitsTilUntether <= 0)
         {
             tetherObject = null;
-            numHitsTilUntether = coolDown;
-            Debug.Log("Untethered");
+            //numHitsTilUntether = coolDown;
+            onCooldown = true;
+            //Debug.Log("Untethered");
+            numHitsTilUntether = requiredHitsToUntether;
         }
     }
 
@@ -32,7 +46,7 @@ public class PlayerTether : MonoBehaviour
 
         Vector3 dist = transform.position + pos - tetherObject.transform.position;
         
-        //Debug.Log(Vector3.Dot(dist, dist));
+        //Debug.Log(dist);
         //Debug.Log(TetherRadius * TetherRadius);
         
         if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius) return true;
@@ -41,17 +55,47 @@ public class PlayerTether : MonoBehaviour
 
     private void Update()
     {
-        if (tetherObject) return;
-        if (timer-- > 0) return;
-
-        foreach (var obj in FindFirstObjectByType<BossHealth>().gameObject)
+        if (onCooldown)
         {
-            Vector3 dist = transform.position - obj.transform.position;
-            if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                tetherObject = obj;
-                Debug.Log("Tethered");
+                onCooldown = false;
+                timer = coolDown;
             }
         }
+
+        if (tetherObject) return;
+
+        /*        foreach (var obj in FindFirstObjectByType<BossHealth>().gameObject)
+                {
+
+                }*/
+
+        var obj = FindFirstObjectByType<BossHealth>().gameObject;
+
+        Vector3 dist = transform.position - obj.transform.position;
+        if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius && !onCooldown)
+        {
+            tetherObject = obj;
+            //Debug.Log("Tethered");
+        }
+
+
+        //LOGIC FOR VISUAL INDICATORS
+        var tetherCircleIndicator = obj.transform.Find("TetherCircleIndicator").gameObject;
+        tetherCircleIndicator.transform.localScale = new Vector3(TetherRadius, tetherCircleIndicator.transform.localScale.y, TetherRadius);
+        if (tetherObject == null)
+        {
+            tetherCircleIndicator.GetComponent<MeshRenderer>().material = origCircleMaterial;
+            //tetherCircleIndicator.SetActive(true);
+        }
+        else {
+            //tetherCircleIndicator.SetActive(false);
+            tetherCircleIndicator.GetComponent<MeshRenderer>().material = activeCircleMaterial;
+        }
+
+
+
     }
 }
