@@ -824,6 +824,7 @@ MonoBehaviour:
   shockSpeed: 0.5
   shockHeight: 1
   shockwaveObj: {fileID: 1736855711936396773}
+  shockwaveSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
 --- !u!114 &1165719264670401657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +844,7 @@ MonoBehaviour:
   anim: {fileID: 3097874528086980428}
   attackDuration: 1.5
   waitBeforeAttack: 1.5
+  shootSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
 --- !u!95 &3097874528086980428 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 458760383111887219, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}

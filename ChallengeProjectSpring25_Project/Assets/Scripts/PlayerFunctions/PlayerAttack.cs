@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
     private GameObject currentAttackTarget;
     private PlayerTether tether;
 
+    public AudioClip swingSound;
+    public AudioClip hitSound;
+
     private void Start()
     {
         tether = GetComponent<PlayerTether>();
@@ -26,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
         //hit enemy
         if (input.actions["Attack"].triggered && timer <= 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(swingSound);
             timer = attackCooldown;
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("swordattack"))
             {
@@ -44,6 +48,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
             {
+                GetComponent<AudioSource>().PlayOneShot(hitSound);
+
                 if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
                 {
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);

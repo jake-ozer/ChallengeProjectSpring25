@@ -15,6 +15,7 @@ public class BossProj : MonoBehaviour
     private bool lookAtPlayer;
     [SerializeField] private float attackDuration;
     [SerializeField] private float waitBeforeAttack;
+    public AudioClip shootSound;
 
     void Start()
     {
@@ -79,6 +80,7 @@ public class BossProj : MonoBehaviour
         //bossProjectile.GetComponent<ProjLogic>().dir = dirToPlayer;
         bossProjectile.GetComponent<ProjLogic>().speed = projSpeed;
         //bossProjRigid.AddForce(dirToPlayer * projSpeed, ForceMode.Impulse);
+        GetComponent<AudioSource>().PlayOneShot(shootSound);
 
         Destroy(bossProjectile, 5f);
 

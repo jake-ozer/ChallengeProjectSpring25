@@ -319,12 +319,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2758844995152503761, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4990166243847819320}
+    - targetCorrespondingSourceObject: {fileID: 6544284788573230720, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155209378478197131}
   m_SourcePrefab: {fileID: 100100000, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
 --- !u!4 &1367175935108286801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
   m_PrefabInstance: {fileID: 4669142926160540679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1881898363917820551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6544284788573230720, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+  m_PrefabInstance: {fileID: 4669142926160540679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155209378478197131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881898363917820551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f3af8b72bdcbd42bc699a94d2655d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bm: {fileID: 4990166243847819320}
 --- !u!95 &5085119110387617140 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 458760383111887219, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
@@ -351,6 +372,7 @@ MonoBehaviour:
   spawnLoc: {fileID: 2199735901753002434}
   spawnCount: 3
   spawnTime: 9
+  spawnSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
 --- !u!114 &4990166243847819320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,3 +391,5 @@ MonoBehaviour:
   waitBeforeAttack: 1.33
   attackColliderObj: {fileID: 3458701105269578453}
   anim: {fileID: 5085119110387617140}
+  windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}
+  attackSound: {fileID: 8300000, guid: fcb620e8dce9ccb449210926666a4524, type: 3}

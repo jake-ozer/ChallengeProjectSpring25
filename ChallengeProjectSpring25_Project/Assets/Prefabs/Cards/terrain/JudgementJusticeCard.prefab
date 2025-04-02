@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: cardType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardDescription
+      value: In this world, there is no amnesty. Only Judgement and Justice.
+      objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
       value: 

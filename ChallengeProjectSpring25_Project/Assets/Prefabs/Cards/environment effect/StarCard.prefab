@@ -74,7 +74,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: cardDescription
-      value: '"And the gods said, ''may hellfire rain down from the stars''"'
+      value: "In the night sky, the Star cries tears of stone, mourning an eternal
+        loss\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite

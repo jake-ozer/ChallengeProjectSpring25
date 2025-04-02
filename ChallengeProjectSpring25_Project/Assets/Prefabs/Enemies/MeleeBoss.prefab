@@ -358,6 +358,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5587569628338324732, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1434664912224585338}
+    - targetCorrespondingSourceObject: {fileID: 6544284788573230720, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7060722079447850186}
   m_SourcePrefab: {fileID: 100100000, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
 --- !u!4 &2318651821115717680 stripped
 Transform:
@@ -369,6 +372,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5880057322144140346, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
   m_PrefabInstance: {fileID: 8221477318358336870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2939010353277195238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6544284788573230720, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+  m_PrefabInstance: {fileID: 8221477318358336870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7060722079447850186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939010353277195238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f3af8b72bdcbd42bc699a94d2655d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bm: {fileID: 3429130999237540698}
 --- !u!1 &4581153640700445082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5587569628338324732, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
@@ -424,6 +445,8 @@ MonoBehaviour:
   waitBeforeAttack: 1
   attackColliderObj: {fileID: 622241106410103985}
   anim: {fileID: 8378197431351376917}
+  windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}
+  attackSound: {fileID: 8300000, guid: fcb620e8dce9ccb449210926666a4524, type: 3}
 --- !u!95 &8378197431351376917 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 458760383111887219, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}

@@ -72,30 +72,41 @@ public class PlayerTether : MonoBehaviour
 
                 }*/
 
-        var obj = FindFirstObjectByType<BossHealth>().gameObject;
-
-        Vector3 dist = transform.position - obj.transform.position;
-        if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius && !onCooldown)
+        GameObject obj = null;
+        if (FindFirstObjectByType<BossHealth>() != null)
         {
-            tetherObject = obj;
-            //Debug.Log("Tethered");
+
+            obj = FindFirstObjectByType<BossHealth>().gameObject;
+
+
+            Vector3 dist = transform.position - obj.transform.position;
+            if (Vector3.Dot(dist, dist) <= TetherRadius * TetherRadius && !onCooldown)
+            {
+                tetherObject = obj;
+                //Debug.Log("Tethered");
+            }
+
+
+            //LOGIC FOR VISUAL INDICATORS
+            var tetherCircleIndicator = obj.transform.Find("TetherCircleIndicator").gameObject;
+            tetherCircleIndicator.transform.localScale = new Vector3(TetherRadius, tetherCircleIndicator.transform.localScale.y, TetherRadius);
+            if (tetherObject == null)
+            {
+                tetherCircleIndicator.GetComponent<MeshRenderer>().material = origCircleMaterial;
+                //tetherCircleIndicator.SetActive(true);
+            }
+            else
+            {
+                //tetherCircleIndicator.SetActive(false);
+                tetherCircleIndicator.GetComponent<MeshRenderer>().material = activeCircleMaterial;
+            }
+
         }
 
+    }
 
-        //LOGIC FOR VISUAL INDICATORS
-        var tetherCircleIndicator = obj.transform.Find("TetherCircleIndicator").gameObject;
-        tetherCircleIndicator.transform.localScale = new Vector3(TetherRadius, tetherCircleIndicator.transform.localScale.y, TetherRadius);
-        if (tetherObject == null)
-        {
-            tetherCircleIndicator.GetComponent<MeshRenderer>().material = origCircleMaterial;
-            //tetherCircleIndicator.SetActive(true);
-        }
-        else {
-            //tetherCircleIndicator.SetActive(false);
-            tetherCircleIndicator.GetComponent<MeshRenderer>().material = activeCircleMaterial;
-        }
-
-
-
+    public bool IsTethered()
+    {
+        return (tetherObject != null);
     }
 }
