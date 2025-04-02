@@ -243,7 +243,7 @@
                     "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=5.35,y=5)",
                     "groups": ";Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -274,7 +274,7 @@
                 {
                     "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -494,7 +494,7 @@
                 {
                     "name": "",
                     "id": "d113bb55-a9b8-4754-becd-c6cac562ec11",
-                    "path": "",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -515,8 +515,8 @@
                 },
                 {
                     "name": "",
-                    "id": "6e536b0b-d4e3-40c4-b301-1d357adb4831",
-                    "path": "",
+                    "id": "35f676f9-93ad-4229-8e48-32822e60f2ac",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -526,8 +526,8 @@
                 },
                 {
                     "name": "",
-                    "id": "35f676f9-93ad-4229-8e48-32822e60f2ac",
-                    "path": "<Mouse>/leftButton",
+                    "id": "b25bbfa8-6b7a-48aa-8b6f-9162598c8091",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -554,7 +554,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "7607c7b6-cd76-4816-beef-bd0341cfe950",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

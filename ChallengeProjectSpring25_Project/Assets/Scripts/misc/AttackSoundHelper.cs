@@ -6,6 +6,15 @@ public class AttackSoundHelper : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        bm.PlayAttackSound();
+        if(bm != null)
+        {
+            bm.PlayAttackSound();
+        }
+        
+    }
+
+    public void DoNothing()
+    {
+        //do nothing
     }
 }

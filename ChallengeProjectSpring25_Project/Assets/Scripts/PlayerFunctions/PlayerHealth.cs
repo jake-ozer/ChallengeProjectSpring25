@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("player is dead ;(");
-            //additional logic will go here when player dies
+            Destroy(gameObject);
         }
     }
 
