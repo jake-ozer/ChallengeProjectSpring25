@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
+        GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
 
         health -= damage;
         healthBar.SetHealth(health);

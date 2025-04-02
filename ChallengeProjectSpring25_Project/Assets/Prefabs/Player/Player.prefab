@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 112563605798942721}
   health: 120
-  takeDamageSFX: {fileID: 0}
+  takeDamageSFX: {fileID: 8300000, guid: 4c6e0bdfd2cac7c458c72ff3bb4cbc90, type: 3}
   healthRegenTime: 0
   regenSpeed: 0
 --- !u!114 &648031870317242911
