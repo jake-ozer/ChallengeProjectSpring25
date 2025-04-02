@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -18,7 +19,10 @@ public class PlayerDodge : MonoBehaviour
     [SerializeField] private AnimationCurve interpCurve;
     [SerializeField] private float dodgeRange = 10f;
     [SerializeField] private float dodgeDuration = 1f;
-    
+    public PlayerTether playerTether;
+    private float endPercent;
+    public AudioClip dodgeSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,13 +31,13 @@ public class PlayerDodge : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
         if (input.actions["Sprint"].triggered && !isDodging && playerMovement.grounded)
         {
-            //Debug.Log("Dodging");
+            GetComponent<AudioSource>().PlayOneShot(dodgeSound);
             playerMovement.enabled = false;
             isDodging = true;
             move = input.actions["Move"].ReadValue<Vector2>();
@@ -43,29 +47,46 @@ public class PlayerDodge : MonoBehaviour
             }
             moveDirection = Vector3.zero;
             moveDirection = (transform.right * move.x + transform.forward * move.y).normalized;
+            
             startPosition = controller.transform.position;
-
+            //Debug.Log("start pos : " + startPosition);
             endPosition = startPosition + (moveDirection * dodgeRange);
             elapsedTime = 0;
+
+
+            //---
+
+            if (playerTether.IsTethered())
+            {
+                var shortenedVecMag = playerTether.TetherRadius - Vector3.Distance(startPosition, FindFirstObjectByType<BossHealth>().gameObject.transform.position);
+                var shortenedVec = startPosition + (moveDirection * shortenedVecMag);
+                endPosition = shortenedVec;
+            }
+
+
+
+            //---
+            endPercent = 1f;
+
+           
         }
 
-        //apply gravity
-        //playerVel.y += gravity * Time.deltaTime;
-        //controller.Move(playerVel * Time.deltaTime);
 
         if (isDodging)
         {
+            //Debug.Log("Dodging");
             elapsedTime += Time.deltaTime;
             float percentComplete = elapsedTime / dodgeDuration;
 
+
+
             controller.Move(Vector3.Lerp(startPosition, endPosition, interpCurve.Evaluate(percentComplete)) - controller.transform.position);
 
-            if (percentComplete >= 1)
+            if (percentComplete >= endPercent)
             {
                 playerMovement.enabled = true;
                 isDodging = false;
             }
-
         }
 
 

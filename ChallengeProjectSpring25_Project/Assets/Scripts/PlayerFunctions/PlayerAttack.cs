@@ -12,45 +12,65 @@ public class PlayerAttack : MonoBehaviour
     private float timer;
     private bool attacking;
     private GameObject currentAttackTarget;
+    private PlayerTether tether;
+
+    public AudioClip swingSound;
+    public AudioClip hitSound;
+
+    private void Start()
+    {
+        tether = GetComponent<PlayerTether>();
+    }
 
     private void Update()
     {
         timer -= Time.deltaTime;
 
-        if(input.actions["Attack"].triggered && timer <= 0)
+        //hit enemy
+        if (input.actions["Attack"].triggered && timer <= 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(swingSound);
             timer = attackCooldown;
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("swordattack"))
             {
                 animator.SetTrigger("reset");
             }
             animator.SetTrigger("attack");
-
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
-            {
-                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
-                {
-                    //Debug.Log("enemy hit");
-                    //hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
-                    attacking = true;
-                    currentAttackTarget = hitinfo.collider.gameObject;
-                }
-            }
-            else
-            {
-                attacking = false;
-            }
         }
 
-        Debug.DrawRay(transform.position, transform.forward * attackRange, Color.yellow);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * attackRange, Color.yellow);
     }
 
     //used by animation event from sword anim to detect when player is at climax of swing
     public void PlayerAttackSignaled()
     {
-        if (attacking)
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
         {
-            currentAttackTarget.GetComponent<BossHealth>().TakeDamage(playerDmg);
+            if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
+            {
+                GetComponent<AudioSource>().PlayOneShot(hitSound);
+
+                if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
+                {
+                    hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                    tether.RegisterHit();
+                }
+                else if (hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
+                {
+                    Destroy(hitinfo.collider.gameObject);
+                }
+            }
         }
+    }
+
+    public int GetDamage()
+    {
+        return playerDmg;
+    }
+
+    public void SetDamage(int damage)
+    {
+        Debug.Log("Change damage to: " + damage);
+        playerDmg = damage;
     }
 }
