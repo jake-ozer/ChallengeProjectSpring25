@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
+        GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
 
         health -= damage;
         healthBar.SetHealth(health);
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("player is dead ;(");
-            //additional logic will go here when player dies
+            Destroy(gameObject);
         }
     }
 
