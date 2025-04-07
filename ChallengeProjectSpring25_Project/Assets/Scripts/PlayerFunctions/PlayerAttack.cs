@@ -16,10 +16,13 @@ public class PlayerAttack : MonoBehaviour
 
     public AudioClip swingSound;
     public AudioClip hitSound;
+    public float attackStaminaCost;
+    private PlayerStamina playerStam;
 
     private void Start()
     {
         tether = GetComponent<PlayerTether>();
+        playerStam = GetComponent<PlayerStamina>();
     }
 
     private void Update()
@@ -27,8 +30,9 @@ public class PlayerAttack : MonoBehaviour
         timer -= Time.deltaTime;
 
         //hit enemy
-        if (input.actions["Attack"].triggered && timer <= 0)
+        if (input.actions["Attack"].triggered && timer <= 0 && playerStam.HasEnoughStamina(attackStaminaCost))
         {
+            playerStam.ConsumeStam(attackStaminaCost);
             GetComponent<AudioSource>().PlayOneShot(swingSound);
             timer = attackCooldown;
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("swordattack"))

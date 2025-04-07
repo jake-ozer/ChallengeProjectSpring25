@@ -18,11 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     public float coyoteTime;
     private float coyoteTimer;
-    
+
+    public float jumpStaminaCost;
+    private PlayerStamina playerStam;
+    public AudioClip jumpSound;
+
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        playerStam = GetComponent<PlayerStamina>();
     }
 
     private void Update()
@@ -68,8 +73,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if ((grounded || coyoteTimer > 0) && input.actions["Jump"].triggered)
+        if ((grounded || coyoteTimer > 0) && input.actions["Jump"].triggered && playerStam.HasEnoughStamina(jumpStaminaCost))
         {
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            playerStam.ConsumeStam(jumpStaminaCost);
             playerVel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 

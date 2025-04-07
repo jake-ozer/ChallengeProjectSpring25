@@ -22,21 +22,25 @@ public class PlayerDodge : MonoBehaviour
     public PlayerTether playerTether;
     private float endPercent;
     public AudioClip dodgeSound;
+    private PlayerStamina playerStam;
+    public float dodgeStaminaCost;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
-        
+        playerStam = GetComponent<PlayerStamina>();
     }
 
     
     void Update()
     {
         
-        if (input.actions["Sprint"].triggered && !isDodging && playerMovement.grounded)
+        if (input.actions["Sprint"].triggered && !isDodging && playerMovement.grounded && playerStam.HasEnoughStamina(dodgeStaminaCost))
         {
+            playerStam.ConsumeStam(dodgeStaminaCost);
+
             GetComponent<AudioSource>().PlayOneShot(dodgeSound);
             playerMovement.enabled = false;
             isDodging = true;

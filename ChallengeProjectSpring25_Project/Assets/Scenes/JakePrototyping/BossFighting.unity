@@ -5278,6 +5278,14 @@ PrefabInstance:
       propertyPath: m_projectionMatrixMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2685743826935184753, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685743826935184753, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4095652673084860359, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5328,6 +5336,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588036570039984861, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047275044756232377, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047275044756232377, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
