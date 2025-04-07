@@ -277,11 +277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: health
-      value: 275
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4717475769786999290, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_Speed
-      value: 6.13
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 4717475769786999290, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_Acceleration
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 5
-  attackCooldown: 3.19
+  attackCooldown: 2.54
   attackDuration: 1.5
-  waitBeforeAttack: 0.7
+  waitBeforeAttack: 1
   attackColliderObj: {fileID: 622241106410103985}
   anim: {fileID: 8378197431351376917}
   windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}

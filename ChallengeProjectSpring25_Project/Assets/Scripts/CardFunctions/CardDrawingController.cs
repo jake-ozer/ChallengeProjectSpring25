@@ -28,11 +28,6 @@ public class CardDrawingController : MonoBehaviour
 
     private void Update()
     {
-        if (input.actions["ForwardCard"].triggered)
-        {
-            //Debug.Log("forward input working");
-        }
-
         //remove card from observation when player is done looking at it
         if (input.actions["ForwardCard"].triggered && curCardShown && canSpawnCardObj)
         {

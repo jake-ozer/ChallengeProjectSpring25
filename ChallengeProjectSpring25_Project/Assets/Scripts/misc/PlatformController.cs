@@ -58,7 +58,7 @@ public class PlatformController : MonoBehaviour
     //this is a state changer method, will not be called every frame
     public void SetPlatformChange(GameObject platform, float speedDir)
     {
-        //Debug.Log(platform.name);
+        Debug.Log(platform.name);
         if (platform == platform1)
         {
             onPlat1 = true;

@@ -101,6 +101,4 @@ public class BossProj : MonoBehaviour
 
 
     }
-
-
 }
