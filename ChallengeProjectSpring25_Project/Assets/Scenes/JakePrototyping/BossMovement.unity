@@ -5125,6 +5125,10 @@ PrefabInstance:
       propertyPath: m_projectionMatrixMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3550062583859325345, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4095652673084860359, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
