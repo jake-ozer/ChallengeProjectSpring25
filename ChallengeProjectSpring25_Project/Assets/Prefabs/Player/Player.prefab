@@ -498,13 +498,13 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  tutorialLayer:
-    serializedVersion: 2
-    m_Bits: 0
   playerDmg: 12
   swingSound: {fileID: 8300000, guid: 1725f5e78a7ce5b4696690d04f7cd4c1, type: 3}
   hitSound: {fileID: 8300000, guid: 6af576a2bbc6e874badbb4700a90c9c9, type: 3}
   attackStaminaCost: 5
+  tutorialWallLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!114 &4456755544838854916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 6903
+    m_Bits: 15095
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

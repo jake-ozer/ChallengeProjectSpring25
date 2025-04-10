@@ -8,7 +8,6 @@ public class PlayerAttack : MonoBehaviour
     public float attackCooldown;
     public Animator animator;
     public LayerMask enemyLayer;
-    public LayerMask tutorialLayer;
     public int playerDmg;
     private float timer;
     private bool attacking;
@@ -19,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     public AudioClip hitSound;
     public float attackStaminaCost;
     private PlayerStamina playerStam;
+    public LayerMask tutorialWallLayer;
 
     private void Start()
     {
@@ -49,14 +49,13 @@ public class PlayerAttack : MonoBehaviour
     //used by animation event from sword anim to detect when player is at climax of swing
     public void PlayerAttackSignaled()
     {
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit tutorialInfo,attackRange,tutorialLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinf, attackRange, tutorialWallLayer))
         {
-            if (tutorialInfo.collider.gameObject.activeSelf== true)
-            {
-                tutorialInfo.collider.gameObject.SetActive(false);
-            }
+           // Debug.Log("eeee");
+            Destroy(hitinf.collider.gameObject);
         }
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
         {
             if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
             {
