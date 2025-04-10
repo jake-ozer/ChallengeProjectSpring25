@@ -501,7 +501,7 @@ MonoBehaviour:
   playerDmg: 12
   swingSound: {fileID: 8300000, guid: 1725f5e78a7ce5b4696690d04f7cd4c1, type: 3}
   hitSound: {fileID: 8300000, guid: 6af576a2bbc6e874badbb4700a90c9c9, type: 3}
-  attackStaminaCost: 10
+  attackStaminaCost: 5
 --- !u!114 &4456755544838854916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stamBar: {fileID: 6500296837857701941}
   totalStamina: 80
-  regenSpeed: 10
-  stamRegenTime: 2
+  regenSpeed: 13
+  stamRegenTime: 1
   noStaminaSound: {fileID: 8300000, guid: 28f00fdaea0b3dc4ea6ed4d9aebfa66d, type: 3}
   noStamIcon: {fileID: 4361545224850436823}
 --- !u!1 &1616294767324607327
