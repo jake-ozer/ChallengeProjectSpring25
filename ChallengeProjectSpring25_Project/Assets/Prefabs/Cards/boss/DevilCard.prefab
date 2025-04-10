@@ -64,10 +64,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardName
+      value: The Devil
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardDescription
+      value: "No one is said to have fought with the devil and prevailed\u2026"
+      objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 37ffeb07f0b58e242a1745bedced2e4e, type: 3}
+      objectReference: {fileID: 21300000, guid: e33180a645c2ddb40a9ddf48e9a92bb4, type: 3}
     - target: {fileID: 1963667620591595580, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -78,6 +86,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212005047929441240, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: effect
+      value: 
+      objectReference: {fileID: 6075897854143227575, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
+    - target: {fileID: 8212005047929441240, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardObj
       value: 
       objectReference: {fileID: 6075897854143227575, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
     - target: {fileID: 8459838927576558717, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
