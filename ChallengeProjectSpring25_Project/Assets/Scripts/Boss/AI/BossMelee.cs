@@ -57,7 +57,7 @@ public class BossMelee : MonoBehaviour
         
         //clean up
         anim.SetTrigger("Idle");
-        Debug.Log("idle called");
+        //Debug.Log("idle called");
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
         //attackColliderObj.SetActive(false);

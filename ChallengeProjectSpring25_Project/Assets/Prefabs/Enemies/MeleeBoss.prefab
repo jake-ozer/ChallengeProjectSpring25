@@ -123,6 +123,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   attacking: 0
+--- !u!1 &7010260877591811457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981414732865956973}
+  - component: {fileID: 2543476738450475902}
+  m_Layer: 0
+  m_Name: ButtCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981414732865956973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010260877591811457}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -1.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2318651821115717680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2543476738450475902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010260877591811457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24906e83ba25e44889327f30c1518f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 243.6
+  radius: 4.86
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &1171968061671632664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -345,6 +394,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4112159345412911188}
+    - targetCorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 981414732865956973}
     - targetCorrespondingSourceObject: {fileID: 4580725557758965521, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1713922862952679667}
@@ -441,8 +493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 5
   attackCooldown: 2.54
-  attackDuration: 1.5
-  waitBeforeAttack: 1
+  attackDuration: 1.1
+  waitBeforeAttack: 0.6
   attackColliderObj: {fileID: 622241106410103985}
   anim: {fileID: 8378197431351376917}
   windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}
