@@ -12,11 +12,11 @@ public class BossButtCheckAttack : MonoBehaviour
     {
         if (doButtCheck)
         {
-            ButtViewCheck();
+            //ButtViewCheck();
         }
     }
 
-    private void ButtViewCheck()
+    public void ButtViewCheck()
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
@@ -31,6 +31,11 @@ public class BossButtCheckAttack : MonoBehaviour
                 Debug.Log("butt check attack");
             }
         }
+    }
+
+    private void WhirlAttack()
+    {
+
     }
 
     private void OnDrawGizmos()
