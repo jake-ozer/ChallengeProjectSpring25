@@ -26225,7 +26225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3655680010448715899, guid: 9aeb0fb2a51821d4c936f1c3cd9513e5, type: 3}
       propertyPath: timer
-      value: 3.5
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 5112405537404668286, guid: 9aeb0fb2a51821d4c936f1c3cd9513e5, type: 3}
       propertyPath: m_LocalScale.x
