@@ -12,6 +12,7 @@ public class CardDrawingController : MonoBehaviour
     [SerializeField] private Transform cardSpawnTransform;
     [SerializeField] private PlayerInput input;
     public List<GameObject> possibleCards;
+    [SerializeField] private GameObject rockCard;
     [SerializeField] private NavMeshSurface navMeshSurface;
     [SerializeField] private PlayerMovement playerMovement;
     private GameObject curCardObj;
@@ -20,6 +21,7 @@ public class CardDrawingController : MonoBehaviour
     private bool canSpawnCardObj = true;
     public AudioClip cardRevealSound;
     private bool cardShownAnimOnce = true;
+    private int theRockChance = 1;
     
     private void Start()
     {
@@ -74,8 +76,16 @@ public class CardDrawingController : MonoBehaviour
             return;
         }
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
-
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
+        
+        if (type == Card.CardType.boss)
+        {
+            int rockGambling = Random.Range(0, 100);
+            if (rockGambling == theRockChance) {
+                cardObj = rockOverride();
+            }
+        }
+
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
     }
@@ -106,4 +116,9 @@ public class CardDrawingController : MonoBehaviour
         cardShownAnimOnce = true;
     }
    
+    public GameObject rockOverride()
+    {
+        return rockCard;
+    }
+
 }
