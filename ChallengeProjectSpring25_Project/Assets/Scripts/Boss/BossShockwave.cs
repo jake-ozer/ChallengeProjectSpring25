@@ -12,6 +12,7 @@ public class BossShockwave : MonoBehaviour
     [SerializeField] private GameObject shockwaveObj;
     private Vector3 initialObjVector;
     private bool shocking = false;
+    public AudioClip shockwaveSound;
     
     //Logic behind this script
     //Every 5/user defined seconds the boss will stop and a shockwave will spawn.
@@ -50,6 +51,8 @@ public class BossShockwave : MonoBehaviour
 
     private IEnumerator StartShockwave()
     {
+        GetComponent<AudioSource>().PlayOneShot(shockwaveSound);
+
         bossMovement.enabled = false;
         shockwaveObj.SetActive(true);
      
