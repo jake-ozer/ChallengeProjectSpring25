@@ -24,6 +24,7 @@ public class BossMelee : MonoBehaviour
         playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         cooldownTimer = 0;
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
+        attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
         //attackColliderObj.SetActive(false);
     }
 
@@ -50,9 +51,11 @@ public class BossMelee : MonoBehaviour
         yield return new WaitForSeconds(waitBeforeAttack);
         //attack
         anim.SetTrigger("Attack");
-        attackColliderObj.GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<AudioSource>().PlayOneShot(attackSound);
+        //attackColliderObj.GetComponent<MeshRenderer>().enabled = true;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = true;
-        
+        attackColliderObj.transform.GetChild(0).gameObject.SetActive(true);
+
         //attackColliderObj.SetActive(true);
         yield return new WaitForSeconds(attackDuration);
         
@@ -61,6 +64,7 @@ public class BossMelee : MonoBehaviour
         //Debug.Log("idle called");
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
+        attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
@@ -71,6 +75,6 @@ public class BossMelee : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        GetComponent<AudioSource>().PlayOneShot(attackSound);
+        //GetComponent<AudioSource>().PlayOneShot(attackSound);
     }
 }
