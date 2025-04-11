@@ -452,7 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0de65c301a34841b74b25da4239282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 8
+  useAcceleration: 0
+  accelerationMultiplier: 2
+  maxSpeedMultiplier: 1.5
+  deceleration: 15
   jumpHeight: 3
   gravity: -15
   playerLockOn: {fileID: 6810953212304102076}
@@ -476,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 112563605798942721}
   health: 100
-  takeDamageSFX: {fileID: 0}
+  takeDamageSFX: {fileID: 8300000, guid: 4c6e0bdfd2cac7c458c72ff3bb4cbc90, type: 3}
   healthRegenTime: 0
   regenSpeed: 0
 --- !u!114 &648031870317242911
@@ -542,7 +546,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dodgeRange: 6
+  dodgeRange: 7
   dodgeDuration: 0.3
   playerTether: {fileID: 6128535677700202111}
   dodgeSound: {fileID: 8300000, guid: 96cce74b38f9d61409cbc912985880fe, type: 3}
