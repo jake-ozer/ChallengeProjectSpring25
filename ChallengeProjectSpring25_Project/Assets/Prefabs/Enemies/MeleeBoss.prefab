@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2681869815435437749}
   - component: {fileID: 3512511486017846413}
   - component: {fileID: 4281848121097280888}
+  - component: {fileID: 3930470333303788473}
   m_Layer: 0
   m_Name: WhirlAttackCollider
   m_TagString: Untagged
@@ -233,6 +234,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3930470333303788473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996372340450160423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a58e0752729172449885b91a26b41a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &7010260877591811457
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +296,10 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 4096
+  attackDuration: 1.3
+  waitBeforeAttack: 0.8
+  buttAttackCollider: {fileID: 6996372340450160423}
+  navAgent: {fileID: 3706279116325299356}
 --- !u!1001 &1171968061671632664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,6 +573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bm: {fileID: 3429130999237540698}
+--- !u!195 &3706279116325299356 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 4717475769786999290, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+  m_PrefabInstance: {fileID: 8221477318358336870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4581153640700445082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5587569628338324732, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
@@ -612,6 +635,7 @@ MonoBehaviour:
   anim: {fileID: 8378197431351376917}
   windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}
   attackSound: {fileID: 8300000, guid: fcb620e8dce9ccb449210926666a4524, type: 3}
+  buttCheck: {fileID: 2543476738450475902}
 --- !u!95 &8378197431351376917 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 458760383111887219, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}

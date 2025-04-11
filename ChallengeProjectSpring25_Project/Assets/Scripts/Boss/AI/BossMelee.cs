@@ -17,6 +17,7 @@ public class BossMelee : MonoBehaviour
 
     public AudioClip windupSound;
     public AudioClip attackSound;
+    public BossButtCheckAttack buttCheck;
 
     private void Start()
     {
@@ -63,6 +64,9 @@ public class BossMelee : MonoBehaviour
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
+
+        //check the butt in case of player (then attack on its own logic)
+        buttCheck.ButtViewCheck();
     }
 
     public void PlayAttackSound()

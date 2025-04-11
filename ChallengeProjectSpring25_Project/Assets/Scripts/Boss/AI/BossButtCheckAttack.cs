@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossButtCheckAttack : MonoBehaviour
 {
@@ -7,6 +9,18 @@ public class BossButtCheckAttack : MonoBehaviour
     public LayerMask targetMask;
 
     private bool doButtCheck = true;
+
+    [SerializeField] private float attackDuration;
+    [SerializeField] private float waitBeforeAttack;
+
+    public GameObject buttAttackCollider;
+    public NavMeshAgent navAgent;
+
+
+    private void Start()
+    {
+        buttAttackCollider.SetActive(false);
+    }
 
     private void Update()
     {
@@ -29,13 +43,41 @@ public class BossButtCheckAttack : MonoBehaviour
             {
                 //butt sees player, initiate attack
                 Debug.Log("butt check attack");
+                StartCoroutine("WhirlAttack");
             }
         }
     }
 
-    private void WhirlAttack()
+    private IEnumerator WhirlAttack()
     {
+        //signal to player that attack is coming
+        //anim.SetBool("CurrentlyInAttack", true);
+        //anim.SetTrigger("Windup");
+        //GetComponent<AudioSource>().PlayOneShot(windupSound);
+        //GetComponent<NavMeshAgent>().enabled = false;
+        navAgent.enabled = false;
 
+        yield return new WaitForSeconds(waitBeforeAttack);
+        //attack
+        buttAttackCollider.SetActive(true);
+       
+        //anim.SetTrigger("Attack");
+        //attackColliderObj.GetComponent<MeshRenderer>().enabled = true;
+        //attackColliderObj.GetComponent<BossMeleeCollider>().attacking = true;
+
+        //attackColliderObj.SetActive(true);
+        yield return new WaitForSeconds(attackDuration);
+
+        //clean up
+        buttAttackCollider.SetActive(false);
+        navAgent.enabled = true;
+        //anim.SetTrigger("Idle");
+        //Debug.Log("idle called");
+        //attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
+        //attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
+        //attackColliderObj.SetActive(false);
+        //GetComponent<NavMeshAgent>().enabled = true;
+        //anim.SetBool("CurrentlyInAttack", false);
     }
 
     private void OnDrawGizmos()
