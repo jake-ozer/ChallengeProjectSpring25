@@ -9,7 +9,6 @@ public class BossMelee : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] private float attackDuration;
     [SerializeField] private float waitBeforeAttack;
-    [SerializeField] private float rotateSpeed = 5f; // NEW: rotation speed
     [SerializeField] private GameObject attackColliderObj;
     [SerializeField] private Animator anim;
 
@@ -20,6 +19,9 @@ public class BossMelee : MonoBehaviour
     public AudioClip windupSound;
     public AudioClip attackSound;
     public BossButtCheckAttack buttCheck;
+
+    private bool bossLockedOn;
+    public float lockOnSpeed;
 
     private void Start()
     {
@@ -40,30 +42,30 @@ public class BossMelee : MonoBehaviour
             StartCoroutine("MeleeAttackSequence");
             cooldownTimer = attackCooldown;
         }
+
+        if (bossLockedOn)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(dirToPlayer);
+            Vector3 targetEuler = targetRotation.eulerAngles;
+            targetEuler.x = 0;
+            targetEuler.z = 0;
+            targetRotation = Quaternion.Euler(targetEuler);
+           // Debug.Log(targetRotation.eulerAngles);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lockOnSpeed);
+        }
     }
 
     private IEnumerator MeleeAttackSequence()
     {
+        bossLockedOn = true;
+
         anim.SetBool("CurrentlyInAttack", true);
         anim.SetTrigger("Windup");
         GetComponent<AudioSource>().PlayOneShot(windupSound);
         GetComponent<NavMeshAgent>().enabled = false;
 
         // Rotate toward player during windup phase
-        float timer = 0f;
-        while (timer < waitBeforeAttack)
-        {
-            Vector3 targetDir = (playerTransform.position - transform.position).normalized;
-            targetDir.y = 0; // prevent vertical tilting
-            if (targetDir != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(targetDir);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
-            }
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
+      
 
         // Attack
         anim.SetTrigger("Attack");
@@ -78,6 +80,7 @@ public class BossMelee : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
 
+        bossLockedOn = false;
         buttCheck.ButtViewCheck();
     }
 

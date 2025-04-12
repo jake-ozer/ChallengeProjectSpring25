@@ -824,7 +824,7 @@ MonoBehaviour:
   shockSpeed: 0.5
   shockHeight: 1
   shockwaveObj: {fileID: 1736855711936396773}
-  shockwaveSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
+  shockwaveSound: {fileID: 8300000, guid: 03e1eef347ac08a48b4cc0bef7e02ac3, type: 3}
 --- !u!114 &1165719264670401657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,11 +840,14 @@ MonoBehaviour:
   timer: 3
   projectile: {fileID: 637785112333867961}
   projSpawn: {fileID: 4314312916756589890}
-  projSpeed: 20
+  projSpeed: 9
   anim: {fileID: 3097874528086980428}
   attackDuration: 1.5
-  waitBeforeAttack: 1.5
-  shootSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
+  waitBeforeAttack: 0.75
+  shootSound: {fileID: 8300000, guid: 03e1eef347ac08a48b4cc0bef7e02ac3, type: 3}
+  numProjectiles: 3
+  timeBetweenProj: 0.2
+  projLifetime: 4
 --- !u!95 &3097874528086980428 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 458760383111887219, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}

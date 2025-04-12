@@ -579,9 +579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6ea8df09bcfc4080a03df67660c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TetherRadius: 20
+  TetherRadius: 11
   requiredHitsToUntether: 2
-  coolDown: 15
+  coolDown: 5
   TetherMask:
     serializedVersion: 2
     m_Bits: 0
