@@ -263,6 +263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213540876924992813, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2758844995152503761, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_Name
       value: MeleeBoss
@@ -278,6 +282,10 @@ PrefabInstance:
     - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: health
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: healthBar
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4717475769786999290, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_Speed
@@ -340,7 +348,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1213540876924992813, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+    - {fileID: 8077369378623733966, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1

@@ -1908,6 +1908,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685743826935184753, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685743826935184753, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970387095663752021, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: b6c5523ebf6548a4e84ba875ae6ece73, type: 2}
     - target: {fileID: 4095652673084860359, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1915,6 +1927,10 @@ PrefabInstance:
     - target: {fileID: 4095652673084860359, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266497498391759762, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -475
       objectReference: {fileID: 0}
     - target: {fileID: 5293363868386800052, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_Sprite
@@ -1971,6 +1987,14 @@ PrefabInstance:
     - target: {fileID: 6810953212304102076, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: lockOnSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047275044756232377, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047275044756232377, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8157123104695691791, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: playerLockOn

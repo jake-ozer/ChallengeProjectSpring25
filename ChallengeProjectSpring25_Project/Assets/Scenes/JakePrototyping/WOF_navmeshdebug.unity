@@ -7319,6 +7319,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276832646501075510, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276832646501075510, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415591636620424958, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415591636620424958, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916063899805139925, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916063899805139925, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054980910496513821, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054980910496513821, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2758844995152503761, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -7331,6 +7363,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 5011448750788581798}
     - target: {fileID: 3796063479083562705, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: player
       value: 
@@ -7388,6 +7424,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+--- !u!114 &5011448750788581798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5435314998540174873, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+  m_PrefabInstance: {fileID: 5011448750788581797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ac062df69608541811088fcde0caea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &5749805959463906639
 MeshRenderer:
   m_ObjectHideFlags: 0
