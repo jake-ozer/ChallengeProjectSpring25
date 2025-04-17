@@ -53,6 +53,7 @@ public class WOFManager : MonoBehaviour
     private PlayerAttack attack;
     private Camera cam;
     private BuffParticleManager particleManager;
+    private IBoss iBoss;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -188,6 +189,7 @@ public class WOFManager : MonoBehaviour
     private IEnumerator effectEagle()
     {
         movement.SetJump(movement.GetJump() * eagleMult);
+        iBoss.eagleBuff();
         yield return new WaitForSeconds(effectDuration);
 
         mode = 0;
@@ -197,6 +199,7 @@ public class WOFManager : MonoBehaviour
     private IEnumerator effectLion()
     {
         attack.SetDamage((int)(attack.GetDamage() * lionMult));
+        iBoss.lionBuff();
         yield return new WaitForSeconds(effectDuration);
         
         mode = 0;
@@ -207,6 +210,7 @@ public class WOFManager : MonoBehaviour
     {
         movement.SetSpeed(movement.GetSpeed() * bullMult);
         cam.fieldOfView += 10;
+        iBoss.bullBuff();
         yield return new WaitForSeconds(effectDuration);
 
         cam.fieldOfView -= 10;
@@ -238,6 +242,7 @@ public class WOFManager : MonoBehaviour
             attack = player.GetComponent<PlayerAttack>();
             cam = Camera.main;
             particleManager = player.transform.GetChild(0).GetChild(3).GetComponent<BuffParticleManager>();
+            iBoss = GameObject.FindGameObjectsWithTag("Enemy")[0].transform.Find("BuffHandler").GetComponent<IBoss>();
         }
     }
 }
