@@ -16,6 +16,9 @@ public class BossProj : MonoBehaviour
     [SerializeField] private float attackDuration;
     [SerializeField] private float waitBeforeAttack;
     public AudioClip shootSound;
+    public int numProjectiles;
+    public float timeBetweenProj;
+    public float projLifetime;
 
     void Start()
     {
@@ -51,7 +54,15 @@ public class BossProj : MonoBehaviour
         {
             Vector3 playerPos = player.transform.Find("PlayerCamera").position;
             playerPos.y += -2;
-            transform.LookAt(playerPos);
+            //transform.LookAt(playerPos);
+
+            Vector3 direction = playerPos - transform.position;
+            direction.y = 0; // eliminate vertical difference
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = targetRotation;
+            }
         }
 
     }
@@ -73,16 +84,23 @@ public class BossProj : MonoBehaviour
         playerPos.y += -0.25f;
         transform.LookAt(playerPos);
 
-        Vector3 dirToPlayer = (playerPos - projSpawn.transform.position);
-        GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, Quaternion.LookRotation(dirToPlayer.normalized)) as GameObject;
-        bossProjectile.SetActive(true);
-        //Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
-        //bossProjectile.GetComponent<ProjLogic>().dir = dirToPlayer;
-        bossProjectile.GetComponent<ProjLogic>().speed = projSpeed;
-        //bossProjRigid.AddForce(dirToPlayer * projSpeed, ForceMode.Impulse);
-        GetComponent<AudioSource>().PlayOneShot(shootSound);
+        for (int i = 0; i < numProjectiles; i++)
+        {
+            Vector3 dirToPlayer = (playerPos - projSpawn.transform.position);
+            GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, Quaternion.LookRotation(dirToPlayer.normalized)) as GameObject;
+            bossProjectile.SetActive(true);
+            //Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
+            //bossProjectile.GetComponent<ProjLogic>().dir = dirToPlayer;
+            bossProjectile.GetComponent<ProjLogic>().speed = projSpeed;
+            //bossProjRigid.AddForce(dirToPlayer * projSpeed, ForceMode.Impulse);
+            GetComponent<AudioSource>().PlayOneShot(shootSound);
 
-        Destroy(bossProjectile, 5f);
+            Destroy(bossProjectile, projLifetime);
+
+            yield return new WaitForSeconds(timeBetweenProj);
+        }
+
+       
 
 
         //attackColliderObj.SetActive(true);
