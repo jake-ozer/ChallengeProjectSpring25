@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WOFManager : MonoBehaviour
 {
+    private bool begun;
 
     [SerializeField]
     private GameObject outsideObject;
@@ -37,6 +38,16 @@ public class WOFManager : MonoBehaviour
     private float spinAccel;
     [SerializeField]
     private float effectDuration;
+    [SerializeField]
+    private bool effectBoss;
+
+    [Header("Buff Multipliers")]
+    [SerializeField]
+    private float eagleMult;
+    [SerializeField]
+    private float lionMult;
+    [SerializeField]
+    private float bullMult;
 
     private PlayerMovement movement;
     private PlayerAttack attack;
@@ -46,14 +57,9 @@ public class WOFManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = FindFirstObjectByType<PlayerHealth>().gameObject;
-        mode = 0;
+        begun = false;
+        mode = -1;
         spinSpeed = 0;
-        StartCoroutine(waitTimer());
-        movement = player.GetComponent<PlayerMovement>();
-        attack = player.GetComponent<PlayerAttack>();
-        cam = Camera.main;
-        particleManager = player.transform.GetChild(0).GetChild(3).GetComponent<BuffParticleManager>();
     }
 
     // Update is called once per frame
@@ -108,7 +114,7 @@ public class WOFManager : MonoBehaviour
         {
             spinSpeed = spinMaxSpeed;
             mode++;
-            float spinTimer = Random.Range(3.00f, 15.00f);
+            float spinTimer = Random.Range(0.00f, 4.00f);
             Debug.Log("Spin Time: " + spinTimer);
             StartCoroutine(spinTime(spinTimer));
 
@@ -181,28 +187,28 @@ public class WOFManager : MonoBehaviour
 
     private IEnumerator effectEagle()
     {
-        movement.SetJump(movement.GetJump() * 2);
+        movement.SetJump(movement.GetJump() * eagleMult);
         yield return new WaitForSeconds(effectDuration);
-        movement.SetJump(movement.GetJump() / 2);
+
         mode = 0;
         StartCoroutine(waitTimer());
     }
 
     private IEnumerator effectLion()
     {
-        attack.SetDamage(attack.GetDamage() * 2);
+        attack.SetDamage((int)(attack.GetDamage() * lionMult));
         yield return new WaitForSeconds(effectDuration);
-        attack.SetDamage(attack.GetDamage() / 2);
+        
         mode = 0;
         StartCoroutine(waitTimer());
     }
 
     private IEnumerator effectBull()
     {
-        movement.SetSpeed(movement.GetSpeed() * 2);
+        movement.SetSpeed(movement.GetSpeed() * bullMult);
         cam.fieldOfView += 10;
         yield return new WaitForSeconds(effectDuration);
-        movement.SetSpeed(movement.GetSpeed() / 2);
+
         cam.fieldOfView -= 10;
         mode = 0;
         StartCoroutine(waitTimer());
@@ -217,5 +223,21 @@ public class WOFManager : MonoBehaviour
         float z = Mathf.Sin(angle) * distance;
 
         return new Vector3(x, -1.5f, z);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.name == "Player" && !begun)
+        {
+            Debug.Log("Begun");
+            begun = true;
+            StartCoroutine(waitTimer());
+            mode = 0;
+            player = FindFirstObjectByType<PlayerHealth>().gameObject;
+            movement = player.GetComponent<PlayerMovement>();
+            attack = player.GetComponent<PlayerAttack>();
+            cam = Camera.main;
+            particleManager = player.transform.GetChild(0).GetChild(3).GetComponent<BuffParticleManager>();
+        }
     }
 }

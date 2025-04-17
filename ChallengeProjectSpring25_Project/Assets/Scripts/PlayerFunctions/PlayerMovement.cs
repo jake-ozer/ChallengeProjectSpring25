@@ -6,23 +6,37 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
+    [SerializeField] [Range(0,1)] private float jumpCutMultiplier = 0.25f;
+    [SerializeField] private float jumpHangThreshold = 1f;
+    [SerializeField] private float jumpHangMultiplier = 0.6f;
     [SerializeField] private PlayerLockOn playerLockOn;
     [SerializeField] private PlayerInput input;
 
     private CharacterController controller;
     private Vector2 move;
+    [SerializeField]
     private Vector3 playerVel;
     public bool grounded;
+
+    private bool jumpInputHeld;
+    private bool isJumping;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        jumpInputHeld = false;
+        isJumping = false;
     }
 
     private void Update()
     {
         //ground check and saftey adjustment
         grounded = controller.isGrounded;
+        if(grounded)
+        {
+            isJumping = false;
+        }
+
         if (grounded && playerVel.y < 0)
         {
             playerVel.y = -2f;
@@ -44,17 +58,34 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(transform.position, -rightDir * 3f, Color.yellow);
             moveDirection = (rightDir * move.x + targetDir * move.y).normalized;
         }
-       
+
+        //check if jump is held
+        jumpInputHeld = Input.GetKey("space");
+
         controller.Move(moveDirection * playerSpeed * Time.deltaTime);
 
         //jump logic
         if (grounded && input.actions["Jump"].triggered)
         {
             playerVel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJumping = true;
+        }
+
+        //jump cut logic
+        if(playerVel.y > 0 && isJumping && !jumpInputHeld)
+        {
+            playerVel.y *= (1 - jumpCutMultiplier);
+        }
+
+        //jump hang logic
+        float usedGravity = gravity;
+        if(Mathf.Abs(playerVel.y) <= jumpHangThreshold && isJumping)
+        {
+            usedGravity *= jumpHangMultiplier;
         }
 
         //apply gravity
-        playerVel.y += gravity * Time.deltaTime;
+        playerVel.y += usedGravity * Time.deltaTime;
         controller.Move(playerVel * Time.deltaTime);
     }
 
@@ -78,4 +109,5 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Change jump height to: " + height);
         jumpHeight = height;
     }
+
 }
