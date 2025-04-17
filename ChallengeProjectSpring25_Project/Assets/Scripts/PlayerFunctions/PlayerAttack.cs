@@ -12,14 +12,29 @@ public class PlayerAttack : MonoBehaviour
     private float timer;
     private bool attacking;
     private GameObject currentAttackTarget;
+    private PlayerTether tether;
+
+    public AudioClip swingSound;
+    public AudioClip hitSound;
+    public float attackStaminaCost;
+    private PlayerStamina playerStam;
+    public LayerMask tutorialWallLayer;
+
+    private void Start()
+    {
+        tether = GetComponent<PlayerTether>();
+        playerStam = GetComponent<PlayerStamina>();
+    }
 
     private void Update()
     {
         timer -= Time.deltaTime;
 
         //hit enemy
-        if (input.actions["Attack"].triggered && timer <= 0)
+        if (input.actions["Attack"].triggered && timer <= 0 && playerStam.HasEnoughStamina(attackStaminaCost))
         {
+            playerStam.ConsumeStam(attackStaminaCost);
+            GetComponent<AudioSource>().PlayOneShot(swingSound);
             timer = attackCooldown;
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("swordattack"))
             {
@@ -34,13 +49,22 @@ public class PlayerAttack : MonoBehaviour
     //used by animation event from sword anim to detect when player is at climax of swing
     public void PlayerAttackSignaled()
     {
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinf, attackRange, tutorialWallLayer))
+        {
+           // Debug.Log("eeee");
+            Destroy(hitinf.collider.gameObject);
+        }
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
         {
             if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
             {
+                GetComponent<AudioSource>().PlayOneShot(hitSound);
+
                 if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null)
                 {
                     hitinfo.collider.gameObject.GetComponent<BossHealth>().TakeDamage(playerDmg);
+                    tether.RegisterHit();
                 }
                 else if (hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
                 {

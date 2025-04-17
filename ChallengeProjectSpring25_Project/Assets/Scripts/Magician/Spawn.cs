@@ -9,6 +9,8 @@ public class Spawn : MonoBehaviour
     [SerializeField] float spawnTime;
     private float time;
     private float radius = 5f;
+    public AudioClip spawnSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +27,8 @@ public class Spawn : MonoBehaviour
         
         if (time >= spawnTime)
         {
+            GetComponent<AudioSource>().PlayOneShot(spawnSound);
+
             for (int i = 0; i < spawnCount; i++)
             {
                 Vector3 offset = new Vector3(Random.insideUnitCircle.y * radius, .10f);//found that calling insideUnitSphere is supposed to spawn a cirlce radius
@@ -38,6 +42,7 @@ public class Spawn : MonoBehaviour
                 var miniEnemy = Instantiate(this.miniEnemy, spawn, Quaternion.identity);
                 miniEnemy.transform.parent = spawnLoc.transform;
                 time = 0;
+                
             }
         }
     }

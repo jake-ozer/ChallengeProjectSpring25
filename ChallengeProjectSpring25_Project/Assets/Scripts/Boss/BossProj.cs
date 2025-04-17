@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossProj : MonoBehaviour
 {
@@ -9,7 +11,15 @@ public class BossProj : MonoBehaviour
     [SerializeField] public Transform projSpawn;
     [SerializeField] public float projSpeed;
     private UnityEngine.AI.NavMeshAgent bossMove;
-    
+    public Animator anim;
+    private bool lookAtPlayer;
+    [SerializeField] private float attackDuration;
+    [SerializeField] private float waitBeforeAttack;
+    public AudioClip shootSound;
+    public int numProjectiles;
+    public float timeBetweenProj;
+    public float projLifetime;
+
     void Start()
     {
         projTime = timer;
@@ -31,17 +41,82 @@ public class BossProj : MonoBehaviour
         {
             projTime -= Time.deltaTime;
             if (projTime > 0) { return; }
-            //Since player position may be a little high, set it -1 in y axis.
+            lookAtPlayer = true;
+            StartCoroutine("ShootRoutine");
+            projTime = timer;
+
+
+           
+            
+        }
+
+        if (lookAtPlayer == true)
+        {
             Vector3 playerPos = player.transform.Find("PlayerCamera").position;
             playerPos.y += -2;
-            transform.LookAt(playerPos);
-            projTime = timer;
-            GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, projSpawn.transform.rotation) as GameObject;
-            bossProjectile.SetActive(true);
-            Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
-            bossProjRigid.AddForce(projSpawn.forward * projSpeed, ForceMode.Impulse);
-            Destroy(bossProjectile, 5f);
+            //transform.LookAt(playerPos);
+
+            Vector3 direction = playerPos - transform.position;
+            direction.y = 0; // eliminate vertical difference
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = targetRotation;
+            }
         }
+
+    }
+
+    private IEnumerator ShootRoutine()
+    {
+
+        //signal to player that attack is coming
+        anim.SetBool("CurrentlyInAttack", true);
+        anim.SetTrigger("Windup");
+        GetComponent<NavMeshAgent>().enabled = false;
+        yield return new WaitForSeconds(waitBeforeAttack);
+        //attack
+        anim.SetTrigger("Attack");
+
+
+        //Since player position may be a little high, set it -1 in y axis.
+        Vector3 playerPos = player.transform.Find("PlayerCamera").position;
+        playerPos.y += -0.25f;
+        transform.LookAt(playerPos);
+
+        for (int i = 0; i < numProjectiles; i++)
+        {
+            Vector3 dirToPlayer = (playerPos - projSpawn.transform.position);
+            GameObject bossProjectile = Instantiate(projectile, projSpawn.transform.position, Quaternion.LookRotation(dirToPlayer.normalized)) as GameObject;
+            bossProjectile.SetActive(true);
+            //Rigidbody bossProjRigid = bossProjectile.GetComponent<Rigidbody>();
+            //bossProjectile.GetComponent<ProjLogic>().dir = dirToPlayer;
+            bossProjectile.GetComponent<ProjLogic>().speed = projSpeed;
+            //bossProjRigid.AddForce(dirToPlayer * projSpeed, ForceMode.Impulse);
+            GetComponent<AudioSource>().PlayOneShot(shootSound);
+
+            Destroy(bossProjectile, projLifetime);
+
+            yield return new WaitForSeconds(timeBetweenProj);
+        }
+
        
+
+
+        //attackColliderObj.SetActive(true);
+        yield return new WaitForSeconds(attackDuration);
+        //clean up
+        anim.SetTrigger("Idle");
+        Debug.Log("idle called");
+
+        //attackColliderObj.SetActive(false);
+        GetComponent<NavMeshAgent>().enabled = true;
+        anim.SetBool("CurrentlyInAttack", false);
+
+
+
+
+
+
     }
 }

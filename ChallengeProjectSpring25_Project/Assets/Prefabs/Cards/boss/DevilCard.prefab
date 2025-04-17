@@ -70,13 +70,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: cardDescription
-      value: This is the description for the devil card. Someone should come up with
-        something cool here.
+      value: "No one is said to have fought with the devil and prevailed\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ce8134c8a7cc0fb42863d1298201deab, type: 3}
+      objectReference: {fileID: 21300000, guid: e33180a645c2ddb40a9ddf48e9a92bb4, type: 3}
     - target: {fileID: 1963667620591595580, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_IsActive
       value: 0

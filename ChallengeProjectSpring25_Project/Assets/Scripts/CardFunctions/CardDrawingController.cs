@@ -18,6 +18,8 @@ public class CardDrawingController : MonoBehaviour
     private bool curCardShown = false;
     private bool curCardLock = false;
     private bool canSpawnCardObj = true;
+    public AudioClip cardRevealSound;
+    private bool cardShownAnimOnce = true;
     
     private void Start()
     {
@@ -29,6 +31,7 @@ public class CardDrawingController : MonoBehaviour
         //remove card from observation when player is done looking at it
         if (input.actions["ForwardCard"].triggered && curCardShown && canSpawnCardObj)
         {
+            GetComponent<CardDrawingUIController>().HideCardInfoUI();
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
             curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
             canSpawnCardObj = false;
@@ -46,8 +49,9 @@ public class CardDrawingController : MonoBehaviour
         yield return new WaitUntil(() => !curCardLock);
         navMeshSurface.BuildNavMesh();
         //draw environment
-        DrawCard(Card.CardType.environment);
         curCardLock = true;
+        DrawCard(Card.CardType.environment);
+        
         yield return new WaitUntil(() => !curCardLock);
         //draw boss
         DrawCard(Card.CardType.boss);
@@ -57,12 +61,18 @@ public class CardDrawingController : MonoBehaviour
         //unlock player
         playerMovement.enabled = true;
         this.gameObject.SetActive(false);
+        FindFirstObjectByType<SoundPhaseController>().Phase2();
     }
 
     //spawns card and gives it data specified in param
     private void DrawCard(Card.CardType type)
     {
         List<GameObject> filteredCards = possibleCards.Where(x=>x.GetComponent<Card>().cardType == type).ToList();
+        if (filteredCards.Count == 0)
+        {
+            curCardLock = false;
+            return;
+        }
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
@@ -73,8 +83,18 @@ public class CardDrawingController : MonoBehaviour
     //used by animation event to indicate that the current card is shown
     public void CardShownAnim()
     {
-        curCardShown = true;
-        canSpawnCardObj = true;
+        if(cardShownAnimOnce)
+        {
+            //Debug.Log("cardshownanim");
+            GetComponent<AudioSource>().PlayOneShot(cardRevealSound);
+            curCardShown = true;
+            canSpawnCardObj = true;
+
+            GetComponent<CardDrawingUIController>().ShowCardInfoUI(curCardObj.GetComponent<Card>().cardName, curCardObj.GetComponent<Card>().cardDescription);
+            cardShownAnimOnce = false;
+        }
+
+        
     }
 
     //used by animation event to indicate that current card is discarded
@@ -83,6 +103,7 @@ public class CardDrawingController : MonoBehaviour
         Destroy(curCardObj);
         curCardLock = false;
         curCardShown = false;
+        cardShownAnimOnce = true;
     }
    
 }

@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
         var startButton = root.Q<Button>("StartButton");
         if (startButton != null)
         {
-            startButton.clicked += () => SceneNavigator.LoadScene("TestScene");
+            startButton.clicked += () => SceneNavigator.LoadScene("ArenaCreation");
         }
 
         var optionsButton = root.Q<Button>("OptionsButton");

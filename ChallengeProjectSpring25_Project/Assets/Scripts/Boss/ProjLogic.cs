@@ -2,12 +2,36 @@ using UnityEngine;
 
 public class ProjLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speed = 5f;
+    public float rotationSpeed = 2f; 
+
+    private Transform player;
+
+    private void Start()
+    {
+        player = FindFirstObjectByType<PlayerMovement>().transform; 
+    }
+
+    private void Update()
+    {
+        if (player != null)
+        {
+            Vector3 directionToPlayer = player.position - transform.position;
+
+            if (directionToPlayer != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Enemy")
+        if (other.gameObject.GetComponent<PlayerHealth>() != null)
         {
-            //Debug.Log(other.gameObject.tag);
             Destroy(gameObject);
         }
     }

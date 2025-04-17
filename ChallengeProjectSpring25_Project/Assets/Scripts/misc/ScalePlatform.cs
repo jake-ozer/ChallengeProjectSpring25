@@ -8,6 +8,8 @@ public class ScalePlatform : MonoBehaviour
     public Vector3 platformUp;
     public Vector3 platformDown;
 
+    private bool bossOnPlatform;
+
     //private int duration = 0;
 
     public float t = 0;
@@ -15,34 +17,38 @@ public class ScalePlatform : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      
+      bossOnPlatform = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(t);
-        
+        if(bossOnPlatform)
+        {
+            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformDown, t*Time.deltaTime);
+        }
+        else{
+            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformUp, t*Time.deltaTime);
+        }
     }
     
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         
         Debug.Log(other.gameObject.name);
         if (other.gameObject.layer == 9)
         {
             Debug.Log("Found boss");
-            
-        
-            platform1.transform.position = Vector3.MoveTowards(platform1.transform.position, platformDown, t);
+            bossOnPlatform = true;
         }
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Enemy")
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.layer == 9)
         {
-        
-        platform1.transform.position = Vector3.Lerp(platform1.transform.position, platformUp, t);
+            bossOnPlatform = false;
         }
     }
      

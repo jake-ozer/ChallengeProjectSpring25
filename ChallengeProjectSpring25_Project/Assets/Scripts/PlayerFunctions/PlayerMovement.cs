@@ -3,48 +3,58 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float playerSpeed = 5f;
+    [SerializeField] private bool useAcceleration = true;
+    [SerializeField] private float accelerationMultiplier = 2f;
+    [SerializeField] private float maxSpeedMultiplier = 1.5f;
+    [SerializeField] private float deceleration = 15f;
+
+    [Header("Jump & Gravity")]
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] [Range(0,1)] private float jumpCutMultiplier = 0.25f;
-    [SerializeField] private float jumpHangThreshold = 1f;
-    [SerializeField] private float jumpHangMultiplier = 0.6f;
+
+    [Header("References")]
     [SerializeField] private PlayerLockOn playerLockOn;
     [SerializeField] private PlayerInput input;
+    [SerializeField] private PlayerTether tether;
+
+    private float acceleration;
+    private float maxSpeed;
+    private float currentSpeed = 0f;
 
     private CharacterController controller;
     private Vector2 move;
-    [SerializeField]
     private Vector3 playerVel;
     public bool grounded;
 
-    private bool jumpInputHeld;
-    private bool isJumping;
+    public float coyoteTime;
+    private float coyoteTimer;
+
+    public float jumpStaminaCost;
+    private PlayerStamina playerStam;
+    public AudioClip jumpSound;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        jumpInputHeld = false;
-        isJumping = false;
+        playerStam = GetComponent<PlayerStamina>();
+
+        acceleration = playerSpeed * accelerationMultiplier;
+        maxSpeed = playerSpeed * maxSpeedMultiplier;
     }
 
     private void Update()
     {
-        //ground check and saftey adjustment
-        grounded = controller.isGrounded;
-        if(grounded)
-        {
-            isJumping = false;
-        }
-
+        // Reset vertical velocity if grounded
         if (grounded && playerVel.y < 0)
         {
             playerVel.y = -2f;
         }
 
-        //move logic
         move = input.actions["Move"].ReadValue<Vector2>();
-        //if not locked on, move normally, if locked on, move perpinduclar to target
+
+        // Determine movement direction
         Vector3 moveDirection = Vector3.zero;
         if (!playerLockOn.lockedOn)
         {
@@ -59,33 +69,49 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = (rightDir * move.x + targetDir * move.y).normalized;
         }
 
-        //check if jump is held
-        jumpInputHeld = Input.GetKey("space");
+        // Handle speed
+        float speedToUse = playerSpeed;
 
-        controller.Move(moveDirection * playerSpeed * Time.deltaTime);
-
-        //jump logic
-        if (grounded && input.actions["Jump"].triggered)
+        if (useAcceleration)
         {
+            if (move.magnitude > 0.1f)
+            {
+                currentSpeed += acceleration * Time.deltaTime;
+                currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            }
+            else
+            {
+                currentSpeed -= deceleration * Time.deltaTime;
+                currentSpeed = Mathf.Max(currentSpeed, 0f);
+            }
+
+            speedToUse = currentSpeed;
+        }
+
+        // Move the player
+        Vector3 newPos = speedToUse * Time.deltaTime * moveDirection;
+        if (tether.CanMoveTo(newPos)) controller.Move(newPos);
+
+        // Coyote time logic
+        if (grounded)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+
+        // Jumping
+        if ((grounded || coyoteTimer > 0) && input.actions["Jump"].triggered && playerStam.HasEnoughStamina(jumpStaminaCost))
+        {
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            playerStam.ConsumeStam(jumpStaminaCost);
             playerVel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            isJumping = true;
         }
 
-        //jump cut logic
-        if(playerVel.y > 0 && isJumping && !jumpInputHeld)
-        {
-            playerVel.y *= (1 - jumpCutMultiplier);
-        }
-
-        //jump hang logic
-        float usedGravity = gravity;
-        if(Mathf.Abs(playerVel.y) <= jumpHangThreshold && isJumping)
-        {
-            usedGravity *= jumpHangMultiplier;
-        }
-
-        //apply gravity
-        playerVel.y += usedGravity * Time.deltaTime;
+        // Apply gravity
+        playerVel.y += gravity * Time.deltaTime;
         controller.Move(playerVel * Time.deltaTime);
     }
 
@@ -98,16 +124,24 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Changed speed to: " + speed);
         playerSpeed = speed;
+
+        acceleration = playerSpeed * accelerationMultiplier;
+        maxSpeed = playerSpeed * maxSpeedMultiplier;
     }
 
     public float GetJump()
     {
         return jumpHeight;
     }
+
     public void SetJump(float height)
     {
         Debug.Log("Change jump height to: " + height);
         jumpHeight = height;
     }
 
+    public void EnableAcceleration(bool enabled)
+    {
+        useAcceleration = enabled;
+    }
 }

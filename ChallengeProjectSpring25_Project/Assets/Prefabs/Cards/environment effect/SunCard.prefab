@@ -65,8 +65,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardName
+      value: The Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: cardType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardDescription
+      value: "The Sun, once a longtime friend of humankind, now scorches anything
+        its rays touch\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 1796115587580651720, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: m_Sprite
