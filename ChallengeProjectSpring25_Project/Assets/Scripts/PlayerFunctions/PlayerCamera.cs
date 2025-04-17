@@ -7,6 +7,8 @@ public class PlayerCamera : MonoBehaviour
     public float ySens;
     public PlayerInput input;
 
+    public bool disabled;
+
     private float xRot;
     private float yRot;
 
@@ -18,6 +20,8 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        if (disabled) return;
+        
         Vector2 look = input.actions["Look"].ReadValue<Vector2>();
 
         float lookX = look.x * xSens;
