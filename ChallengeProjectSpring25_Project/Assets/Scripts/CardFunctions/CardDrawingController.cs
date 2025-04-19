@@ -24,6 +24,7 @@ public class CardDrawingController : MonoBehaviour
     private void Start()
     {
         StartCoroutine("StartDrawingCards");
+        
     }
 
     private void Update()
@@ -61,6 +62,9 @@ public class CardDrawingController : MonoBehaviour
         //unlock player
         playerMovement.enabled = true;
         this.gameObject.SetActive(false);
+       // GetComponent<spawnpoint_controller>().RelocateBoss();
+        GetComponent<spawnpoint_controller>().RelocatePlayer();
+        //this.gameObject.transform.po
         FindFirstObjectByType<SoundPhaseController>().Phase2();
     }
 
@@ -76,6 +80,12 @@ public class CardDrawingController : MonoBehaviour
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
+
+        if(type == Card.CardType.boss)
+        {
+            GetComponent<spawnpoint_controller>().RelocateBoss();
+        }
+
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
     }
