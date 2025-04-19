@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1314368988885231342}
   - component: {fileID: 6520504988386298170}
   - component: {fileID: 1924091049168897907}
-  - component: {fileID: 6634232150847479836}
+  - component: {fileID: 557840763075433445}
   m_Layer: 0
   m_Name: StackofCoinS (1)
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2696025701616357528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5419998, y: -0.3959999, z: 0.91600037}
+  m_LocalPosition: {x: -0.5419998, y: -0.3959999, z: 1.005}
   m_LocalScale: {x: 1.5745, y: 0.5608932, z: 1.5745}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f9e443109cefa43459339f0a3dcf03bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6634232150847479836
-CapsuleCollider:
+--- !u!65 &557840763075433445
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,11 +105,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000007688999, y: 0, z: 0.00000086426735}
 --- !u!1 &3637070373019026829
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +153,7 @@ GameObject:
   - component: {fileID: 3035754396381286994}
   - component: {fileID: 3259723007307813324}
   - component: {fileID: 5734775181678389638}
-  - component: {fileID: 701400092067356960}
+  - component: {fileID: 5329110448247445963}
   m_Layer: 0
   m_Name: StackofCoinS (2)
   m_TagString: Untagged
@@ -209,7 +207,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f9e443109cefa43459339f0a3dcf03bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -231,8 +229,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &701400092067356960
-CapsuleCollider:
+--- !u!65 &5329110448247445963
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -249,11 +247,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000086426735}
 --- !u!1 &7767063275327000572
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f9e443109cefa43459339f0a3dcf03bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
