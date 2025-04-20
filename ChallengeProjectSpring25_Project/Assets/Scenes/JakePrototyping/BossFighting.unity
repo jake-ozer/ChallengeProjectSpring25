@@ -3395,6 +3395,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6510825414024656850, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510825414024656850, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649813892837526298, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649813892837526298, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7387383500002711510, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
       propertyPath: m_Name
       value: SpawningBoss
@@ -3764,6 +3780,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6473559269487959065, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534442980673570483, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534442980673570483, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970329346079750779, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970329346079750779, guid: 84dd357e746511042a50ce361d99f4ca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
@@ -4559,6 +4591,22 @@ PrefabInstance:
       propertyPath: attackCooldown
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3469115432439869730, guid: 7b159c1cb5dd3c3478ea12b88e556ce3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469115432439869730, guid: 7b159c1cb5dd3c3478ea12b88e556ce3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906659010977779178, guid: 7b159c1cb5dd3c3478ea12b88e556ce3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906659010977779178, guid: 7b159c1cb5dd3c3478ea12b88e556ce3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6630707628003061792, guid: 7b159c1cb5dd3c3478ea12b88e556ce3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -5090,19 +5138,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 289669981639683059, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 289669981639683059, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 917652875326599164, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 917652875326599164, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235272046285291874, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5147,6 +5195,10 @@ PrefabInstance:
     - target: {fileID: 5524174425735664870, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524174425735664870, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065398981632473130, guid: 640ea8ade50a3fa488fe2105406a12a7, type: 3}
       propertyPath: player
