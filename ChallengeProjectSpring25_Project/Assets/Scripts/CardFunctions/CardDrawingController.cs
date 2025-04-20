@@ -35,6 +35,10 @@ public class CardDrawingController : MonoBehaviour
             GetComponent<CardDrawingUIController>().HideCardInfoUI();
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
             curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
+            if (curCardObj.GetComponent<Card>().cardType == Card.CardType.boss)
+            {
+                GetComponent<spawnpoint_controller>().RelocateBoss();
+            }
             canSpawnCardObj = false;
         }
     }
@@ -80,11 +84,6 @@ public class CardDrawingController : MonoBehaviour
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
-
-        if(type == Card.CardType.boss)
-        {
-            GetComponent<spawnpoint_controller>().RelocateBoss();
-        }
 
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;

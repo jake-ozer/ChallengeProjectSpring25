@@ -107,7 +107,7 @@ public class BossProj : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         //clean up
         anim.SetTrigger("Idle");
-        Debug.Log("idle called");
+        //Debug.Log("idle called");
 
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
