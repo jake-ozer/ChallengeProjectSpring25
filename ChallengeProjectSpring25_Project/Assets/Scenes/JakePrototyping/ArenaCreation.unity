@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 763908425}
   - component: {fileID: 763908426}
   - component: {fileID: 763908427}
+  - component: {fileID: 763908428}
   m_Layer: 0
   m_Name: CardDrawingController
   m_TagString: Untagged
@@ -986,6 +987,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &763908428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763908423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758e90107e7299c4cba49c03478c0614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
