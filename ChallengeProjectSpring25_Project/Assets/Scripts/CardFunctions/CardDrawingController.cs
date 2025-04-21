@@ -20,11 +20,12 @@ public class CardDrawingController : MonoBehaviour
     private bool canSpawnCardObj = true;
     public AudioClip cardRevealSound;
     private bool cardShownAnimOnce = true;
+    public GameObject playerCanvas;
     
     private void Start()
     {
         StartCoroutine("StartDrawingCards");
-        
+        playerCanvas.SetActive(false);
     }
 
     private void Update()
@@ -65,6 +66,7 @@ public class CardDrawingController : MonoBehaviour
 
         //unlock player
         playerMovement.enabled = true;
+        playerCanvas.SetActive(true);
         this.gameObject.SetActive(false);
        // GetComponent<spawnpoint_controller>().RelocateBoss();
         GetComponent<spawnpoint_controller>().RelocatePlayer();

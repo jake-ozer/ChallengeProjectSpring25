@@ -876,6 +876,7 @@ MonoBehaviour:
   navMeshSurface: {fileID: 1640837522}
   playerMovement: {fileID: 1551081364}
   cardRevealSound: {fileID: 8300000, guid: 805400955db1f624b9b3566eedd6e85f, type: 3}
+  playerCanvas: {fileID: 826564994}
 --- !u!114 &763908426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758e90107e7299c4cba49c03478c0614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &826564994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 523669725432427289, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
+  m_PrefabInstance: {fileID: 6026987618712553356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
