@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
@@ -20,13 +21,23 @@ public class BossHealth : MonoBehaviour
         health -= damage;
         healthBar.SetHealth(health);
 
-        //player death
+        //boss death
         if (health <= 0)
         {
             Debug.Log("boss is dead :)");
             FindFirstObjectByType<PlayerLockOn>().lockedOn = false;
             Destroy(gameObject);
-            //additional logic will go here when player dies
+            BossDie();
+        }
+    }
+
+    private void BossDie()
+    {
+        if (FindFirstObjectByType<GameLoopController>() != null)
+        {
+            //count loss and reload scene
+            FindFirstObjectByType<GameLoopController>().CountAWin();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

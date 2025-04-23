@@ -35,9 +35,21 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("player is dead ;(");
-            Destroy(gameObject);
+            PlayerDie();
+            //Destroy(gameObject);
         }
     }
+
+    private void PlayerDie()
+    {
+        if (FindFirstObjectByType<GameLoopController>() != null)
+        {
+            //count loss and reload scene
+            FindFirstObjectByType<GameLoopController>().CountALoss();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
 
     public void HealDamage(int healing)
     {

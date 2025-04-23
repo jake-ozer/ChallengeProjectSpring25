@@ -24,8 +24,15 @@ public class CardDrawingController : MonoBehaviour
     
     private void Start()
     {
-        StartCoroutine("StartDrawingCards");
         playerCanvas.SetActive(false);
+        //lock player at top of the map
+        playerMovement.enabled = false;
+    }
+
+    //called when you want to start drawing cards
+    public void StartDrawingProcess()
+    {
+        StartCoroutine("StartDrawingCards");
     }
 
     private void Update()
@@ -46,9 +53,6 @@ public class CardDrawingController : MonoBehaviour
 
     private IEnumerator StartDrawingCards()
     {
-        //lock player at top of the map
-        playerMovement.enabled = false;
-
         //draw terrain
         DrawCard(Card.CardType.terrain);
         curCardLock = true;
