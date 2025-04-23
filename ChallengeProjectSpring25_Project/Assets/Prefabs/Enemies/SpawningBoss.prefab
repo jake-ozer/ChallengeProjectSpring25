@@ -340,10 +340,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2758844995152503761, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4990166243847819320}
+    - targetCorrespondingSourceObject: {fileID: 2758844995152503761, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3316430698505479272}
     - targetCorrespondingSourceObject: {fileID: 6544284788573230720, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155209378478197131}
   m_SourcePrefab: {fileID: 100100000, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+--- !u!195 &124966055615993341 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 4717475769786999290, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+  m_PrefabInstance: {fileID: 4669142926160540679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1367175935108286801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
@@ -414,3 +422,19 @@ MonoBehaviour:
   anim: {fileID: 5085119110387617140}
   windupSound: {fileID: 8300000, guid: c30791f9f19f8d14daaa26b42c7e81f2, type: 3}
   attackSound: {fileID: 8300000, guid: fcb620e8dce9ccb449210926666a4524, type: 3}
+  buttCheck: {fileID: 0}
+  lockOnSpeed: 0
+--- !u!114 &3316430698505479272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387383500002711510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae3bca44f94228428fe7eb06e283593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 124966055615993341}
+  minions: []

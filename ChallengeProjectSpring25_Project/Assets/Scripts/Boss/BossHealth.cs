@@ -7,6 +7,7 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private float health;
     public AudioClip takeDamageSFX;
     private float maxHealth;
+    private bool isInvincible = false;
 
     private void Awake()
     {
@@ -18,9 +19,18 @@ public class BossHealth : MonoBehaviour
     {
         //GetComponent<AudioSource>().PlayOneShot(takeDamageSFX);
 
-        health -= damage;
-        healthBar.SetHealth(health);
+        //health -= damage;
+        //healthBar.SetHealth(health);
 
+        if (isInvincible == true)
+        {
+            damage = 0;
+        }
+        else if (isInvincible == false)
+        {
+            health -= damage;
+            healthBar.SetHealth(health);
+        }
         //boss death
         if (health <= 0)
         {
