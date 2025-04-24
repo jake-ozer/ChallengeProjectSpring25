@@ -1,14 +1,20 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
     public float timeTillFall;
     public int damage;
+    public LayerMask floorLayer;
 
+    public GameObject explosion;
+    
     private void Start()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         Invoke("StartFalling", timeTillFall);
+
     }
 
     private void StartFalling()
@@ -16,12 +22,22 @@ public class Meteor : MonoBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
         
-        if(other.GetComponent<PlayerHealth>() != null)
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if(other.GetComponent<PlayerHealth>() != null)
+        // {
+        //     other.GetComponent<PlayerHealth>().TakeDamage(damage);
+        //     Destroy(gameObject);
+        // }
+
+        if ((floorLayer & (1 << other.gameObject.layer)) != 0)
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Instantiate(explosion, transform);
             Destroy(gameObject);
         }
     }
