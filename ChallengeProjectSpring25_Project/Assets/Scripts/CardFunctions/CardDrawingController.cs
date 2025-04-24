@@ -90,6 +90,7 @@ public class CardDrawingController : MonoBehaviour
             curCardShown = true;
             canSpawnCardObj = true;
 
+            TarotCard data = curCardObj.GetComponent<Card>().tarotData;
             GetComponent<CardDrawingUIController>().ShowCardInfoUI(curCardObj.GetComponent<Card>().cardName, curCardObj.GetComponent<Card>().cardDescription);
             cardShownAnimOnce = false;
         }
