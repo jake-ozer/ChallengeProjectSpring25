@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     public AudioClip hitSound;
     public float attackStaminaCost;
     private PlayerStamina playerStam;
+    public LayerMask tutorialWallLayer;
 
     private void Start()
     {
@@ -48,6 +49,12 @@ public class PlayerAttack : MonoBehaviour
     //used by animation event from sword anim to detect when player is at climax of swing
     public void PlayerAttackSignaled()
     {
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinf, attackRange, tutorialWallLayer))
+        {
+           // Debug.Log("eeee");
+            Destroy(hitinf.collider.gameObject);
+        }
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, attackRange, enemyLayer))
         {
             if (hitinfo.collider.gameObject.GetComponent<BossHealth>() != null || hitinfo.collider.gameObject.GetComponent<MiniEnemy>() != null)
