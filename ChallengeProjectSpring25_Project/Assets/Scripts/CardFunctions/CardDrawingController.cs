@@ -20,8 +20,17 @@ public class CardDrawingController : MonoBehaviour
     private bool canSpawnCardObj = true;
     public AudioClip cardRevealSound;
     private bool cardShownAnimOnce = true;
+    public GameObject playerCanvas;
     
     private void Start()
+    {
+        playerCanvas.SetActive(false);
+        //lock player at top of the map
+        playerMovement.enabled = false;
+    }
+
+    //called when you want to start drawing cards
+    public void StartDrawingProcess()
     {
         StartCoroutine("StartDrawingCards");
     }
@@ -34,15 +43,16 @@ public class CardDrawingController : MonoBehaviour
             GetComponent<CardDrawingUIController>().HideCardInfoUI();
             curCardObj.GetComponent<Animator>().SetTrigger("forward_card");
             curCardObj.GetComponent<CardSpawner>().SpawnCardObj();
+            if (curCardObj.GetComponent<Card>().cardType == Card.CardType.boss)
+            {
+                GetComponent<spawnpoint_controller>().RelocateBoss();
+            }
             canSpawnCardObj = false;
         }
     }
 
     private IEnumerator StartDrawingCards()
     {
-        //lock player at top of the map
-        playerMovement.enabled = false;
-
         //draw terrain
         DrawCard(Card.CardType.terrain);
         curCardLock = true;
@@ -60,7 +70,11 @@ public class CardDrawingController : MonoBehaviour
 
         //unlock player
         playerMovement.enabled = true;
+        playerCanvas.SetActive(true);
         this.gameObject.SetActive(false);
+       // GetComponent<spawnpoint_controller>().RelocateBoss();
+        GetComponent<spawnpoint_controller>().RelocatePlayer();
+        //this.gameObject.transform.po
         FindFirstObjectByType<SoundPhaseController>().Phase2();
     }
 
@@ -76,6 +90,7 @@ public class CardDrawingController : MonoBehaviour
         GameObject randomlyPickedCard = filteredCards[Random.Range(0,filteredCards.Count)];
 
         GameObject cardObj = Instantiate(randomlyPickedCard, cardSpawnTransform);
+
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
     }

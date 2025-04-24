@@ -21,7 +21,7 @@ public class PlayerLockOn : MonoBehaviour
     private void Update()
     {
 
-        RaycastHit hit;
+/*        RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, lockOnLayer))
         {
             if (input.actions["LockOn"].triggered && !lockedOn)
@@ -37,7 +37,7 @@ public class PlayerLockOn : MonoBehaviour
                 lastRotation = transform.rotation;
                 lockedOn = false;
             }
-        }
+        }*/
 
         //==================================================================================
 
@@ -75,6 +75,20 @@ public class PlayerLockOn : MonoBehaviour
 
         //visualization
         //Debug.DrawRay(transform.position, transform.forward * 10000f, Color.cyan);
+    }
+
+    //Called when you want to make the player locked on for a short interval
+    public void PlayerLockOnShort(Transform targ)
+    {
+        target = targ;
+        lockedOn = true;
+        Invoke("EndLockOn", 1.5f);
+    }
+
+    private void EndLockOn()
+    {
+        lastRotation = transform.rotation;
+        lockedOn = false;
     }
 
     private void ResetXRot()

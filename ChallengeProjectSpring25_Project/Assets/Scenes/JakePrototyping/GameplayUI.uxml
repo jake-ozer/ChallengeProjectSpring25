@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/GameplayUI.uss?fileID=7433441132597879392&amp;guid=516b034a976329e44ae3040459cb534d&amp;type=3#GameplayUI" />
+    <engine:Slider label="Slider" value="42" high-value="100" name="MySlider" />
+</engine:UXML>

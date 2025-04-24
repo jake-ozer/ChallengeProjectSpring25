@@ -3,13 +3,25 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float playerSpeed = 5f;
+    [SerializeField] private bool useAcceleration = true;
+    [SerializeField] private float accelerationMultiplier = 2f;
+    [SerializeField] private float maxSpeedMultiplier = 1.5f;
+    [SerializeField] private float deceleration = 15f;
+
+    [Header("Jump & Gravity")]
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
+
+    [Header("References")]
     [SerializeField] private PlayerLockOn playerLockOn;
     [SerializeField] private PlayerInput input;
-    
     [SerializeField] private PlayerTether tether;
+
+    private float acceleration;
+    private float maxSpeed;
+    private float currentSpeed = 0f;
 
     private CharacterController controller;
     private Vector2 move;
@@ -23,25 +35,26 @@ public class PlayerMovement : MonoBehaviour
     private PlayerStamina playerStam;
     public AudioClip jumpSound;
 
-
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         playerStam = GetComponent<PlayerStamina>();
+
+        acceleration = playerSpeed * accelerationMultiplier;
+        maxSpeed = playerSpeed * maxSpeedMultiplier;
     }
 
     private void Update()
     {
-        //ground check and saftey adjustment
-        //grounded = controller.isGrounded;  ||| not using unity default one anymore, it is manually implemented to fix bug with scales arena
+        // Reset vertical velocity if grounded
         if (grounded && playerVel.y < 0)
         {
             playerVel.y = -2f;
         }
 
-        //move logic
         move = input.actions["Move"].ReadValue<Vector2>();
-        //if not locked on, move normally, if locked on, move perpinduclar to target
+
+        // Determine movement direction
         Vector3 moveDirection = Vector3.zero;
         if (!playerLockOn.lockedOn)
         {
@@ -56,13 +69,30 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = (rightDir * move.x + targetDir * move.y).normalized;
         }
 
-        Vector3 newPos = playerSpeed * Time.deltaTime * moveDirection;
-        
-        // check if the player can move
+        // Handle speed
+        float speedToUse = playerSpeed;
+
+        if (useAcceleration)
+        {
+            if (move.magnitude > 0.1f)
+            {
+                currentSpeed += acceleration * Time.deltaTime;
+                currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            }
+            else
+            {
+                currentSpeed -= deceleration * Time.deltaTime;
+                currentSpeed = Mathf.Max(currentSpeed, 0f);
+            }
+
+            speedToUse = currentSpeed;
+        }
+
+        // Move the player
+        Vector3 newPos = speedToUse * Time.deltaTime * moveDirection;
         if (tether.CanMoveTo(newPos)) controller.Move(newPos);
 
-        //jump logic
-
+        // Coyote time logic
         if (grounded)
         {
             coyoteTimer = coyoteTime;
@@ -72,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
         }
 
-
+        // Jumping
         if ((grounded || coyoteTimer > 0) && input.actions["Jump"].triggered && playerStam.HasEnoughStamina(jumpStaminaCost))
         {
             GetComponent<AudioSource>().PlayOneShot(jumpSound);
@@ -80,11 +110,7 @@ public class PlayerMovement : MonoBehaviour
             playerVel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-
-        
-
-
-        //apply gravity
+        // Apply gravity
         playerVel.y += gravity * Time.deltaTime;
         controller.Move(playerVel * Time.deltaTime);
     }
@@ -98,15 +124,24 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Changed speed to: " + speed);
         playerSpeed = speed;
+
+        acceleration = playerSpeed * accelerationMultiplier;
+        maxSpeed = playerSpeed * maxSpeedMultiplier;
     }
 
     public float GetJump()
     {
         return jumpHeight;
     }
+
     public void SetJump(float height)
     {
         Debug.Log("Change jump height to: " + height);
         jumpHeight = height;
+    }
+
+    public void EnableAcceleration(bool enabled)
+    {
+        useAcceleration = enabled;
     }
 }
