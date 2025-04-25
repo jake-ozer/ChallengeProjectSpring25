@@ -20,7 +20,7 @@ public class Stationary : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while(minions != null)
+        if(minions != null)
         {
             enemy.GetComponent<NavMeshAgent>().enabled = false;
             if(minions == null)
