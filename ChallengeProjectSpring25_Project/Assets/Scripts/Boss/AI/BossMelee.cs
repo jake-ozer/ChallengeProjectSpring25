@@ -73,13 +73,13 @@ public class BossMelee : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
 
         // Cleanup
-        anim.SetTrigger("Idle");
+        anim.SetTrigger("RTI");
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
         attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
-
+        attackColliderObj.GetComponent<BossMeleeCollider>().active = true;
         bossLockedOn = false;
         buttCheck.ButtViewCheck();
     }

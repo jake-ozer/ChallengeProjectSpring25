@@ -4,7 +4,7 @@ public class BossMeleeCollider : MonoBehaviour
 {
     //you can put this script onto any trigger game object that needs to hurt the player
     public int damage;
-    private bool active = true;
+    public bool active = true;
     public bool attacking = false;
 
     private void OnTriggerStay(Collider other)
