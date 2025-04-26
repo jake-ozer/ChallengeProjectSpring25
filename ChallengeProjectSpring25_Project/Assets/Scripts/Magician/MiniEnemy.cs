@@ -3,6 +3,8 @@ using UnityEngine;
 public class MiniEnemy : MonoBehaviour
 {
     public int damage;
+    public GameObject minionDeathEffect;
+
     void Start()
     {
         
@@ -24,4 +26,10 @@ public class MiniEnemy : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        //spawn effect just a little lower
+        Vector3 spawn = new Vector3(transform.position.x, transform.position.y-0.5f, transform.position.z);
+        Instantiate(minionDeathEffect, spawn, Quaternion.identity);
+    }
 }

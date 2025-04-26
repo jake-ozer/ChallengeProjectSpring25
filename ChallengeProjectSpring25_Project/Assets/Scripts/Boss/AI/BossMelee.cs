@@ -28,7 +28,7 @@ public class BossMelee : MonoBehaviour
         playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         cooldownTimer = 0;
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
-        attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
+        if(attackColliderObj.transform.GetChild(0) != null) { attackColliderObj.transform.GetChild(0).gameObject.SetActive(false); }
     }
 
     private void Update()
@@ -81,7 +81,10 @@ public class BossMelee : MonoBehaviour
         anim.SetBool("CurrentlyInAttack", false);
         attackColliderObj.GetComponent<BossMeleeCollider>().active = true;
         bossLockedOn = false;
-        buttCheck.ButtViewCheck();
+        if(buttCheck != null)
+        {
+            buttCheck.ButtViewCheck();
+        }
     }
 
     public void PlayAttackSound()
