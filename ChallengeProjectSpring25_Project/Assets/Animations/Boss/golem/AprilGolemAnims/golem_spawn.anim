@@ -41884,7 +41884,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9583333
-    functionName: CueShoot
+    functionName: CueSpawn
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

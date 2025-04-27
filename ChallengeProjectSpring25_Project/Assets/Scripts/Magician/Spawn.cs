@@ -9,10 +9,11 @@ public class Spawn : MonoBehaviour
     [SerializeField] GameObject spawnLoc;
     [SerializeField] int spawnCount;
     [SerializeField] float spawnTime;
-    private float time;
+    public float time;
     private float radius = 5f;
     public AudioClip spawnSound;
     public Animator anim;
+    public SpawnAllChildParticles spacp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,6 +46,9 @@ public class Spawn : MonoBehaviour
     public void SpawnMinions()
     {
         GetComponent<AudioSource>().PlayOneShot(spawnSound);
+
+        //spawn a particle effect above the boss for cool effect
+        spacp.Spawn();
 
         for (int i = 0; i < spawnCount; i++)
         {

@@ -3398,18 +3398,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3316430698505479272, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3488361095791823384, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3488361095791823384, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6510825414024656850, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3429,18 +3417,6 @@ PrefabInstance:
     - target: {fileID: 7387383500002711510, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
       propertyPath: m_Name
       value: SpawningBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387383500002711510, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7710757485572386168, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7710757485572386168, guid: 45f3bb4c3ff918047b5e0c9d0f38d60a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

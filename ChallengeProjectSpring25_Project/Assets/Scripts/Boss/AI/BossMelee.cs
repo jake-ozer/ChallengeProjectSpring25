@@ -41,6 +41,14 @@ public class BossMelee : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine("MeleeAttackSequence");
             cooldownTimer = attackCooldown;
+
+            //Bandaid Bug Fix
+            //if spawning is interfering with melee attack, add just a little bit of extra time on the spawn timer so he can spawn right after
+            //specifically for emperor ^^^
+            if (FindFirstObjectByType<Spawn>() != null)
+            {
+                FindFirstObjectByType<Spawn>().time -= 2f;
+            }
         }
 
         if (bossLockedOn)
