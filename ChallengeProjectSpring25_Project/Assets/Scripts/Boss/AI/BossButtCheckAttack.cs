@@ -17,6 +17,8 @@ public class BossButtCheckAttack : MonoBehaviour
     public NavMeshAgent navAgent;
     public Animator anim;
 
+    public AudioClip windupSound;
+    public AudioClip attackSound;
 
     private void Start()
     {
@@ -56,6 +58,7 @@ public class BossButtCheckAttack : MonoBehaviour
         //anim.SetTrigger("Windup");
         //GetComponent<AudioSource>().PlayOneShot(windupSound);
         //GetComponent<NavMeshAgent>().enabled = false;
+        transform.parent.GetComponent<AudioSource>().PlayOneShot(windupSound);
         navAgent.enabled = false;
         anim.SetTrigger("WhirlWindup");
 
@@ -101,6 +104,7 @@ public class BossButtCheckAttack : MonoBehaviour
     public void CueAttack()
     {
         buttAttackCollider.SetActive(true);
+        transform.parent.GetComponent<AudioSource>().PlayOneShot(attackSound);
     }
 
 }
