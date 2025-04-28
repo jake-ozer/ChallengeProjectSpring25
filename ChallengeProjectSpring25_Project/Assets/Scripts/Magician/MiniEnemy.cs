@@ -30,6 +30,7 @@ public class MiniEnemy : MonoBehaviour
     {
         //spawn effect just a little lower
         Vector3 spawn = new Vector3(transform.position.x, transform.position.y-0.5f, transform.position.z);
-        Instantiate(minionDeathEffect, spawn, Quaternion.identity);
+        GameObject effect = Instantiate(minionDeathEffect, spawn, Quaternion.identity);
+        Destroy(effect, 5f);
     }
 }

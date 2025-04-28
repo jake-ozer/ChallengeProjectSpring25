@@ -533,7 +533,7 @@ MonoBehaviour:
   spawnCount: 3
   spawnTime: 6.48
   time: 0
-  spawnSound: {fileID: 8300000, guid: d8243e652e38bce46900626c5bbd5a9d, type: 3}
+  spawnSound: {fileID: 8300000, guid: 03e1eef347ac08a48b4cc0bef7e02ac3, type: 3}
   anim: {fileID: 4976670925474199594}
   spacp: {fileID: 3116344644510044631}
 --- !u!114 &4990166243847819320
