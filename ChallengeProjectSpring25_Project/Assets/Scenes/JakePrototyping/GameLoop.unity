@@ -1042,7 +1042,7 @@ MonoBehaviour:
   - {fileID: 5080442107536584897, guid: 473018e75ea3f8d42933bc87f38f74f3, type: 3}
   - {fileID: 4965430028475551731, guid: 854780cbb084eb4468ed33dff5f90065, type: 3}
   - {fileID: 2945727555624583075, guid: d5dd21fd4bc405f43a7f6a421d1a2388, type: 3}
-  - {fileID: 2041080663042949146, guid: 9c828d4848ef5d349a826f01ee78dffa, type: 3}
+  - {fileID: 110009597994856251, guid: b5ea83c4186fab14eb3bfc6bd90a601a, type: 3}
   navMeshSurface: {fileID: 1640837522}
   playerMovement: {fileID: 1551081364}
   cardRevealSound: {fileID: 8300000, guid: 805400955db1f624b9b3566eedd6e85f, type: 3}
@@ -2523,10 +2523,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 648031870317242911, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
-      propertyPath: playerDmg
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 1251563239661226610, guid: d46c1621a277e2f44840fd6d08241107, type: 3}
       propertyPath: m_Name
       value: Player

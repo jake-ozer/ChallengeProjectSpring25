@@ -483,6 +483,7 @@ MonoBehaviour:
   takeDamageSFX: {fileID: 8300000, guid: 4c6e0bdfd2cac7c458c72ff3bb4cbc90, type: 3}
   healthRegenTime: 0
   regenSpeed: 0
+  healSound: {fileID: 8300000, guid: 2739dfdb453572d4e9c41976f701b768, type: 3}
 --- !u!114 &648031870317242911
 MonoBehaviour:
   m_ObjectHideFlags: 0

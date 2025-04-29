@@ -19,6 +19,7 @@ public class BossProj : MonoBehaviour
     public int numProjectiles;
     public float timeBetweenProj;
     public float projLifetime;
+    private bool shootLock;
 
     void Start()
     {
@@ -72,12 +73,12 @@ public class BossProj : MonoBehaviour
 
         //signal to player that attack is coming
         anim.SetBool("CurrentlyInAttack", true);
-        anim.SetTrigger("Windup");
+        //anim.SetTrigger("Windup");
         GetComponent<NavMeshAgent>().enabled = false;
         yield return new WaitForSeconds(waitBeforeAttack);
         //attack
-        anim.SetTrigger("Attack");
-
+        anim.SetTrigger("Magic");
+        yield return new WaitUntil(() => shootLock == true);
 
         //Since player position may be a little high, set it -1 in y axis.
         Vector3 playerPos = player.transform.Find("PlayerCamera").position;
@@ -100,23 +101,22 @@ public class BossProj : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenProj);
         }
 
-       
 
+        shootLock = false;
 
         //attackColliderObj.SetActive(true);
         yield return new WaitForSeconds(attackDuration);
         //clean up
-        anim.SetTrigger("Idle");
+        anim.SetTrigger("RTI");
         //Debug.Log("idle called");
 
         //attackColliderObj.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
+    }
 
-
-
-
-
-
+    public void CueShoot()
+    {
+        shootLock = true;
     }
 }

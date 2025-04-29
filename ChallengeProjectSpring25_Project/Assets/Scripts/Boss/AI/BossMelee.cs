@@ -28,7 +28,7 @@ public class BossMelee : MonoBehaviour
         playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         cooldownTimer = 0;
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
-        attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
+        if(attackColliderObj.transform.GetChild(0) != null) { attackColliderObj.transform.GetChild(0).gameObject.SetActive(false); }
     }
 
     private void Update()
@@ -41,6 +41,14 @@ public class BossMelee : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine("MeleeAttackSequence");
             cooldownTimer = attackCooldown;
+
+            //Bandaid Bug Fix
+            //if spawning is interfering with melee attack, add just a little bit of extra time on the spawn timer so he can spawn right after
+            //specifically for emperor ^^^
+            if (FindFirstObjectByType<Spawn>() != null)
+            {
+                FindFirstObjectByType<Spawn>().time -= 2f;
+            }
         }
 
         if (bossLockedOn)
@@ -73,15 +81,18 @@ public class BossMelee : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
 
         // Cleanup
-        anim.SetTrigger("Idle");
+        anim.SetTrigger("RTI");
         attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
         attackColliderObj.GetComponent<BossMeleeCollider>().attacking = false;
         attackColliderObj.transform.GetChild(0).gameObject.SetActive(false);
         GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("CurrentlyInAttack", false);
-
+        attackColliderObj.GetComponent<BossMeleeCollider>().active = true;
         bossLockedOn = false;
-        buttCheck.ButtViewCheck();
+        if(buttCheck != null)
+        {
+            buttCheck.ButtViewCheck();
+        }
     }
 
     public void PlayAttackSound()

@@ -15,7 +15,10 @@ public class BossButtCheckAttack : MonoBehaviour
 
     public GameObject buttAttackCollider;
     public NavMeshAgent navAgent;
+    public Animator anim;
 
+    public AudioClip windupSound;
+    public AudioClip attackSound;
 
     private void Start()
     {
@@ -55,12 +58,14 @@ public class BossButtCheckAttack : MonoBehaviour
         //anim.SetTrigger("Windup");
         //GetComponent<AudioSource>().PlayOneShot(windupSound);
         //GetComponent<NavMeshAgent>().enabled = false;
+        transform.parent.GetComponent<AudioSource>().PlayOneShot(windupSound);
         navAgent.enabled = false;
+        anim.SetTrigger("WhirlWindup");
 
         yield return new WaitForSeconds(waitBeforeAttack);
         //attack
-        buttAttackCollider.SetActive(true);
-       
+        
+        anim.SetTrigger("WhirlAttack");
         //anim.SetTrigger("Attack");
         //attackColliderObj.GetComponent<MeshRenderer>().enabled = true;
         //attackColliderObj.GetComponent<BossMeleeCollider>().attacking = true;
@@ -71,6 +76,8 @@ public class BossButtCheckAttack : MonoBehaviour
         //clean up
         buttAttackCollider.SetActive(false);
         navAgent.enabled = true;
+        anim.SetTrigger("RTI");
+        //anim.SetTrigger("Idle");
         //anim.SetTrigger("Idle");
         //Debug.Log("idle called");
         //attackColliderObj.GetComponent<MeshRenderer>().enabled = false;
@@ -91,6 +98,13 @@ public class BossButtCheckAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + leftLimit * radius);
         Gizmos.DrawLine(transform.position, transform.position + rightLimit * radius);
+    }
+
+    //called by anim event to initiate attack happens
+    public void CueAttack()
+    {
+        buttAttackCollider.SetActive(true);
+        transform.parent.GetComponent<AudioSource>().PlayOneShot(attackSound);
     }
 
 }
