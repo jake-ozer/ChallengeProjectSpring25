@@ -13,12 +13,12 @@ public class HealPlayerOnContact : MonoBehaviour
     bool invisible;
     public int healing;
 
-    private MeshRenderer rend;
+    public GameObject rend;
 
     private void Awake()
     {
         flickerStage = 0;
-        rend = GetComponent<MeshRenderer>();
+        //rend = GetComponent<MeshRenderer>();
         StartCoroutine(despawnTimer());
 
     }
@@ -30,13 +30,13 @@ public class HealPlayerOnContact : MonoBehaviour
             case 1:
                 if(!invisible && timer >= .5f)
                 {
-                    rend.enabled = false;
+                    rend.SetActive(false);
                     invisible = true;
                     timer = 0;
                 }
                 else if(invisible && timer >= .25f)
                 {
-                    rend.enabled = true;
+                    rend.SetActive(true);
                     invisible = false;
                     timer = 0;
                 }
@@ -44,13 +44,13 @@ public class HealPlayerOnContact : MonoBehaviour
             case 2:
                 if (!invisible && timer >= .25f)
                 {
-                    rend.enabled = false;
+                    rend.SetActive(false);
                     invisible = true;
                     timer = 0;
                 }
                 else if (invisible && timer >= .1f)
                 {
-                    rend.enabled = true;
+                    rend.SetActive(true);
                     invisible = false;
                     timer = 0;
                 }

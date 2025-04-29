@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private float regenTimeStart;
     private float maxHealth;
     public float regenSpeed;
+    public AudioClip healSound;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void HealDamage(int healing)
     {
+        GetComponent<AudioSource>().PlayOneShot(healSound);
         health = Mathf.Clamp(health + healing, 0, maxHealth);
         healthBar.SetHealth(health);
     }
