@@ -14,6 +14,8 @@ public class Spawn : MonoBehaviour
     public AudioClip spawnSound;
     public Animator anim;
     public SpawnAllChildParticles spacp;
+    public int minionDamage;
+    public float minionSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,6 +64,8 @@ public class Spawn : MonoBehaviour
             //Debug.Log(Random.insideUnitSphere);
             var miniEnemy = Instantiate(this.miniEnemy, spawn, Quaternion.identity);
             miniEnemy.transform.parent = spawnLoc.transform;
+            miniEnemy.GetComponent<MiniEnemy>().damage = minionDamage;
+            miniEnemy.GetComponent<NavMeshAgent>().speed = minionSpeed;
         }
     }
 }

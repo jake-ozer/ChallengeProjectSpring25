@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class KingBuffHandler : MonoBehaviour, IBoss
 {
     private HurtPlayerOnContact hitbox;
-    private MiniEnemy mini;
+    private Spawn minionSpawner;
 
     private NavMeshAgent agent;
     private NavMeshAgent miniAgent;
@@ -12,10 +12,10 @@ public class KingBuffHandler : MonoBehaviour, IBoss
     void Start()
     {
         hitbox = transform.parent.Find("BossDamageBox").GetComponent<HurtPlayerOnContact>();
-        mini = transform.parent.Find("MiniEnemy").GetComponent<MiniEnemy>();
+        minionSpawner = transform.parent.GetComponent<Spawn>();
 
         agent = transform.parent.GetComponent<NavMeshAgent>();
-        miniAgent = transform.parent.Find("MiniEnemy").GetComponent<NavMeshAgent>();
+        //miniAgent = transform.parent.Find("MiniEnemy").GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -29,8 +29,9 @@ public class KingBuffHandler : MonoBehaviour, IBoss
         int newHitboxDamage = (int)(hitbox.damage * 1.2f);
         hitbox.damage = newHitboxDamage;
 
-        int newMiniDamage = (int)(mini.damage);
-        mini.damage = newMiniDamage;
+        minionSpawner.minionDamage = (int)(minionSpawner.minionDamage * 1.2f);
+        //int newMiniDamage = (int)(mini.damage);
+        //mini.damage = newMiniDamage;
     }
 
     public void bullBuff()
@@ -38,8 +39,9 @@ public class KingBuffHandler : MonoBehaviour, IBoss
         float newSpeed = agent.speed * 1.2f;
         agent.speed = newSpeed;
 
-        float newMiniSpeed = miniAgent.speed * 1.2f;
-        miniAgent.speed = newMiniSpeed;
+        minionSpawner.minionSpeed = minionSpawner.minionSpeed * 1.2f;
+        //float newMiniSpeed = miniAgent.speed * 1.2f;
+        // miniAgent.speed = newMiniSpeed;
     }
 
     public void eagleBuff()

@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1530498595243603988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6909058262775176744}
+  - component: {fileID: 1336889008887963876}
+  m_Layer: 0
+  m_Name: BuffHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6909058262775176744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530498595243603988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.001161, y: 2.869753, z: -0.47956228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1367175935108286801}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336889008887963876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530498595243603988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5e2bb4cc5375943919333ac9b5340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2199735901753002434
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8820757863929075847}
+    - targetCorrespondingSourceObject: {fileID: 5923657945471794518, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6909058262775176744}
     - targetCorrespondingSourceObject: {fileID: 8189161726070946708, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3405530068891426569}
@@ -536,6 +583,8 @@ MonoBehaviour:
   spawnSound: {fileID: 8300000, guid: 03e1eef347ac08a48b4cc0bef7e02ac3, type: 3}
   anim: {fileID: 4976670925474199594}
   spacp: {fileID: 3116344644510044631}
+  minionDamage: 5
+  minionSpeed: 6.5
 --- !u!114 &4990166243847819320
 MonoBehaviour:
   m_ObjectHideFlags: 0
