@@ -20,4 +20,12 @@ public class DeathManager : MonoBehaviour
         }
 
     }
+
+    //public void FailureUI()
+    //{
+    //    if(curWins < 3)
+    //    {
+    //        //Displays Death Card
+    //    }
+    //}
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     private float maxHealth;
     public float regenSpeed;
     public AudioClip healSound;
+    private bool dead = false;
+    public CardDrawingController cdc;
 
     private void Awake()
     {
@@ -33,10 +36,11 @@ public class PlayerHealth : MonoBehaviour
         healthRegenTime = regenTimeStart;
 
         //player death
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
             Debug.Log("player is dead ;(");
             PlayerDie();
+            dead = true;
             //Destroy(gameObject);
         }
     }
@@ -49,10 +53,10 @@ public class PlayerHealth : MonoBehaviour
             FindFirstObjectByType<GameLoopController>().CountALoss();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        Debug.Log("player is immobile ;(");
-        Debug.Log(FindFirstObjectByType<DeathManager>());
-        Debug.Log(FindFirstObjectByType<CardDrawingController>().GetCardList());
-        FindFirstObjectByType<DeathManager>().DisplayDeathMenu(FindFirstObjectByType<CardDrawingController>().GetCardList());
+        //Debug.Log("player is immobile ;(");
+        //Debug.Log(FindFirstObjectByType<DeathManager>());
+        //Debug.Log(FindFirstObjectByType<CardDrawingController>().GetCardList());
+        FindFirstObjectByType<DeathManager>().DisplayDeathMenu(cdc.GetCardList());
     }
 
 
