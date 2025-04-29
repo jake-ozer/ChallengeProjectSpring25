@@ -47,8 +47,12 @@ public class PlayerHealth : MonoBehaviour
         {
             //count loss and reload scene
             FindFirstObjectByType<GameLoopController>().CountALoss();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        Debug.Log("player is immobile ;(");
+        Debug.Log(FindFirstObjectByType<DeathManager>());
+        Debug.Log(FindFirstObjectByType<CardDrawingController>().GetCardList());
+        FindFirstObjectByType<DeathManager>().DisplayDeathMenu(FindFirstObjectByType<CardDrawingController>().GetCardList());
     }
 
 

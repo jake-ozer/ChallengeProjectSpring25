@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using NUnit.Framework;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -21,12 +22,14 @@ public class CardDrawingController : MonoBehaviour
     public AudioClip cardRevealSound;
     private bool cardShownAnimOnce = true;
     public GameObject playerCanvas;
+    private List<Card> drawnCards;
     
     private void Start()
     {
         playerCanvas.SetActive(false);
         //lock player at top of the map
         playerMovement.enabled = false;
+        drawnCards = new List<Card>();
     }
 
     //called when you want to start drawing cards
@@ -93,6 +96,7 @@ public class CardDrawingController : MonoBehaviour
 
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
+        drawnCards.Add(cardObj.GetComponent<Card>());
     }
 
     //used by animation event to indicate that the current card is shown
@@ -105,7 +109,6 @@ public class CardDrawingController : MonoBehaviour
             curCardShown = true;
             canSpawnCardObj = true;
 
-            TarotCard data = curCardObj.GetComponent<Card>().tarotData;
             GetComponent<CardDrawingUIController>().ShowCardInfoUI(curCardObj.GetComponent<Card>().cardName, curCardObj.GetComponent<Card>().cardDescription);
             cardShownAnimOnce = false;
         }
@@ -121,5 +124,9 @@ public class CardDrawingController : MonoBehaviour
         curCardShown = false;
         cardShownAnimOnce = true;
     }
-   
+    public List<Card> GetCardList()
+    {
+        return drawnCards;
+    }
+
 }

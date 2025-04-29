@@ -5,6 +5,7 @@ public class Card : MonoBehaviour
     public string cardName;
     [TextArea(3, 10)]
     public string cardDescription;
+    public Sprite cardImage;
 
     public enum CardType
     {
@@ -14,7 +15,7 @@ public class Card : MonoBehaviour
     }
 
     public CardType cardType;
-    public TarotCard tarotData;
+    
 
     public void IndicateCardShown()
     {
