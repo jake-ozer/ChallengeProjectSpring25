@@ -5,7 +5,7 @@ public class Card : MonoBehaviour
     public string cardName;
     [TextArea(3, 10)]
     public string cardDescription;
-    public CardType cardType;
+    public Sprite cardImage;
 
     public enum CardType
     {
@@ -13,6 +13,9 @@ public class Card : MonoBehaviour
         environment,
         terrain
     }
+
+    public CardType cardType;
+    
 
     public void IndicateCardShown()
     {

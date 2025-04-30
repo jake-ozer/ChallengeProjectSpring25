@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CardDrawingUIController : MonoBehaviour
@@ -16,6 +17,14 @@ public class CardDrawingUIController : MonoBehaviour
         cardNameTextObj.GetComponent<TextMeshProUGUI>().text = name;
         cardNameTextObj.SetActive(true);
         cardDescTextObj.GetComponent<TextMeshProUGUI>().text = desc;
+        cardDescTextObj.SetActive(true);
+    }
+
+    public void ShowCardGameOverUI(string name, Sprite image)
+    {
+        cardNameTextObj.GetComponent<TextMeshProUGUI>().text = name;
+        cardNameTextObj.SetActive(true);
+        cardDescTextObj.GetComponent<Image>().sprite = image;
         cardDescTextObj.SetActive(true);
     }
 

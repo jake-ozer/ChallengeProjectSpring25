@@ -73,6 +73,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
+      propertyPath: cardImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 10e19dadb6e836f4bbec7ce5c9c75ee0, type: 3}
+    - target: {fileID: 1522336524710824724, guid: 195f87ea93cafb24fb6d3248bff6c2e0, type: 3}
       propertyPath: cardDescription
       value: "Deception, darkness, and the unknown surround the Moon\u2019s gravitational
         pull\u2026"
