@@ -568,7 +568,7 @@ MonoBehaviour:
   meteorText: {fileID: 8229205694122942599}
   meteorLayer:
     serializedVersion: 2
-    m_Bits: 2049
+    m_Bits: 2048
 --- !u!114 &6128535677700202111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6ea8df09bcfc4080a03df67660c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TetherRadius: 11
+  TetherRadius: 10
   requiredHitsToUntether: 2
   coolDown: 5
   TetherMask:
@@ -1403,8 +1403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524dce8312d31d74898b041b579dd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSens: 0.15
-  ySens: 0.1
+  xSens: 0.08
+  ySens: 0.08
   input: {fileID: 6754280734359224001}
 --- !u!114 &6810953212304102076
 MonoBehaviour:

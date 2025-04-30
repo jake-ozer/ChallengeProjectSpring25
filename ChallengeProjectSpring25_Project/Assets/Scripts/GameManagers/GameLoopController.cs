@@ -15,6 +15,7 @@ public class GameLoopController : MonoBehaviour
     public GameObject fadeBackground;
 
     private Image fadeImage;
+    public GameObject winInfo;
 
     void Awake()
     {
@@ -60,11 +61,9 @@ public class GameLoopController : MonoBehaviour
     {
         if (FindFirstObjectByType<CardDrawingController>() != null)
         {
-            curWinText.gameObject.SetActive(true);
-            maxWinText.gameObject.SetActive(true);
+            winInfo.gameObject.SetActive(true);
             yield return new WaitForSeconds(displayTime);
-            curWinText.gameObject.SetActive(false);
-            maxWinText.gameObject.SetActive(false);
+            winInfo.gameObject.SetActive(false);
             FindFirstObjectByType<CardDrawingController>().StartDrawingProcess();
         }
     }
@@ -135,11 +134,15 @@ public class GameLoopController : MonoBehaviour
         {
             GameWin();
         }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void CountALoss()
     {
-        curWins--;
+        //curWins--;
         if (curWins <= 0)
         {
             curWins = 0;
@@ -148,5 +151,6 @@ public class GameLoopController : MonoBehaviour
 
     private void GameWin()
     {
+        SceneManager.LoadScene("temp_END_SCENE");
     }
 }

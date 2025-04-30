@@ -47,7 +47,6 @@ public class BossHealth : MonoBehaviour
         {
             //count loss and reload scene
             FindFirstObjectByType<GameLoopController>().CountAWin();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

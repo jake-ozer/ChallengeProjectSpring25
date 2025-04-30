@@ -657,7 +657,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2110577496263064096, guid: 570b4a7b2a6289d498ec28e10155f900, type: 3}
       propertyPath: damage
-      value: 31
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2257062796460445983, guid: 570b4a7b2a6289d498ec28e10155f900, type: 3}
       propertyPath: m_Name
@@ -814,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 3156528372325702015, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3401001632272746906, guid: a1cf04cf2a0444f44b4bcecba38e9fe6, type: 3}
       propertyPath: healthBar
