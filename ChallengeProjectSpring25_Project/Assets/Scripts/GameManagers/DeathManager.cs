@@ -11,6 +11,8 @@ public class DeathManager : MonoBehaviour
     public GameObject deathCanvas;
     public void DisplayDeathMenu(List<Card> cardList)
     {
+        Time.timeScale = 0f;
+
         deathCanvas.SetActive(true);
         foreach (Card card in cardList)
         {

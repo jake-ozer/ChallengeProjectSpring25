@@ -71,6 +71,7 @@ public class GameLoopController : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
+        Debug.Log("fade in called");
         if (fadeImage == null) yield break;
 
         fadeBackground.SetActive(true);

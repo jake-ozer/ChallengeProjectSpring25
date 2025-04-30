@@ -169,12 +169,12 @@ public class WOFManager : MonoBehaviour
             case 2:
                 Debug.Log("Lion");
                 StartCoroutine(effectLion());
-                StartCoroutine(showBuffText(lionColor, ": +Player/Golem Damage"));
+                StartCoroutine(showBuffText(lionColor, "Lion: +Player/Golem Damage"));
                 break;
             case 3:
                 Debug.Log("Bull");
                 StartCoroutine(effectBull());
-                StartCoroutine(showBuffText(bullColor, ": +Player/Golem Speed"));
+                StartCoroutine(showBuffText(bullColor, "Bull: +Player/Golem Speed"));
                 break;
             default:
                 Debug.Log("No effect");
