@@ -921,6 +921,9 @@ MonoBehaviour:
   pa: {fileID: 6026987618712553358}
   musicSource: {fileID: 6026987618712553357}
   cardDrawingMusicSource: {fileID: 1908829883}
+  devilSong: {fileID: 8300000, guid: 5340aa17c85d9994184c5ae6b253246e, type: 3}
+  magicianSong: {fileID: 8300000, guid: 7cf98a3d14e9ebc4480fd1ffa6507113, type: 3}
+  emperorSong: {fileID: 8300000, guid: e6909b6a785861c42b878dad8e9a3f9c, type: 3}
 --- !u!1001 &605488976
 PrefabInstance:
   m_ObjectHideFlags: 0

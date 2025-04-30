@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class WOFManager : MonoBehaviour
 {
@@ -55,12 +56,20 @@ public class WOFManager : MonoBehaviour
     private BuffParticleManager particleManager;
     private IBoss iBoss;
 
+    public TextMeshProUGUI buffText;
+    public Color eagleColor;
+    public Color bullColor;
+    public Color lionColor;
+    public Color angelColor;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         begun = false;
         mode = -1;
         spinSpeed = 0;
+        buffText.enabled = false;
     }
 
     // Update is called once per frame
@@ -150,18 +159,22 @@ public class WOFManager : MonoBehaviour
             case 0:
                 Debug.Log("Angel");
                 StartCoroutine(effectAngel());
+                StartCoroutine(showBuffText(angelColor, "Angel: Health Drops Spawned"));
                 break;
             case 1:
                 Debug.Log("Eagle");
                 StartCoroutine(effectEagle());
+                StartCoroutine(showBuffText(eagleColor, "Eagle: +Player Jump Height"));
                 break;
             case 2:
                 Debug.Log("Lion");
                 StartCoroutine(effectLion());
+                StartCoroutine(showBuffText(lionColor, ": +Player/Golem Damage"));
                 break;
             case 3:
                 Debug.Log("Bull");
                 StartCoroutine(effectBull());
+                StartCoroutine(showBuffText(bullColor, ": +Player/Golem Speed"));
                 break;
             default:
                 Debug.Log("No effect");
@@ -244,5 +257,14 @@ public class WOFManager : MonoBehaviour
             particleManager = player.transform.GetChild(0).GetChild(3).GetComponent<BuffParticleManager>();
             iBoss = GameObject.FindGameObjectsWithTag("Enemy")[0].transform.Find("BuffHandler").GetComponent<IBoss>();
         }
+    }
+
+    private IEnumerator showBuffText(Color c, string t)
+    {
+        buffText.color = c;
+        buffText.text = t;
+        buffText.enabled = true;
+        yield return new WaitForSeconds(2.5f);
+        buffText.enabled = false;
     }
 }

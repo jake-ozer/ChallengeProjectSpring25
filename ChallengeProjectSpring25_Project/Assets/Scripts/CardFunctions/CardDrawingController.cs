@@ -21,7 +21,9 @@ public class CardDrawingController : MonoBehaviour
     public AudioClip cardRevealSound;
     private bool cardShownAnimOnce = true;
     public GameObject playerCanvas;
-    
+    Card soundCard;
+
+
     private void Start()
     {
         playerCanvas.SetActive(false);
@@ -75,7 +77,7 @@ public class CardDrawingController : MonoBehaviour
        // GetComponent<spawnpoint_controller>().RelocateBoss();
         GetComponent<spawnpoint_controller>().RelocatePlayer();
         //this.gameObject.transform.po
-        FindFirstObjectByType<SoundPhaseController>().Phase2();
+        FindFirstObjectByType<SoundPhaseController>().Phase2(soundCard);
     }
 
     //spawns card and gives it data specified in param
@@ -93,6 +95,7 @@ public class CardDrawingController : MonoBehaviour
 
         cardObj.transform.parent = cardSpawnTransform;
         curCardObj = cardObj;
+        soundCard = curCardObj.GetComponent<Card>();
     }
 
     //used by animation event to indicate that the current card is shown
