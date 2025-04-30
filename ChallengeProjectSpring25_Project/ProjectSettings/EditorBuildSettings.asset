@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitleMenuScreen.unity
-    guid: f1728767e18df924eaebc46a49416b43
+    path: Assets/Scenes/MAIN_SCENES/TITLE_MENU.unity
+    guid: ddceee855fb4a094093e7854986ce334
   - enabled: 1
-    path: Assets/Scenes/JakePrototyping/ArenaCreation.unity
-    guid: b6fb4778c6577a346815bc92c470f453
+    path: Assets/Scenes/MAIN_SCENES/TUTORIAL.unity
+    guid: 80c1c2b2e43b35f4d9d5d6124c4fd726
   - enabled: 1
-    path: Assets/Scenes/JakePrototyping/QuickTutorial.unity
-    guid: 20584634be2a6d44ca33302a89c9e30e
+    path: Assets/Scenes/MAIN_SCENES/MAIN_GAME_SCENE.unity
+    guid: 1e0626b93f0baff44941076538d112b7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

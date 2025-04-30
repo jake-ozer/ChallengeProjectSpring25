@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameLoopController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameLoopController : MonoBehaviour
     public TextMeshProUGUI curWinText;
     public TextMeshProUGUI maxWinText;
     public float displayTime;
+    public GameObject fadeBackground;
+
+    private Image fadeImage;
 
     void Awake()
     {
@@ -21,7 +25,12 @@ public class GameLoopController : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
+        }
+
+        if (fadeBackground != null)
+        {
+            fadeImage = fadeBackground.GetComponent<Image>();
         }
     }
 
@@ -43,31 +52,90 @@ public class GameLoopController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine("DisplayCurrentGameStage");
+        StartCoroutine(FadeIn());
+        StartCoroutine(DisplayCurrentGameStage());
     }
 
     private IEnumerator DisplayCurrentGameStage()
     {
-        curWinText.gameObject.SetActive(true);
-        maxWinText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(displayTime);
-        curWinText.gameObject.SetActive(false);
-        maxWinText.gameObject.SetActive(false);
-        FindFirstObjectByType<CardDrawingController>().StartDrawingProcess();
+        if (FindFirstObjectByType<CardDrawingController>() != null)
+        {
+            curWinText.gameObject.SetActive(true);
+            maxWinText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(displayTime);
+            curWinText.gameObject.SetActive(false);
+            maxWinText.gameObject.SetActive(false);
+            FindFirstObjectByType<CardDrawingController>().StartDrawingProcess();
+        }
     }
 
+    private IEnumerator FadeIn()
+    {
+        if (fadeImage == null) yield break;
 
-    //called when a player wins a round
+        fadeBackground.SetActive(true);
+        Color color = fadeImage.color;
+        color.a = 1;
+        fadeImage.color = color;
+
+        while (fadeImage.color.a > 0)
+        {
+            color.a -= Time.deltaTime;
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        color.a = 0;
+        fadeImage.color = color;
+        fadeBackground.SetActive(false);
+    }
+
+    public void FadeOutAndDo(System.Action onComplete = null)
+    {
+        StartCoroutine(FadeOutCoroutine(onComplete));
+    }
+
+    private IEnumerator FadeOutCoroutine(System.Action onComplete)
+    {
+        if (fadeImage == null) yield break;
+
+        fadeBackground.SetActive(true);
+        Color color = fadeImage.color;
+        color.a = 0;
+        fadeImage.color = color;
+
+        while (fadeImage.color.a < 1)
+        {
+            color.a += Time.deltaTime;
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        color.a = 1;
+        fadeImage.color = color;
+
+        onComplete?.Invoke();
+    }
+
+    public void FadeOutAndLoadScene(string sceneName)
+    {
+        StartCoroutine(FadeOutThenLoad(sceneName));
+    }
+
+    private IEnumerator FadeOutThenLoad(string sceneName)
+    {
+        yield return FadeOutCoroutine(() => SceneManager.LoadScene(sceneName));
+    }
+
     public void CountAWin()
     {
         curWins++;
-        if(curWins == maxWins)
+        if (curWins == maxWins)
         {
             GameWin();
         }
     }
 
-    //called when a player loses a round
     public void CountALoss()
     {
         curWins--;
@@ -77,9 +145,7 @@ public class GameLoopController : MonoBehaviour
         }
     }
 
-    //called when you win the game
     private void GameWin()
     {
-
     }
 }

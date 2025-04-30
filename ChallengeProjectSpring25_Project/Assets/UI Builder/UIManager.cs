@@ -16,7 +16,14 @@ public class UIManager : MonoBehaviour
         var startButton = root.Q<Button>("StartButton");
         if (startButton != null)
         {
-            startButton.clicked += () => SceneNavigator.LoadScene("ArenaCreation");
+            //startButton.clicked += () => SceneNavigator.LoadScene("MAIN_GAME_SCENE");
+            startButton.clicked += () => FindFirstObjectByType<GameLoopController>().FadeOutAndLoadScene("MAIN_GAME_SCENE");
+        }
+
+        var tutorialButton = root.Q<Button>("TutorialButton");
+        if (tutorialButton != null)
+        {
+            tutorialButton.clicked += () => FindFirstObjectByType<GameLoopController>().FadeOutAndLoadScene("TUTORIAL");
         }
 
         var optionsButton = root.Q<Button>("OptionsButton");

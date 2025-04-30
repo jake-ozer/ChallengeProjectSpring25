@@ -11,8 +11,8 @@ public class EndTutorial : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Hit trigger");
-            SceneManager.LoadScene(sceneNumber);
-
+            //SceneManager.LoadScene(sceneNumber);
+            FindFirstObjectByType<GameLoopController>().FadeOutAndLoadScene("MAIN_GAME_SCENE");
         }
     }
 
