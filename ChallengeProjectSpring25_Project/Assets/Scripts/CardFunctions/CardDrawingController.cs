@@ -131,4 +131,9 @@ public class CardDrawingController : MonoBehaviour
         return drawnCards;
     }
 
+    public void ClearCardList()
+    {
+        drawnCards.Clear();
+    }
+
 }

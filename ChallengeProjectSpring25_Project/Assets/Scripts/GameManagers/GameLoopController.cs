@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -32,6 +33,7 @@ public class GameLoopController : MonoBehaviour
         if (fadeBackground != null)
         {
             fadeImage = fadeBackground.GetComponent<Image>();
+            fadeImage.enabled = true;
         }
     }
 
@@ -53,6 +55,7 @@ public class GameLoopController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        StopAllCoroutines();
         StartCoroutine(FadeIn());
         StartCoroutine(DisplayCurrentGameStage());
     }
@@ -136,7 +139,8 @@ public class GameLoopController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindFirstObjectByType<GameLoopController>().FadeOutAndLoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

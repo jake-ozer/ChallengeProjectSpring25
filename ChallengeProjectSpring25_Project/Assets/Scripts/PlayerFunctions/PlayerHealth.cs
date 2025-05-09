@@ -57,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log(FindFirstObjectByType<DeathManager>());
         //Debug.Log(FindFirstObjectByType<CardDrawingController>().GetCardList());
         FindFirstObjectByType<DeathManager>().DisplayDeathMenu(cdc.GetCardList());
+        cdc.ClearCardList();
     }
 
 

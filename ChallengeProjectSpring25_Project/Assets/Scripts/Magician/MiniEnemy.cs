@@ -1,19 +1,22 @@
+using System;
 using UnityEngine;
 
 public class MiniEnemy : MonoBehaviour
 {
     public int damage;
     public GameObject minionDeathEffect;
+    public float timeTillAutoDeath;
 
     void Start()
     {
-        
+        //stagger death times so they arent all at the same time
+        timeTillAutoDeath += UnityEngine.Random.Range(-1f,1f);
+        Invoke("MinionSuicide", timeTillAutoDeath);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MinionSuicide()
     {
-        
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
