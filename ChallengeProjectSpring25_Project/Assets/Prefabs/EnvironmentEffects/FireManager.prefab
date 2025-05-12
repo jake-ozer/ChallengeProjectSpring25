@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePrefabs:
-  - {fileID: 1972207730512856, guid: ea4fb55d0227e604386f44f905cfe7c0, type: 3}
-  - {fileID: 1478314613700728, guid: be6847dd39ab95f4daa2ed98e4f90564, type: 3}
-  - {fileID: 1901245927194888, guid: bb98861c48ad2024ca93498c7dd93a6c, type: 3}
+  - {fileID: 100002, guid: 8f5daa187aa5ea043ad0f2c02a4286a7, type: 3}
+  - {fileID: 100002, guid: 8f5daa187aa5ea043ad0f2c02a4286a7, type: 3}
+  - {fileID: 100002, guid: 8f5daa187aa5ea043ad0f2c02a4286a7, type: 3}
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0

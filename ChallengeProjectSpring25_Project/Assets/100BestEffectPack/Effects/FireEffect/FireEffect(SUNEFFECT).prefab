@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -834,7 +834,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 5.2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4765,8 +4765,10 @@ GameObject:
   m_Component:
   - component: {fileID: 400002}
   - component: {fileID: 114000010008360170}
+  - component: {fileID: 7614663537984115909}
+  - component: {fileID: 5625044061932716551}
   m_Layer: 0
-  m_Name: FireEffect1
+  m_Name: FireEffect(SUNEFFECT)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4782,7 +4784,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1.6875, y: 1.6875, z: 1.6875}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400000}
@@ -4803,6 +4805,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2d51cd96616d7418f4bdf22e018f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7614663537984115909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5625044061932716551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a58e0752729172449885b91a26b41a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4919,7 +4955,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.26
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4972,7 +5008,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 0.87
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5637,7 +5673,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 26.93
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9656,7 +9692,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 0.27
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14312,7 +14348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 0
