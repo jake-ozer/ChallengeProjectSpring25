@@ -31,9 +31,11 @@ public class SoundPhaseController : MonoBehaviour
                 break;
             case "The Magician":
                 musicSource.clip = magicianSong;
+                musicSource.volume = 1f;
                 break;
             case "The Emperor":
                 musicSource.clip = emperorSong;
+                musicSource.volume = 1f;
                 break;
         }
 

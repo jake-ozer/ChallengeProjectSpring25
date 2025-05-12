@@ -31,6 +31,18 @@ public class UIManager : MonoBehaviour
         {
             optionsButton.clicked += () => SceneNavigator.LoadScene("OptionsScene");
         }
+
+        var exitButton = root.Q<Button>("ExitButton");
+        if (exitButton != null)
+        {
+            exitButton.clicked += () => QuitGame();
+        }
+    }
+
+    private void QuitGame()
+    {
+        Debug.Log("Quit the game");
+        Application.Quit();
     }
 }
 

@@ -54,12 +54,14 @@ public class MenuUIController : MonoBehaviour
             });
         }
 
+        Debug.Log(backButton);
         if (backButton != null)
         {
+            //Debug.Log("back button presesd");
             backButton.RegisterCallback<ClickEvent>(ev =>
             {
                 // Hide all additional panels and return to the main menu
-                settingsPanel.style.display = DisplayStyle.None;
+                //settingsPanel.style.display = DisplayStyle.None;
                 creditsPanel.style.display = DisplayStyle.None;
                 mainMenuPanel.style.display = DisplayStyle.Flex;
             });
